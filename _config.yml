@@ -18,10 +18,10 @@ theme: jekyll-theme-cayman-blog
 
 
 # social
-author: lorepirri
+author: hyunwoo
 image: /thumbnail-jumbo.png
 twitter:
-  username: lorepirri
+  username: 
 
 plugins:
   - jekyll-target-blank
