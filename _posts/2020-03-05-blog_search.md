@@ -43,9 +43,22 @@ author: optboy
 
     ![](/assets/img/blog_search/success_sitemap_assign.png){:width="600px"}    
 
+## 검색이 잘 되도록 만들기  
+
+1. 블로그의 root 폴더에 `robot.txt` 파일을 생성한다.  
+
+2. `robot.txt` 파일에 다음 코드를 넣어준다.
+    ```
+    User-agent: *
+    Allow: /
+
+    Sitemap: https://[자신의 블로그 url]/sitemap.xml
+    ```  
+
 - 참고 
     1. <https://seongkyun.github.io/others/2018/12/31/google-search-enable_jekyll/>
     2. <https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/>
+    3. <http://jinyongjeong.github.io/2017/01/13/blog_make_searched/>
 
 [search_console_url]: <https://search.google.com/search-console/>
 [my_site]: <https://github.com/optboy/optboy.github.io/blob/master/sitemap.xml>

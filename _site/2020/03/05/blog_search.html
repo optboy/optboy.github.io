@@ -254,11 +254,29 @@
   </li>
 </ol>
 
+<h2 id="검색이-잘-되도록-만들기">검색이 잘 되도록 만들기</h2>
+
+<ol>
+  <li>
+    <p>블로그의 root 폴더에 <code class="highlighter-rouge">robot.txt</code> 파일을 생성한다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">robot.txt</code> 파일에 다음 코드를 넣어준다.</p>
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> User-agent: *
+ Allow: /
+
+ Sitemap: https://[자신의 블로그 url]/sitemap.xml
+</code></pre></div>    </div>
+  </li>
+</ol>
+
 <ul>
   <li>참고
     <ol>
       <li><a href="https://seongkyun.github.io/others/2018/12/31/google-search-enable_jekyll/" target="_blank" rel="noopener noreferrer nofollow">https://seongkyun.github.io/others/2018/12/31/google-search-enable_jekyll/</a></li>
       <li><a href="https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/" target="_blank" rel="noopener noreferrer nofollow">https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/</a></li>
+      <li><a href="http://jinyongjeong.github.io/2017/01/13/blog_make_searched/" target="_blank" rel="noopener noreferrer nofollow">http://jinyongjeong.github.io/2017/01/13/blog_make_searched/</a></li>
     </ol>
   </li>
 </ul>
