@@ -33,9 +33,19 @@ author: optboy
 2. `sitemap.xml`파일 안에 다음 [링크][my_site] 안의 코드를 넣는다.  
 
     - 첫번째, 두번째 줄의 `---`도 넣어줘야 한다.
-    - 블로그의 _config.yml 파일의 url이 자신의 블로그 주소로 입력되어 있어야 한다.  
-    
-3. 
+    - 블로그의 _config.yml 파일의 url이 자신의 블로그 주소로 입력되어 있어야 한다.   
+
+3. Google Search Console > 메뉴 > 등록한 속성 > 색인 > Sitemap으로 들어가서 sitemap.xml을 제출한다.  
+
+    ![](/assets/img/blog_search/sitemap_assign.png){:width="600px"}      
+
+4. 성공했다면 다음과 같은 창을 확인할 수 있다.  
+
+    ![](/assets/img/blog_search/success_sitemap_assign.png){:width="600px"}    
+
+- 참고 
+    1. <https://seongkyun.github.io/others/2018/12/31/google-search-enable_jekyll/>
+    2. <https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/>
 
 [search_console_url]: <https://search.google.com/search-console/>
-[my_site]: <>
+[my_site]: <https://github.com/optboy/optboy.github.io/blob/master/sitemap.xml>
