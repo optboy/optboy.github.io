@@ -23,7 +23,19 @@ author: optboy
 
     ![](/assets/img/blog_search/html_file_location.png){:width="250px"}  
 
-5. git push 한 후, Google search console에서 확인 버튼을 눌려준다.
+5. git push 한 후, Google search console에서 확인 버튼을 눌려준다. 정상적으로 절차가 진행됐다면 다음 화면이 뜰 것이다.  
 
+    ![](/assets/img/blog_search/success.png){:width="300px"}  
+
+## sitemap.xml 파일 작성하기
+1. 블로그의 root 폴더에 `sitemap.xml` 이라는 이름의 파일을 생성한다.  
+
+2. `sitemap.xml`파일 안에 다음 [링크][my_site] 안의 코드를 넣는다.  
+
+    - 첫번째, 두번째 줄의 `---`도 넣어줘야 한다.
+    - 블로그의 _config.yml 파일의 url이 자신의 블로그 주소로 입력되어 있어야 한다.  
+    
+3. 
 
 [search_console_url]: <https://search.google.com/search-console/>
+[my_site]: <>
