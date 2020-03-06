@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/2020/03/06/github_commit_error_fix.html</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/2020/03/05/blog_search.html</loc>
     </url>
     

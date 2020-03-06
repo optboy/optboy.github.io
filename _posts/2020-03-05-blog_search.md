@@ -55,7 +55,7 @@ author: optboy
     Sitemap: https://[자신의 블로그 url]/sitemap.xml
     ```  
 
-- 참고 
+#### 참고 
     1. <https://seongkyun.github.io/others/2018/12/31/google-search-enable_jekyll/>
     2. <https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/>
     3. <http://jinyongjeong.github.io/2017/01/13/blog_make_searched/>
