@@ -60,7 +60,7 @@ author: optboy
 4. **완성**  
 
     - 이제 기본적인 단계는 끝이 났다. 깃헙에 변경된 파일을 올리고 제대로 테마가 적용되었는지 확인해준다. 
-    ```terminal
+    ```bash
     $ cd [블로그 repository]
     $ git add .
     $ git commit -m '[이번 커밋에 대한 메모]'
