@@ -239,6 +239,13 @@
     <p><code class="highlighter-rouge">-v</code> 옵션은 기본적으로 <code class="highlighter-rouge">line_profiler</code>은 결과를 파일로 저장하는데, 결과를 터미널에서 바로 보겠다는 뜻이다.</p>
   </li>
   <li>
+    <p>만약 결과를 파일로 저장했다면, 다음과 같이 txt파일로 변환 후 결과를 확인할 수 있다.</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>python <span class="nt">-m</span> line_profiler RP.py.lprof <span class="o">&gt;</span> results.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
     <p>실행 결과는 다음과 같다.</p>
 
     <div class="language-bash highlighter-rouge">
