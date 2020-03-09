@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "파이썬 line_profiler"
+title: "[python] 파이썬 line_profiler"
 author: optboy
 ---
 

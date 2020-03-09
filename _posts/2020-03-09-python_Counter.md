@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[python] Counter"
+title: "[python] 파이썬 Counter"
 author: optboy
 ---
 
