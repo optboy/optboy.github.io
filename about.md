@@ -44,7 +44,7 @@ order: 1
   
 - **자료구조 및 알고리즘 프로젝트** : 2D-Packing Problem Heuristic Optimization with python  
   
-- **정보시스템개발 및 실습** : 사용자의 경험에 기반한 질문 추천 시스템을 도입한 학과 질문 게시판 구현 with Django  
+- **정보시스템개발 및 실습 프로젝트** : 사용자의 경험에 기반한 질문 추천 시스템을 도입한 학과 질문 게시판 구현 with Django  
   
 - **INFORMS O.R. & Analytics Student Team Competition** : Bayer사 공정 최적화를 위한 솔루션 제시 with python & Cplex  
          

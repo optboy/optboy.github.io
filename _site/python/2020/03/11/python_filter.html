@@ -22,7 +22,7 @@
     
     
     
-    <title>카테고리</title>
+    <title>[python] 파이썬 filter</title>
     
     
     
@@ -40,9 +40,11 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta name="description" content="lambda와 자주 쓰이는 함수 중에는 filter도 있다." />
 
 
+
+  <meta name="keywords" itemprop="categories" content="Python" />
 
 
 
@@ -51,8 +53,8 @@
 
 
 
-<meta name="twitter:title" content="카테고리" />
-<meta name="twitter:description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta name="twitter:title" content="[python] 파이썬 filter" />
+<meta name="twitter:description" content="lambda와 자주 쓰이는 함수 중에는 filter도 있다." />
 
 
 
@@ -61,36 +63,44 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//category.html" />
+<meta name="twitter:url" content="http://localhost:4000//python/2020/03/11/python_filter.html" />
 
 <!-- Open Graph data -->
-<meta property="og:title" content="카테고리" />
+<meta property="og:title" content="[python] 파이썬 filter" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//category.html" />
+<meta property="og:url" content="http://localhost:4000//python/2020/03/11/python_filter.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta property="og:description" content="lambda와 자주 쓰이는 함수 중에는 filter도 있다." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
 <meta property="og:locale" content="" />
 
 
+  <meta property="article:published_time" content="2020-03-11T00:00:00+09:00" />
+
+
+
+
+  
 
 
 
 
 
-
+  
+    <meta property="article:tag" content="Python" />
+  
 
 
 
 
     
     
-    <link rel="canonical" href="http://localhost:4000/category.html">
+    <link rel="canonical" href="http://localhost:4000/python/2020/03/11/python_filter.html">
     
     
     
@@ -157,146 +167,110 @@
         
         
         <section class="page-header">
-            <h1 class="project-name">카테고리</h1>
+            <h1 class="project-name">[python] 파이썬 filter</h1>
             <h2 class="project-tagline"></h2>
             
             <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-03-11T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Mar 11, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
             
             <!-- End: Post tagline -->
         </section>
         
         <section class="main-content">
             
-            <article>
+            <article itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div>
-    <div id="archives">
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[python] 파이썬 filter</h1>
+    <p class="post-meta">
+      <time datetime="2020-03-11T00:00:00+09:00" itemprop="datePublished">
+        
+        Mar 11, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
 
-  <div class="archive-group">
-    
-    <div id="#Jekyll"></div>
-    <p></p>
+  <div itemprop="articleBody">
+    <p>lambda와 자주 쓰이는 함수 중에는 filter도 있다.</p>
 
-    <h2 class="category-head">Jekyll</h2>
-    <a name="Jekyll"></a>
-    
-    <article class="archive-item">
-      <li><a href="/jekyll/2020/03/10/blog_comment.html">Jekyll 블로그 댓글 기능 추가하기</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/jekyll/2020/03/05/blog_search.html">Github blog 구글에서 검색되도록 하기</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/jekyll/2020/03/02/jekyll_local_sever.html">Jekyll 사이트 변동사항을 실시간으로 체크하기</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/jekyll/2020/03/02/jekyll.html">Jekyll 설치하기</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/jekyll/2020/02/29/making_blog.html">Github blog 개설하기</a></li>
-    </article>
-    
-  </div>
+<h2 id="filter란">filter란?</h2>
+<ul>
+  <li>filter은 인자로 <strong>함수</strong>와 <strong>순서형 자료</strong>를 받는다.</li>
+  <li>즉, <code class="highlighter-rouge">filter(func, iterable)</code>로 표현된다.</li>
+  <li>filter은 순서형 자료에서 특정 조건을 만족하는(함수의 결과가 참이라면) 요소들만 뽑아 새로운 리스트를 만든다.</li>
+  <li>filter함수는 filter객체를 반환하기 때문에 <code class="highlighter-rouge">list</code>로 변환시켜 줘야한다.</li>
+</ul>
 
-  <div class="archive-group">
-    
-    <div id="#Markdown"></div>
-    <p></p>
+<h2 id="filter-사용법">filter 사용법</h2>
+<ul>
+  <li>
+    <p>filter은 파이썬이 정상적으로 설치되어 있다면 바로 쓸 수 있다.</p>
 
-    <h2 class="category-head">Markdown</h2>
-    <a name="Markdown"></a>
-    
-    <article class="archive-item">
-      <li><a href="/markdown/2020/03/01/markdown.html">마크다운 문법 정리</a></li>
-    </article>
-    
-  </div>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">li</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+  <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">li</span><span class="p">))</span>
+  <span class="c1"># [1, 3, 5, 7, 9]
+</span></code></pre></div>    </div>
+  </li>
+</ul>
 
-  <div class="archive-group">
-    
-    <div id="#Python"></div>
-    <p></p>
+<h2 id="filter을-사용하지-않는다면">filter을 사용하지 않는다면?</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-    <h2 class="category-head">Python</h2>
-    <a name="Python"></a>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/11/python_reduce.html">[python] 파이썬 reduce</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/11/python_filter.html">[python] 파이썬 filter</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/10/python_map.html">[python] 파이썬 map</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/10/python_lambda.html">[python] 파이썬 lambda</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/09/python_Counter.html">[python] 파이썬 Counter</a></li>
-    </article>
-    
-    <article class="archive-item">
-      <li><a href="/python/2020/03/04/line_profiler.html">[python] 파이썬 line_profiler</a></li>
-    </article>
-    
-  </div>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">result</span>
+<span class="c1"># [1, 3, 5, 7, 9]
+</span></code></pre></div></div>
 
-  <div class="archive-group">
-    
-    <div id="#Github"></div>
-    <p></p>
-
-    <h2 class="category-head">Github</h2>
-    <a name="Github"></a>
-    
-    <article class="archive-item">
-      <li><a href="/github/2020/03/06/github_commit_error_fix.html">Github 잔디가 안심어지는 현상 고치기</a></li>
-    </article>
-    
-  </div>
-
-  <div class="archive-group">
-    
-    <div id="#Optimization"></div>
-    <p></p>
-
-    <h2 class="category-head">Optimization</h2>
-    <a name="Optimization"></a>
-    
-    <article class="archive-item">
-      <li><a href="/optimization/2020/03/07/cplex_download.html">CPLEX 설치하기</a></li>
-    </article>
-    
-  </div>
-
-  <div class="archive-group">
-    
-    <div id="#Programming"></div>
-    <p></p>
-
-    <h2 class="category-head">Programming</h2>
-    <a name="Programming"></a>
-    
-    <article class="archive-item">
-      <li><a href="/programming/2020/03/08/hash.html">[자료구조] 해시(Hash)</a></li>
-    </article>
-    
-  </div>
-
-</div>
+<h4 id="참고">참고</h4>
+<ul>
+  <li><a href="https://wikidocs.net/64" target="_blank" rel="noopener noreferrer nofollow">왕초보를 위한 Python - 3.5</a></li>
+</ul>
 
   </div>
 
+  
 </article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
 
             
             <footer class="site-footer">
