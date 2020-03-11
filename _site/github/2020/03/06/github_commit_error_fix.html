@@ -22,7 +22,7 @@
     
     
     
-    <title>404 Error</title>
+    <title>Github 잔디가 안심어지는 현상 고치기</title>
     
     
     
@@ -40,9 +40,11 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="Ah snap! We could not find what you are looking for!" />
+<meta name="description" content="1일 1커밋을 진행하고 있는 사람들에게 가장 민감한 것이 깃헙 잔디다. 하지만 어떤 경우 commit을 했는데도 잔디가 안심어지는 경우가 있다. 실제로 며칠 전 그런 현상을 겪고 정말 당황스러웠다. 하지만 검색해보니 아주 간단한 문제였다." />
 
 
+
+  <meta name="keywords" itemprop="categories" content="Github" />
 
 
 
@@ -51,8 +53,8 @@
 
 
 
-<meta name="twitter:title" content="404 Error" />
-<meta name="twitter:description" content="Ah snap! We could not find what you are looking for!" />
+<meta name="twitter:title" content="Github 잔디가 안심어지는 현상 고치기" />
+<meta name="twitter:description" content="1일 1커밋을 진행하고 있는 사람들에게 가장 민감한 것이 깃헙 잔디다. 하지만 어떤 경우 commit을 했는데도 잔디가 안심어지는 경우가 있다. 실제로 며칠 전 그런 현상을 겪고 정말 당황스러웠다. 하지만 검색해보니 아주 간단한 문제였다." />
 
 
 
@@ -61,36 +63,44 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//404.html" />
+<meta name="twitter:url" content="http://localhost:4000//github/2020/03/06/github_commit_error_fix.html" />
 
 <!-- Open Graph data -->
-<meta property="og:title" content="404 Error" />
+<meta property="og:title" content="Github 잔디가 안심어지는 현상 고치기" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//404.html" />
+<meta property="og:url" content="http://localhost:4000//github/2020/03/06/github_commit_error_fix.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="Ah snap! We could not find what you are looking for!" />
+<meta property="og:description" content="1일 1커밋을 진행하고 있는 사람들에게 가장 민감한 것이 깃헙 잔디다. 하지만 어떤 경우 commit을 했는데도 잔디가 안심어지는 경우가 있다. 실제로 며칠 전 그런 현상을 겪고 정말 당황스러웠다. 하지만 검색해보니 아주 간단한 문제였다." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
 <meta property="og:locale" content="" />
 
 
+  <meta property="article:published_time" content="2020-03-06T00:00:00+09:00" />
+
+
+
+
+  
 
 
 
 
 
-
+  
+    <meta property="article:tag" content="Github" />
+  
 
 
 
 
     
     
-    <link rel="canonical" href="http://localhost:4000/404.html">
+    <link rel="canonical" href="http://localhost:4000/github/2020/03/06/github_commit_error_fix.html">
     
     
     
@@ -157,26 +167,122 @@
         
         
         <section class="page-header">
-            <h1 class="project-name">404 Error</h1>
-            <h2 class="project-tagline">Ah snap! We could not find what you are looking for!</h2>
+            <h1 class="project-name">Github 잔디가 안심어지는 현상 고치기</h1>
+            <h2 class="project-tagline"></h2>
             
             <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-03-06T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Mar 6, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
             
             <!-- End: Post tagline -->
         </section>
         
         <section class="main-content">
             
-            <article>
+            <article itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div>
-    <p>Try got get back to the Home Page and start over!</p>
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Github 잔디가 안심어지는 현상 고치기</h1>
+    <p class="post-meta">
+      <time datetime="2020-03-06T00:00:00+09:00" itemprop="datePublished">
+        
+        Mar 6, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
 
-<p><a href="http://localhost:4000/">Go to the Home Page</a></p>
+  <div itemprop="articleBody">
+    <p>1일 1커밋을 진행하고 있는 사람들에게 가장 민감한 것이 깃헙 잔디다. 하지만 어떤 경우 commit을 했는데도 잔디가 안심어지는 경우가 있다. 실제로 며칠 전 그런 현상을 겪고 정말 당황스러웠다. 하지만 검색해보니 아주 간단한 문제였다.</p>
+
+<h2 id="잔디가-안심어지는-이유">잔디가 안심어지는 이유</h2>
+<ul>
+  <li>로컬에서 git push하는 email과 github에 등록된 email이 다르기 때문이다.</li>
+</ul>
+
+<h2 id="해결법">해결법</h2>
+<ol>
+  <li>작업중인 git 폴더에서 local에 등록된 email을 확인한다.
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>git config <span class="nt">--list</span>
+</code></pre></div>    </div>
+
+    <p>위 명령어를 통해 email을 확인한다.</p>
+
+    <p><img src="/assets/img/github_commit_error/config_list.png" alt="" width="500px"></p>
+  </li>
+  <li>
+    <p>깃헙에 등록된 email을 확인한다.</p>
+
+    <ul>
+      <li>
+        <p>깃헙에 로그인 하고 setting에 들어간다.</p>
+
+        <p><img src="/assets/img/github_commit_error/setting.png" alt="" width="200px"></p>
+      </li>
+      <li>
+        <p>setting에서 email로 들어가서 확인해준다.</p>
+
+        <p><img src="/assets/img/github_commit_error/email.png" alt="" width="500px"></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>만약 리스트의 이메일이 깃헙의 이메일과 다르다면, 아래 명령어를 통해 github 이메일과 같이 바꿔준다.</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>git config user.email <span class="s2">"[github 이메일]"</span>
+</code></pre></div>    </div>
+    <p>이때 모든 github 프로젝트에 대해서 이메일을 설정해주려면 git 다음에 <code class="highlighter-rouge">--global</code>을 붙여준다.</p>
+  </li>
+</ol>
+
+<h4 id="참고">참고</h4>
+<ul>
+  <li><a href="https://devkyu.tistory.com/872" target="_blank" rel="noopener noreferrer nofollow">https://devkyu.tistory.com/872</a></li>
+  <li><a href="https://diordna.tistory.com/37" target="_blank" rel="noopener noreferrer nofollow">https://diordna.tistory.com/37</a></li>
+</ul>
+
 
   </div>
 
+  
 </article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
 
             
             <footer class="site-footer">

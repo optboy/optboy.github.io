@@ -2,6 +2,7 @@
 layout: post
 title: "Github blog 개설하기"
 author: optboy
+categories: [Jekyll]
 ---
 
 구글링을 하다보면 정말 많은 사람들이 자신들의 깃헙 블로그에 정보를 공유해놓은 것을 볼 수 있다.  

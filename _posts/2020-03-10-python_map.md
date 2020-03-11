@@ -2,6 +2,7 @@
 layout: post
 title: "[python] 파이썬 map"
 author: optboy
+categories: [Python]
 ---
 
 앞선 포스팅에서는 `lambda`에 대해 알아보면서 람다는 다른 함수들의 인자로 많이 쓰이는 것을 알게 되었다. 그래서 이번에는 파이썬의 `map`에 대해 알아보고자 한다.

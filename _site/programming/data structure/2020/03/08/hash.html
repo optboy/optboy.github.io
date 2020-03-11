@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[자료구조] 해시(Hash)</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="프로그래밍을 하다보면 자료구조에 대한 이해가 필요하다. 단순무식하게 한다해도 원하는 결과를 얻을 수는 있지만, 적절한 자료구조를 이용하면 메모리, 속도 면에서 상당한 효율을 볼 수 있다. 실제로, 파이썬의 딕셔너리(Dictionary)가 해시의 원리를 이용한 것이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Programming, data structure" />
+
+
+  <meta name="keywords" itemprop="category" content="" />
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[자료구조] 해시(Hash)" />
+<meta name="twitter:description" content="프로그래밍을 하다보면 자료구조에 대한 이해가 필요하다. 단순무식하게 한다해도 원하는 결과를 얻을 수는 있지만, 적절한 자료구조를 이용하면 메모리, 속도 면에서 상당한 효율을 볼 수 있다. 실제로, 파이썬의 딕셔너리(Dictionary)가 해시의 원리를 이용한 것이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//programming/data%20structure/2020/03/08/hash.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[자료구조] 해시(Hash)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//programming/data%20structure/2020/03/08/hash.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="프로그래밍을 하다보면 자료구조에 대한 이해가 필요하다. 단순무식하게 한다해도 원하는 결과를 얻을 수는 있지만, 적절한 자료구조를 이용하면 메모리, 속도 면에서 상당한 효율을 볼 수 있다. 실제로, 파이썬의 딕셔너리(Dictionary)가 해시의 원리를 이용한 것이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-03-08T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Programming" />
+  
+    <meta property="article:tag" content="data structure" />
+  
+
+
+
+  <meta property="article:tag" content="" />
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/programming/data%20structure/2020/03/08/hash.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[자료구조] 해시(Hash)</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-03-08T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Mar 8, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[자료구조] 해시(Hash)</h1>
+    <p class="post-meta">
+      <time datetime="2020-03-08T00:00:00+09:00" itemprop="datePublished">
+        
+        Mar 8, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>프로그래밍을 하다보면 자료구조에 대한 이해가 필요하다. 단순무식하게 한다해도 원하는 결과를 얻을 수는 있지만, 적절한 자료구조를 이용하면 메모리, 속도 면에서 상당한 효율을 볼 수 있다. 실제로, 파이썬의 딕셔너리(Dictionary)가 해시의 원리를 이용한 것이다.</p>
+
+<h2 id="해시hash-해시함수hash-function란">해시(Hash), 해시함수(Hash Function)란?</h2>
+
+<ul>
+  <li>해시함수(Hash Function)
+    <blockquote>
+      <p>특정한 규칙을 이용하여 임의의 길이를 가진 데이터를 일정한 길이를 가진 데이터와 매핑(mapping)해주는 함수</p>
+    </blockquote>
+  </li>
+  <li>해시 값(Hash Value)
+    <blockquote>
+      <p>해시함수에 의해 얻어지는 값. 간단히 해시(Hash)라고도 한다.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="해시-테이블hash-table">해시 테이블(Hash Table)</h2>
+<p>해시 테이블이란, 검색하고자 하는 키(key)값으로 해시 함수를 돌려서 반환받은 해시 값을 배열의 인덱스로 환산해서 데이터에 접근하는 방식의 자료구조다. 여기서 키(key)값은 어떤 자료형이든 될 수 있다.</p>
+
+<p><img src="/assets/img/hash/hash_table_structure.png" alt="" width="300px"></p>
+
+<h3 id="해시-테이블의-장점">해시 테이블의 장점</h3>
+<ul>
+  <li>검색 속도가 매우 빠르다.
+    <blockquote>
+      <p>해시 함수를 이용해서 만든 해시값은 정수다. 배열 공간을 고정된 크기만큼 만들어놓고 해시값을 배열의 개수로 나머지 연산을 해서 배열에 나눠 담는 것임. 즉, 해시값 자체가 배열의 인덱스로 쓰이기 때문에 검색 자체가 필요없고 해시값으로 데이터의 위치에 직접적으로 접근하기 때문에 빠른 것이다.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="해시-충돌hash-collision">해시 충돌(Hash collision)</h3>
+<p>해시 충돌이란, 해시 함수가 서로 다른 입력값에 대해 동일한 출력값(해시 값)을 내는 현상을 말한다. 그 이유는 키값은 어떠한 자료형이 될 수 있고, 그 가짓수가 무한한데, 해쉬값은 정수개만큼 존재 할 수 밖에 없기 때문에 알고리즘이 아무리 좋다해도 어떤 키는 중복되는 해시값을 가질 수 밖에 없다. 혹은 해시함수가 서로 다른 해쉬값을 만들어내도 배열 공간이 한정되어 있기 때문에 같은 공간 내에 위치할 수 있다.</p>
+
+<p>해시 테이블에서는 이 해시 충돌을 최소화시키는 좋은 해쉬함수를 만드는 것이 중요하다.</p>
+
+<h3 id="해시-충돌-해결법---chaining">해시 충돌 해결법 - Chaining</h3>
+<p>해시충돌을 방지해주기 위해서는 배열 공간 안에 링크드 리스트(Linked List)를 넣고, 그 안에 값을 하나씩 넣어주면서 충돌을 피한다.</p>
+
+<h4 id="참고">참고</h4>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=Vi0hauJemxA&amp;t=35s" target="_blank" rel="noopener noreferrer nofollow">엔지니어대한민국님의 유투브</a></li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    

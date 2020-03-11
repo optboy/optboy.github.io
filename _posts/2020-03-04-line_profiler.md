@@ -2,6 +2,7 @@
 layout: post
 title: "[python] 파이썬 line_profiler"
 author: optboy
+categories: [Python]
 ---
 
 어느정도 코딩을 하다보면 어느샌가 알고리즘의 속도가 중요해지는 순간이 온다. 속도를 줄이기 위해서는 어떤 부분이 시간을 오래 잡아먹는지 찾아내고 해당 부분을 개선시켜야 하는데, 이게 쉽지 않을 때가 있다.   

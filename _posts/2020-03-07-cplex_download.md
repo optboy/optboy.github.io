@@ -2,6 +2,7 @@
 layout: post
 title: "CPLEX 설치하기"
 author: optboy
+categories: [Optimization]
 ---
 
 최적화 문제를 풀기 위한 상용 소프트웨어로는 google OR tools, IBM CPLEX 등이 있다. google OR tools의 경우에는 구글에서 무료로 사용할 수 있도록 오픈해두었기에 누구나 사용이 가능하다. 하지만 CPLEX는 사용하기 위해서는 돈이 꽤 든다.  

@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://localhost:4000/2020/03/10/python_map.html</loc>
+        <loc>http://localhost:4000/python/2020/03/10/python_map.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/10/python_lambda.html</loc>
+        <loc>http://localhost:4000/python/2020/03/10/python_lambda.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/10/blog_comment.html</loc>
+        <loc>http://localhost:4000/jekyll/2020/03/10/blog_comment.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/09/python_Counter.html</loc>
+        <loc>http://localhost:4000/python/2020/03/09/python_Counter.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/08/hash.html</loc>
+        <loc>http://localhost:4000/programming/data%20structure/2020/03/08/hash.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/07/cplex_download.html</loc>
+        <loc>http://localhost:4000/optimization/2020/03/07/cplex_download.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/06/github_commit_error_fix.html</loc>
+        <loc>http://localhost:4000/github/2020/03/06/github_commit_error_fix.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/05/blog_search.html</loc>
+        <loc>http://localhost:4000/jekyll/2020/03/05/blog_search.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/04/line_profiler.html</loc>
+        <loc>http://localhost:4000/python/2020/03/04/line_profiler.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/02/jekyll_local_sever.html</loc>
+        <loc>http://localhost:4000/jekyll/2020/03/02/jekyll_local_sever.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/02/jekyll.html</loc>
+        <loc>http://localhost:4000/jekyll/2020/03/02/jekyll.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/03/01/markdown.html</loc>
+        <loc>http://localhost:4000/markdown/2020/03/01/markdown.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2020/02/29/making_blog.html</loc>
+        <loc>http://localhost:4000/jekyll/2020/02/29/making_blog.html</loc>
     </url>
     
 
@@ -66,7 +66,15 @@
     
     
     <url>
-        <loc>http://localhost:4000/contact.html</loc>
+        <loc>http://localhost:4000/about.html</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://localhost:4000/category.html</loc>
     </url>
     
     
@@ -75,22 +83,6 @@
     
     <url>
         <loc>http://localhost:4000/</loc>
-    </url>
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/interest.html</loc>
-    </url>
-    
-    
-    
-    
-    
-    <url>
-        <loc>http://localhost:4000/portfolio.html</loc>
     </url>
     
     

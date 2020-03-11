@@ -2,6 +2,7 @@
 layout: post
 title: "Github blog 구글에서 검색되도록 하기"
 author: optboy
+categories: [Jekyll]
 ---
 
 깃헙 블로그를 처음 만들고나서, 들뜬 마음으로 구글 검색창에 내 블로그를 검색해봤다. 하지만 내 블로그는 뜨지 않았고, 이런 저런 방법으로 검색을 해봤지만 끝까지 내 블로그를 볼 수 없었다.  

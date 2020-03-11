@@ -2,6 +2,7 @@
 layout: post
 title: "Jekyll 사이트 변동사항을 실시간으로 체크하기"
 author: optboy
+categories: [Jekyll]
 ---
 
 Jekyll 테마를 사용해서 깃헙 블로그를 만들었다면, 작업을 하면서 생기는 변동사항을 사이트에서 직접 보기 위해서 매번 푸쉬를 해주기는 너무나도 귀찮을 것이다.  

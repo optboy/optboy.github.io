@@ -2,6 +2,7 @@
 layout: post
 title: "[python] 파이썬 Counter"
 author: optboy
+categories: [Python]
 ---
 
 이번에는 리스트 요소의 개수를 셀 때 유용한 collections패키지의 Counter에 대해서 공부해보았다.

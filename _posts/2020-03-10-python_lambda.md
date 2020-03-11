@@ -2,6 +2,7 @@
 layout: post
 title: "[python] 파이썬 lambda"
 author: optboy
+categories: [Python]
 ---
 
 파이썬을 잘 다루시는 분들의 코드를 보면 `lambda`가 자주 보인다. 이걸 처음 봤을때 뭔가 복잡해보이고 한 눈에 이해하기가 어려웠서 많이 당황한 기억이 있다. 근데..사실 지금도 그렇다.. 그래서 오늘은 이 람다를 정확히 이해해보고자 한다.
