@@ -2,7 +2,7 @@
 layout: post
 title: "MIP를 활용한 시간표 스케줄링"
 author: optboy
-categories: [optimization]
+categories: [Optimization]
 ---
 
 이번 학기부터 학과조교로 근무를 하게 되면서 학부조교들의 근무 일정을 짜야하는 상황이 생겼다.   
