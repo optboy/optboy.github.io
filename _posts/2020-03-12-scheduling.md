@@ -11,8 +11,6 @@ categories: [Optimization]
 
 그래서 최적화 모델을 만들어서 좀 더 스마트하게(?) 스케줄을 짜기로 했다.
 
-<script type="text/javascript"  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 ## 기본조건
 1. 장소 : 사무실, 실험실, 스터디룸
 2. 장소별 시간 : 1~12교시  
