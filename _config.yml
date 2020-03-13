@@ -28,6 +28,8 @@ plugins:
 target-blank:
     rel: nofollow
 
+markdown: kramdown
+  
 header_page_refs: ['category', 'about']
 
 disqus_url: 'https-optboy-github-io.disqus.com'
