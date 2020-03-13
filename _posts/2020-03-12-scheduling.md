@@ -73,10 +73,10 @@ categories: [Optimization]
     8. 사무실 근무는 한 명씩만 한다.
     9. 9교시 이후 근무는 늘 연속되야한다.
 
-## 구현
-
+## Data 데이터
 - 학생별로 근무가능 시간에 대한 데이터는 CSV파일로 따로 정리해서 넣어두었다.
     - avail.csv  
         ![](/assets/img/schedule/avail_csv.png){:width="500px"}  
 
-- Code  
+## Code 코드 
+- [Github Repository](https://github.com/optboy/scheduling)
