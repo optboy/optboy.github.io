@@ -43,19 +43,15 @@ categories: [Optimization]
 - $$Limit_{t,d,p}$$ : $$d$$요일 $$t$$시간 $$p$$장소에 최대 근무가능 인원
 - $$Req_{t,d,p}$$ : $$d$$요일 $$t$$시간 $$p$$장소에 최소 근무 인원
 - $$AssignTime_{s}$$ : 학생 $$s$$가 근무해야하는 총 시간
-- $$\lambda_{t}$$ : 시간 $$t$$에 따른 가중치
-
+- $$\lambda_{t}$$ : 시간 $$t$$에 따른 가중치 (늦은 시간에는 최대한 적은 인원이 근무할 수 있도록)
 
 ## Decision Variable 결정변수
 - $$w_{s,t,d,p}$$ : $$s$$학생이 $$d$$요일 $$t$$시간에 $$p$$장소에서 근무한다면 1, 아니면 0
 - $$sw_{s,t,d,p}$$ : $$s$$학생이 $$d$$요일 $$t$$시간과 $$t+1$$시간에 $$p$$장소에서 연속적으로 근무한다면 1, 아니면 0
 
 ## Objective 목적식
-- $$
-    \sum_{s}\sum_{t}\sum_{d}\sum_{p}\lambda_{t}w_{pxyz} - \sum_{s} \sum_{t \in {1..11}} \sum_{d} \sum_{p}sw_{s,t,d,p}
-  $$
-
-- 
+- 총 근무의 합을 구하고 연속된 근무를 최대한 만들 수 있도록 $$sw_{s,t,d,p}$$ 의 계수는 음수로 하여 $$Min$$ 문제를 푼다.
+    - $$Min \quad \sum_{s}\sum_{t}\sum_{d}\sum_{p}\lambda_{t}w_{s,t,d,p} - \sum_{s} \sum_{t \in {1..11}} \sum_{d} \sum_{p}sw_{s,t,d,p} $$
 
 ## Constraint 제약식
 1. $$ \sum_{t} \sum_{d} \sum_{p}{w_{s,t,d,p}} = AssignTime_{s} \quad ,\forall s \in S $$

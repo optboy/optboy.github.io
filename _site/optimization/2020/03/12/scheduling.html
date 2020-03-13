@@ -255,7 +255,7 @@
   <li>
 <script type="math/tex">AssignTime_{s}</script> : 학생 <script type="math/tex">s</script>가 근무해야하는 총 시간</li>
   <li>
-<script type="math/tex">\lambda_{t}</script> : 시간 <script type="math/tex">t</script>에 따른 가중치</li>
+<script type="math/tex">\lambda_{t}</script> : 시간 <script type="math/tex">t</script>에 따른 가중치 (늦은 시간에는 최대한 적은 인원이 근무할 수 있도록)</li>
 </ul>
 
 <h2 id="decision-variable-결정변수">Decision Variable 결정변수</h2>
@@ -268,10 +268,13 @@
 
 <h2 id="objective-목적식">Objective 목적식</h2>
 <ul>
-  <li>
-    <script type="math/tex; mode=display">\sum_{s}\sum_{t}\sum_{d}\sum_{p}\lambda_{t}w_{pxyz} - \sum_{s} \sum_{t \in {1..11}} \sum_{d} \sum_{p}sw_{s,t,d,p}</script>
+  <li>총 근무의 합을 구하고 연속된 근무를 최대한 만들 수 있도록 <script type="math/tex">sw_{s,t,d,p}</script> 의 계수는 음수로 하여 <script type="math/tex">Min</script> 문제를 푼다.
+    <ul>
+      <li>
+        <script type="math/tex; mode=display">Min \quad \sum_{s}\sum_{t}\sum_{d}\sum_{p}\lambda_{t}w_{s,t,d,p} - \sum_{s} \sum_{t \in {1..11}} \sum_{d} \sum_{p}sw_{s,t,d,p}</script>
+      </li>
+    </ul>
   </li>
-  <li>
 </ul>
 
 <h2 id="constraint-제약식">Constraint 제약식</h2>
