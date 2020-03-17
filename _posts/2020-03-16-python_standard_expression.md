@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python 정규표현식 메타문자"
+title: "[python] 정규표현식 메타문자"
 author: optboy
 categories: [Python]
 ---
@@ -103,6 +103,7 @@ print(pat.sub('\g<1>-*******', data))
 5. `\w` - 문자 + 숫자와 매치 `[a-zA-Z0-9]`와 같다. 
 6. `\W` - 문자 + 숫자가 아닌 것과 매치 `[^a-zA-Z0-9]`와 같다.
 
+다음에는 이러한 메타문자를 사용한 정규 표현식을 어떻게 사용하지는 알아보겠다.
 
 #### 참고
 - [점프 투 파이썬 7-2](https://wikidocs.net/4308)

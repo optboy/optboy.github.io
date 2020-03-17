@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[python] 정규표현식 사용하기</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="저번 글에서는 메타문자에 대해서 알아보았다. 이번에는 파이썬 상에서 메타문자를 이용해서 정규표현식을 사용하는 방법에 대해 알아보겠다. 이번 글에서도 저번 글에 이어 점프 투 파이썬을 참고하며 공부했다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Python" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[python] 정규표현식 사용하기" />
+<meta name="twitter:description" content="저번 글에서는 메타문자에 대해서 알아보았다. 이번에는 파이썬 상에서 메타문자를 이용해서 정규표현식을 사용하는 방법에 대해 알아보겠다. 이번 글에서도 저번 글에 이어 점프 투 파이썬을 참고하며 공부했다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//python/2020/03/17/python_standard_expression2.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[python] 정규표현식 사용하기" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//python/2020/03/17/python_standard_expression2.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="저번 글에서는 메타문자에 대해서 알아보았다. 이번에는 파이썬 상에서 메타문자를 이용해서 정규표현식을 사용하는 방법에 대해 알아보겠다. 이번 글에서도 저번 글에 이어 점프 투 파이썬을 참고하며 공부했다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-03-17T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Python" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/python/2020/03/17/python_standard_expression2.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[python] 정규표현식 사용하기</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-03-17T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Mar 17, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[python] 정규표현식 사용하기</h1>
+    <p class="post-meta">
+      <time datetime="2020-03-17T00:00:00+09:00" itemprop="datePublished">
+        
+        Mar 17, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>저번 글에서는 <a href="/python/2020/03/16/python_standard_expression.html">메타문자</a>에 대해서 알아보았다. 이번에는 파이썬 상에서 메타문자를 이용해서 정규표현식을 사용하는 방법에 대해 알아보겠다.<br>
+이번 글에서도 저번 글에 이어 <a href="https://wikidocs.net/4308" target="_blank" rel="noopener noreferrer nofollow">점프 투 파이썬</a>을 참고하며 공부했다.</p>
+
+<h2 id="파이썬-정규표현식-사용-방법">파이썬 정규표현식 사용 방법</h2>
+
+<h3 id="모듈-불러오기-import-re">모듈 불러오기 <code class="highlighter-rouge">import re</code>
+</h3>
+<ul>
+  <li>
+    <p>파이썬은 <code class="highlighter-rouge">re</code>모듈을 통해 정규표현식을 지원한다. 따라서 정규표현식을 사용하기 위해서는 다음과 같이 <code class="highlighter-rouge">import re</code>해주어야 한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span>
+
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'ab*'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">re.compile</code>을 이용해 컴파일된 <strong>패턴 객체</strong>를 <code class="highlighter-rouge">p</code>라는 변수에 담아 여러가지 방법으로 정규표현식을 이용할 수 있다.</p>
+  </li>
+</ul>
+
+<h3 id="문자열-검색">문자열 검색</h3>
+<ul>
+  <li>
+    <p>앞서 컴파일된 객체를 활용하여 문자열 검색을 할 수 있는데, 객체는 다음과 같은 메소드를 제공한다.</p>
+
+    <ol>
+      <li>
+        <p><code class="highlighter-rouge">match()</code> : 문자열의 처음부터 정규식과 매치되는지 조사한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">search()</code> : 문자열 전체를 검색하여 정규식과 매치되는지 조사한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">findall()</code> : 정규식과 매치되는 모든 문자열을 리스트로 리턴한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">finditer()</code> : 정규식과 매치되는 모든 문자열을 반복 가능한 객체로 리턴한다.</p>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="문자열-검색-예제">문자열 검색 예제</h3>
+<p>앞서 소개한 문자열 검색 메소드에 대한 예제를 살펴보자.<br>
+가장 먼저, 패턴 객체를 하나 만들어야 한다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>이번에 만든 객체는 모든 문자에 대해서 1번 이상 반복되는 문자열을 의미한다.</p>
+<h4 id="match">match()</h4>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">match</code>는 문자열의 처음부터 정규식과 매치되는 지 조사한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+  <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 6), match='python'&gt;
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>만약 처음부터 정규식과 매치되지 않는다면 <code class="highlighter-rouge">None</code>을 반환한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+  <span class="c1"># None
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>실제 코드에서 <code class="highlighter-rouge">match</code>메소드는 다음과 같은 방법으로 쓰인다고 한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
+
+  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s">'No match'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>코드에 나오는 <code class="highlighter-rouge">m.group</code>은 조금 있다 설명하겠다.</p>
+  </li>
+</ul>
+
+<h4 id="search">search()</h4>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">search</code>는 문자열 전체를 검색하여 정규식과 매치되는지 조사한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+  <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 6), match='python'&gt;
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">search</code>는 전체 문자열에서 검색하기 때문에 <code class="highlighter-rouge">match</code>와 다르게, 처음에 매치되지 않는 문자가 있더라도 매치가 된다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+  <span class="c1"># &lt;_sre.SRE_Match object; span=(2, 8), match='python'&gt;
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>하지만 <code class="highlighter-rouge">search</code> 경우에도, 아무 문자도 매치되지 않은 경우에는 <code class="highlighter-rouge">None</code>을 반환한다.</p>
+  </li>
+</ul>
+
+<h4 id="findall">findall()</h4>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">findall</code>은 정규식과 매치되는 모든 문자열을 리스트로 반환한다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  <span class="c1"># ['life', 'is', 'too', 'short']
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="finditer">[finditer()]</h4>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">finditer</code>은 <code class="highlighter-rouge">findall</code>과 기능적으로는 같지만, 리턴값이 리스트가 아닌 반복 가능한 객체이다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  <span class="c1"># &lt;callable_iterator object at 0x11a3a0f28&gt;
+</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 4), match='life'&gt;
+</span>  <span class="c1"># &lt;_sre.SRE_Match object; span=(5, 7), match='is'&gt;
+</span>  <span class="c1"># &lt;_sre.SRE_Match object; span=(8, 11), match='too'&gt;
+</span>  <span class="c1"># &lt;_sre.SRE_Match object; span=(12, 17), match='short'&gt;
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="match-객체의-메소드">match 객체의 메소드</h3>
+<ul>
+  <li>
+    <p>앞서 <code class="highlighter-rouge">match()</code>와 <code class="highlighter-rouge">search()</code>메소드의 결과값으로 얻은 <code class="highlighter-rouge">match</code>객체는 다음과 같은 메소드를 가진다.</p>
+
+    <ol>
+      <li>
+        <p><code class="highlighter-rouge">group()</code>: 매치된 문자열을 리턴한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">start()</code>: 매치된 문자열의 시작 위치를 리턴한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">end()</code>: 매치된 문자열의 끝 위치를 리턴한다.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">span()</code>: 매치된 문자열의 (시작,끝)에 해당되는 튜플을 리턴한다.</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>예시</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+  <span class="c1"># python
+</span>    
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">())</span>
+  <span class="c1"># 0
+</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">())</span>
+  <span class="c1"># 6
+</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+  <span class="c1"># (0,6)
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="컴파일없이-문자열-검색하기">컴파일없이 문자열 검색하기</h2>
+<ul>
+  <li>
+    <p>패턴 객체를 여러번 사용해야 한다면 패턴 객체를 만들어놓고 여러번 사용하는 것이 편하다. 하지만 한번만 쓰는 경우라면, 컴파일과 문자열 검색을 동시에 하는 것이 편할 것이다.</p>
+  </li>
+  <li>
+    <p>다음과 같이 <code class="highlighter-rouge">re</code> 모듈에서 직접 <code class="highlighter-rouge">match</code>, <code class="highlighter-rouge">search</code>등의 메소드를 사용하면 된다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">,</span> <span class="s">'python'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>이번에는 파이썬 정규표현식 사용 방법에 대해서 알아보았다. 다음에는 컴파일 옵션에 대해 알아보겠다.</p>
+
+<h4 id="참고">참고</h4>
+<ul>
+  <li><a href="https://wikidocs.net/4308" target="_blank" rel="noopener noreferrer nofollow">점프 투 파이썬 7-2</a></li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
