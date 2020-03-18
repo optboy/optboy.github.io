@@ -274,7 +274,7 @@ kim 700905-1059119
 <code class="highlighter-rouge">[ ]</code>안에 <code class="highlighter-rouge">-</code>이 들어간다면 <code class="highlighter-rouge">-</code>는 두 문자 사이의 범위를 의미한다. <code class="highlighter-rouge">[abc]</code>는 <code class="highlighter-rouge">[a-c]</code>로 표현이 가능한 것이다.</li>
 </ul>
 
-<h3 id="메타-문자-">메타 문자 <code class="highlighter-rouge">^</code>
+<h3 id="문자클래스--안에서의-">문자클래스 <code class="highlighter-rouge">[]</code> 안에서의 <code class="highlighter-rouge">^</code>
 </h3>
 <ul>
   <li>
@@ -282,7 +282,17 @@ kim 700905-1059119
   <li>앞서 봤던 <code class="highlighter-rouge">[ ]</code>와 <code class="highlighter-rouge">-</code>로 [0-9]라는 표현식을 만들면, 모든 숫자를 의미하는데, 앞에 <code class="highlighter-rouge">^</code>을 붙여 <code class="highlighter-rouge">[^0-9]</code>로 만든다면, 숫자가 아닌 모든 것을 의미하게 되는 것이다.</li>
 </ul>
 
-<h3 id="메타-문자--1">메타 문자 <code class="highlighter-rouge">.</code>
+<h3 id="메타-문자--">메타 문자 <code class="highlighter-rouge">^</code>, <code class="highlighter-rouge">$</code>
+</h3>
+<ul>
+  <li>
+<code class="highlighter-rouge">^</code>가 문자클래스 외부에 있을 때는 반대의 의미가 아닌, 문자열의 처음을 의미한다.</li>
+  <li>
+<code class="highlighter-rouge">$</code>는 문자열의 마지막을 의미한다.</li>
+  <li>이는 추후 <a href="/python/2020/03/18/python_regular_expression3.html">컴파일 옵션</a>을 다룰 때 더 자세히 살펴보겠다.</li>
+</ul>
+
+<h3 id="메타-문자-">메타 문자 <code class="highlighter-rouge">.</code>
 </h3>
 <ul>
   <li>
