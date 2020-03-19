@@ -25,7 +25,7 @@ categories: [Python]
     p = re.compile('a.b', re.DOTALL)
     ```
 
-### 줄바꿈 포함 `DOTALL`, `S`
+### `DOTALL`, `S` 줄바꿈 포함 
 - `.`메타 문자는 줄바꿈 문자를 제외한 모든 문자와 매치된다. 하지만 `re.DOTALL`이나 `re.S` 옵션을 사용한다면 `\n`문자도 포함하여 매치한다.  
 
 - `DOTALL`옵션 없이 `\n`이 포함된 문자열을 매치시키면 매치되지 않는다.  
@@ -47,7 +47,7 @@ categories: [Python]
     # <_sre.SRE_Match object; span=(0, 3), match='a\nb'>
     ```
 
-### 대소문자 구분 없이 `IGNORECASE`, `I`
+### `IGNORECASE`, `I` 대소문자 구분을 없앰
 - `re.IGNORECASE`와 `re.I`는 대소문자와 관계없이 매치하고자 할 때 쓸 수 있다.  
   
 - [a-z]는 소문자만을 의미하지만 `re.I`옵션 덕분에 대문자도 매치된다.  
@@ -62,7 +62,7 @@ categories: [Python]
     <_sre.SRE_Match object; span=(0, 6), match='PYTHON'>
     ```
 
-### 여러 줄에 대해서 매치 `MULTILINE`, `M`
+### `MULTILINE`, `M` 여러 줄에 대해서 매치
 - `re.MULTILINE`과 `re.M`옵션은 메타문자 `^`,`$`와 자주 쓰인다.  
   
 - `^`,`$`에 대해서는 [정규표현식 메타문자]({% post_url 2020-03-16-python_standard_expression %})설명에 간략히 나와있다.  
@@ -103,6 +103,7 @@ categories: [Python]
     # ['python one', 'python two', 'python three']
     ```
 
+### `VERBOSE`, `X` 가독성을 높일 수 있음 
+- 복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 `VERBOSE`와 `X`인데, 
+
 추후 업데이트 예정.. 
-
-
