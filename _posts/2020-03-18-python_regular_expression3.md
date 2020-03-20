@@ -104,6 +104,36 @@ categories: [Python]
     ```
 
 ### `VERBOSE`, `X` 가독성을 높일 수 있음 
-- 복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 `VERBOSE`와 `X`인데, 
+- 복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 `VERBOSE`와 `X`다.
 
-추후 업데이트 예정.. 
+    ```python
+    charref = re.compile(r'&[#](0[0-7]+|[0-9]+|x[0-9a-fA-F]+);')
+    ```
+
+- 위 정규식을 다음과 같이 표현하여 가독성을 높일 수 있다.
+
+    ```python
+    charref = re.compile(r"""
+    &[#]                # Start of a numeric entity reference
+    (
+        0[0-7]+         # Octal form
+    | [0-9]+          # Decimal form
+    | x[0-9a-fA-F]+   # Hexadecimal form
+    )
+    ;                   # Trailing semicolon
+    """, re.VERBOSE)
+    ```
+
+### 백슬래시
+- 백슬래시`\`가 들어간 문자열을 찾는 정규식을 만들 때, `\`는 특수한 기능을 하는 경우가 많기 때문에 일반 문자로 전환하는 작업을 해주어야 한다.
+- `\\`와 같이 백슬래시를 하나 더 붙이면 일반 문자 `\`로 인식된다.
+
+    ```python
+    p = re.compile('\\section')
+    ```
+
+- 혹은 파이썬 Raw String 규칙을 이용할 수도 있다. 
+- 문자열 앞에 `r`을 붙여주면 해당 문자열은 문자 그대로 인식된다.
+
+#### 참고 
+- [점프 투 파이썬 7-2](https://wikidocs.net/4308)
