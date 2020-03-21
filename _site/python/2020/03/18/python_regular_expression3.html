@@ -337,10 +337,48 @@
 <h3 id="verbose-x-가독성을-높일-수-있음">
 <code class="highlighter-rouge">VERBOSE</code>, <code class="highlighter-rouge">X</code> 가독성을 높일 수 있음</h3>
 <ul>
-  <li>복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 <code class="highlighter-rouge">VERBOSE</code>와 <code class="highlighter-rouge">X</code>인데,</li>
+  <li>
+    <p>복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 <code class="highlighter-rouge">VERBOSE</code>와 <code class="highlighter-rouge">X</code>다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r'&amp;[#](0[0-7]+|[0-9]+|x[0-9a-fA-F]+);'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>위 정규식을 다음과 같이 표현하여 가독성을 높일 수 있다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r"""
+  &amp;[#]                # Start of a numeric entity reference
+  (
+      0[0-7]+         # Octal form
+  | [0-9]+          # Decimal form
+  | x[0-9a-fA-F]+   # Hexadecimal form
+  )
+  ;                   # Trailing semicolon
+  """</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
-<p>추후 업데이트 예정..</p>
+<h3 id="백슬래시">백슬래시</h3>
+<ul>
+  <li>백슬래시<code class="highlighter-rouge">\</code>가 들어간 문자열을 찾는 정규식을 만들 때, <code class="highlighter-rouge">\</code>는 특수한 기능을 하는 경우가 많기 때문에 일반 문자로 전환하는 작업을 해주어야 한다.</li>
+  <li>
+    <p><code class="highlighter-rouge">\\</code>와 같이 백슬래시를 하나 더 붙이면 일반 문자 <code class="highlighter-rouge">\</code>로 인식된다.</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'</span><span class="se">\\</span><span class="s">section'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>혹은 파이썬 Raw String 규칙을 이용할 수도 있다.</li>
+  <li>문자열 앞에 <code class="highlighter-rouge">r</code>을 붙여주면 해당 문자열은 문자 그대로 인식된다.</li>
+</ul>
+
+<h4 id="참고">참고</h4>
+<ul>
+  <li><a href="https://wikidocs.net/4308" target="_blank" rel="noopener noreferrer nofollow">점프 투 파이썬 7-2</a></li>
+</ul>
 
   </div>
 
