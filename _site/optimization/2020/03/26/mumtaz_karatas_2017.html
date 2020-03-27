@@ -40,7 +40,7 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이다." />
+<meta name="description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이며," />
 
 
 
@@ -54,7 +54,7 @@
 
 
 <meta name="twitter:title" content="[논문 리뷰] - &lt;A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover&gt;" />
-<meta name="twitter:description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이다." />
+<meta name="twitter:description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이며," />
 
 
 
@@ -73,7 +73,7 @@
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이다." />
+<meta property="og:description" content="우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다. 이번 세미나에서 발표하게 된 논문의 제목은 A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover이며," />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
@@ -205,22 +205,285 @@
   <div itemprop="articleBody">
     <p>우리 연구실에서는 매주 세미나를 하는데, 그 기록을 남겨두고자 블로그에도 논문 내용을 간략히 정리해서 올려보려고 한다.</p>
 
-<p>이번 세미나에서 발표하게 된 논문의 제목은 <em>A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover</em>이다.</p>
+<p>이번 세미나에서 발표하게 된 논문의 제목은 <em>A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover</em>이며,</p>
 
 <p>저자는 터키의 Mumtaz Karatas이다.</p>
 
 <h2 id="어떤-주제의-논문인가">어떤 주제의 논문인가?</h2>
 
-<p>이 논문은 <strong>facility location problem</strong>과 관련된 논문이다.<br>
-facility location problem은 어떤 시설의 위치를 결정할 때 최적의 위치를 찾아내기 위한 문제인데,<br>
-해당 논문에서는 보다 현실적인 모델을 만들고자, 다음과 같은 요소를 반영한 모델을 제안한다.</p>
+<p>이 논문은 <strong>facility location problem</strong>과 관련된 논문이다.</p>
 
-<ol>
-  <li>gradual covering decay</li>
-  <li>cooperative coverage</li>
-  <li>variable coverage performance</li>
-  <li>multi-objective location planning</li>
-</ol>
+<p>여기서 facility location problem은 어떤 시설이나 장비의 위치를 결정할 때 최적의 위치를 찾아내기 위한 문제를 말하는데,</p>
+
+<p>일반적으로 p-median, p-center, set-covering problem, maximal covering loaction problem 등이 쓰인다.</p>
+
+<p>이 논문에서는 기존의 모델들이 고려하지 못하는 여러가지 현실적인 문제들을 반영한 모델을 제안한다.</p>
+
+<ul>
+  <li>주요 이슈
+    <ol>
+      <li>gradual covering decay</li>
+      <li>cooperative coverage</li>
+      <li>variable coverage performance</li>
+      <li>multi-objective location planning</li>
+    </ol>
+  </li>
+</ul>
+
+<p>그리고 이 논문에서는 후보지의 위치가 미리 정해져있는, discrete한 조건을 가진 위치선정문제이다.</p>
+
+<h2 id="왜-이런-문제들을-고쳐야하는가">왜 이런 문제들을 고쳐야하는가?</h2>
+
+<p>현실을 반영한 모델을 만들기 위함이다. 현실을 충실히 반영하지 못한 모델은 쓸 수 없기 때문이다.</p>
+
+<p>그렇다면 이 논문에서 이슈로 삼고 있는 각각의 문제들이 왜 문제가 되는지 알아보자.</p>
+
+<ul>
+  <li>
+    <p><strong>gradual covering decay</strong></p>
+
+    <ul>
+      <li>
+        <p>현실의 여러 설비, 장치들은 거리에 따라 그 성능이 줄어드는 경우가 많다.</p>
+      </li>
+      <li>
+        <p>예를 들어, 감지 센서, 의료 시설, 등대, WI-FI, 신호 수신기 등 많은 설비들이 그러하다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>cooperative coverage</strong></p>
+
+    <ul>
+      <li>
+        <p>하나의 customer이 꼭 하나의 설비에게서만 서비스를 받을 필요는 없다.</p>
+      </li>
+      <li>
+        <p>여러개의 설비에 대해 부분적으로 서비스를 받는 경우도 충분히 존재한다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>variable coverage performance</strong></p>
+
+    <ul>
+      <li>
+        <p>현실의 많은 설비들은 그 사이즈에 따라 커버할 수 있는 반경이 달라진다.</p>
+      </li>
+      <li>
+        <p>그리고 설비들은 사이즈에 따라 cost가 달라진다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>multi-objective location planning</strong></p>
+
+    <ul>
+      <li>
+        <p>현실의 의사결정권자는 바라는게 하나가 아니다.</p>
+      </li>
+      <li>
+        <p>가격, 서비스의 질, 이동 시간, 작업부하의 균형 등을 동시에 고려하는 모델이 필요하다.</p>
+      </li>
+      <li>
+        <p>그리고 각 요인들은 대개 상충관계에 있다.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="이-문제들을-어떻게-풀었나">이 문제들을 어떻게 풀었나?</h2>
+
+<p>수리모형을 통해 문제를 해결했다.</p>
+
+<p>기본적으로 multi-objective integer non-linear program(INLP)을 이용해 문제를 풀었고,</p>
+
+<p>network 구조를 이용해서 INLP를 multi-objective integer linear program(ILP)로 표현하여 시간은 좀 더 소요되지만, 더 좋은 솔루션을 얻어냈다.</p>
+
+<p>최종적으로는 그 두개를 합한 combined INLP-ILP를 만들어 짧은 시간 안에 좋은 솔루션을 얻을 수 있게 되었다.</p>
+
+<h2 id="가정과-전제조건은">가정과 전제조건은?</h2>
+
+<h3 id="--modeling-gradual-cover">- Modeling gradual cover</h3>
+
+<ul>
+  <li>
+    <p>일반적인 deterministic coverage model은 설비의 커버 반경이 정해져있다. 그리고 그 반경 안에 들어오는 customer은 확정적으로 cover되지만 그 밖에 있다면 전혀 영향을 받지 않는다.</p>
+  </li>
+  <li>
+    <p>하지만 이 논문에서는 gradual cover 개념을 도입해 위의 가정을 완화(relaxation)한다.</p>
+
+    <ol>
+      <li>
+        <p>각 demand마다 <script type="math/tex">\bar{d}</script>(minimum critical distance)와 <script type="math/tex">\bar{\bar{d}}</script>(maximum critical distance)을 정의한다.</p>
+      </li>
+      <li>
+        <p>설비가 어떤 demand의 <script type="math/tex">\bar{d}</script>안에 존재 한다면 그 demand는 완전히 cover된다.</p>
+      </li>
+      <li>
+        <p>만약 어떤 demand의 <script type="math/tex">\bar{\bar{d}}</script>안에 설비가 존재하지 않는다면 demand는 cover되지 않는다.</p>
+      </li>
+      <li>
+        <p>만약 어떤 demand의 <script type="math/tex">\bar{d}</script>와 <script type="math/tex">\bar{\bar{d}}</script> 사이에 설비가 존재한다면 그 demand는 <strong>부분적으로</strong> cover된다.</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>demand와 설비간의 거리에 따른 커버 수준에 대한 함수는 <strong>Fermi-type coverage model</strong>을 채택했다. 그 식은 다음과 같다.</p>
+
+    <p><img src="/assets/img/paper1/fermi.png" alt="" width="500px"></p>
+
+    <ul>
+      <li>
+<script type="math/tex">d_{i,j}</script> : demand <script type="math/tex">i</script>와 설비 <script type="math/tex">j</script>간의 거리</li>
+      <li>
+<script type="math/tex">b</script> : 함수의 ‘tailing’ 특성에 관한 sensitivity 파라메터</li>
+      <li>
+<script type="math/tex">\rho</script> : <script type="math/tex">\bar{d}</script>보다 크며, 커버 확률이 정확히 반반이 되는 range를 의미한다.</li>
+    </ul>
+
+    <p><img src="/assets/img/paper1/fermi_graph.png" alt="" width="800px"></p>
+
+    <ul>
+      <li>위 그래프는 파라메터에 따라 함수가 어떻게 변하는 지 보여준다.</li>
+      <li>(a)는 <script type="math/tex">b</script>의 값에 따른 함수의 모습을 보여준다. 이때 <script type="math/tex">b</script>의 값이 0이라면, deterministic model과 같은 것을 볼 수 있다.</li>
+      <li>(b)는 <script type="math/tex">\rho</script>의 값에 따른 함수의 모습을 보여준다.</li>
+      <li>(c)는 두개의 설비에 대해서 demand가 커버될 확률을 누적그래프로 보여준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="--modeling-variable-coverage-performance-and-size">- Modeling variable coverage performance and size</h3>
+
+<ul>
+  <li>
+    <p>이러한 커버 문제에서는 대개 constant한 커버 성능(performance)을 가정하고, 그것은 의사결정 권한 밖의 것으로 생각한다.</p>
+  </li>
+  <li>
+    <p>하지만 앞서 언급했듯, 설비의 커버 반경은, 현실의 많은 경우와 같이, 설비의 물리적인 <strong>크기(size)</strong>에 영향을 받는다. 따라서, 논문에서도 이를 가정했다.</p>
+  </li>
+  <li>
+    <p>그래서 논문은 variable coverage performance와 gradual cover을 동시에 고려한다.</p>
+  </li>
+  <li>
+    <p>이때, 설비의 커버 반경은 discrete하다. 미리 정해져있는 set안에서 반경이 정해진다.</p>
+  </li>
+  <li>
+    <p>이를 고려하여, 기존의 <script type="math/tex">\rho</script> 대신 설비별 커버 반경 <script type="math/tex">r</script>을 고려한 <script type="math/tex">\rho_r</script>이 fermi function에 들어가게 된다.</p>
+
+    <p><img src="/assets/img/paper1/fermi_r.png" alt="" width="500px"></p>
+
+    <ul>
+      <li>그래프 (b)에서 보았듯, <script type="math/tex">r</script>값이 커지게 되면 커버될 확률이 커지게 된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>설비의 size는 <script type="math/tex">\rho_r</script>에 비례하고, 다음과 같은 식으로 계산될 수 있다.</p>
+
+    <p><img src="/assets/img/paper1/size_model.png" alt="" width="300px"></p>
+
+    <ul>
+      <li>
+<script type="math/tex">s^f_r</script> : 커버 반경 <script type="math/tex">\rho_r</script>을 갖는 설비의 크기</li>
+      <li>
+<script type="math/tex">s^{cl}_j</script> : 후보지 <script type="math/tex">j</script>의 물리적인 크기</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="modeling-cooperative-coverage">Modeling cooperative coverage</h3>
+
+<ul>
+  <li>
+    <p>대부분의 입지선정 모델에서는 가장 가까운 설비 하나가 demand를 충족시키지만, 이 논문에서는 <strong>다수의 설비</strong>가 동시에 하나의 demand를 커버할 수 있도록 했다.</p>
+  </li>
+  <li>
+    <p>여기서, 각 설비의 커버는 다른 설비들의 커버에 대해 독립적인 것으로 가정한다.</p>
+  </li>
+  <li>
+    <p>따라서, 어떤 demand가 충족되지 못할 확률은 각 설비들이 그 demand를 충족하지 못하는 확률들의 곱으로 표현될 수 있다.</p>
+  </li>
+  <li>
+    <p><script type="math/tex">(j,r)</script>이 장소 <script type="math/tex">j</script>에 반경 <script type="math/tex">r</script>인 설비일 때, <script type="math/tex">K</script>를 <script type="math/tex">(j,r)</script> 쌍들을 포함하는 집합이라고 하자. (<script type="math/tex">K \subset J \times R</script>)</p>
+  </li>
+  <li>
+    <p>이때, demand <script type="math/tex">i</script>의 누적 커버 확률 <script type="math/tex">P_i</script>는 다음과 같은 식으로 표현된다.</p>
+
+    <p><img src="/assets/img/paper1/cover_probability.png" alt="" width="300px"></p>
+  </li>
+  <li>
+    <p>위 그래프 (c)를 보면, 여러개의 설비가 커버할 때 전체적인 커버 성능이 높아지는 것을 볼 수 있다.</p>
+  </li>
+</ul>
+
+<h3 id="multiple-objectives">Multiple objectives</h3>
+
+<ul>
+  <li>
+    <p>논문에서는 세가지 사항을 고려한다.</p>
+
+    <ol>
+      <li>Coverage</li>
+      <li>Cost</li>
+      <li>Workload Balance</li>
+    </ol>
+  </li>
+  <li>
+    <p>각 목적마다 중요한 정도가 미리 정해져있다고 가정한다.</p>
+  </li>
+  <li>
+    <p>Goal programming 개념을 이용해서, 모든 목적을 하나의 목적식으로 변환한다.</p>
+  </li>
+  <li>
+    <p>모든 목적(Goal)의 집합 <script type="math/tex">G</script>에 대해 <script type="math/tex">g \in G</script>라 할때, 각각의 요소 <script type="math/tex">g</script>에 대해 의사결정권자는 가중치 <script type="math/tex">w_g</script>를 매긴다.</p>
+  </li>
+</ul>
+
+<h4 id="alpha--coverage">
+<script type="math/tex">\alpha</script>- coverage</h4>
+
+<ul>
+  <li>
+    <p>이 목적은 미리 정해놓은 커버 분기점(threshold) <script type="math/tex">\alpha</script> 안에서 demand가 커버될 확률로 정의된다.</p>
+  </li>
+  <li>
+    <p>이 논문에서는 각각의 demand마다 커버 requirement가 다르다고 간주했다. 따라서, 각각의 demand <script type="math/tex">i</script>에 대해 coverage level <script type="math/tex">\alpha_i</script>를 정의하고 <script type="math/tex">\alpha</script>-coverage 개념을 다음과 같이 정의했다.</p>
+
+    <p><img src="/assets/img/paper1/alpha_cov_def.png" alt="" width="600px"></p>
+  </li>
+  <li>
+    <p><script type="math/tex">\alpha</script>값은 의사결정권자가 설정한다. <script type="math/tex">\alpha</script>값이 클 수록 가깝고 큰 설비를 선호하게 된다.</p>
+  </li>
+  <li>
+    <p>목적식에서 각 target <script type="math/tex">\alpha</script>값과의 편차를 최소화한다. 이 방법으로 infeasible을 방지하되, 가능한 높은 <script type="math/tex">\alpha</script>-coverage를 유지할 수 있게 해준다.</p>
+  </li>
+</ul>
+
+<h4 id="budget">Budget</h4>
+
+<ul>
+  <li>
+    <p>이 논문에서 cost는 다음과 같이 정의하였다.</p>
+
+    <p><img src="/assets/img/paper1/cost.png" alt="" width="300px"></p>
+
+    <ul>
+      <li>
+<script type="math/tex">j</script> : 설비 위치</li>
+      <li>
+<script type="math/tex">\rho_r</script> : 설비 커버 반경</li>
+      <li>
+<script type="math/tex">c^f_j</script> : 고정비</li>
+      <li>
+<script type="math/tex">c^v_{j,r}</script> : 변동비</li>
+    </ul>
+  </li>
+  <li>
+    <p>변동비는 non-decreasing function으로, 다음과 같이 정의하였다.</p>
+
+    <p><img src="/assets/img/paper1/variable_cost.png" alt="" width="500px"></p>
+  </li>
+</ul>
 
 <p>추후 업데이트 예정..</p>
 
