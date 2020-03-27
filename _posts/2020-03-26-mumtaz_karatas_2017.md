@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[논문 리뷰] - <A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover>"
+title: "[논문 리뷰] A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover"
 author: optboy
 categories: [Optimization]
 ---
@@ -180,6 +180,8 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 
 - 변동비는 non-decreasing function으로, 다음과 같이 정의하였다.  
   
-    ![](/assets/img/paper1/variable_cost.png){:width="500px"}    
+    ![](/assets/img/paper1/variable_cost.png){:width="500px"}  
+      
+    - 
 
 추후 업데이트 예정..

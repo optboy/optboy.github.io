@@ -17,7 +17,12 @@ order: 2
     <a name="{{ category_name | slugize }}"></a>
     {% for post in site.categories[category_name] %}
     <article class="archive-item">
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+      {% if post.title.size >= 80 %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title | slice: 0, 80}}...</a></li>
+      {% endif %}
+      {% if post.title.size < 80 %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+      {% endif %}
     </article>
     {% endfor %}
   </div>
