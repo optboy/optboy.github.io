@@ -312,4 +312,67 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 - 즉, $$x^*$$을 INLP의 최적해라고 할 때, $$x^*$$의 정보를 ILP 모델의 시작점으로 사용하는 것이다.  
 
 ## Experiments  
+  
+- 실험은 소형,중형,대형 사이즈의 데이터에 대해 이뤄졌으며, 각 사이즈에 대해 demand 개수 $$\mid I\mid$$, 후보지 개수 $$\mid J\mid$$, 가능한 설비 커버 반경 개수 $$\mid R\mid$$을 설정했다. 총 36개의 조합에 대해, 50개의 랜덤 데이터를 생성하여 실험을 진행했다. 
+  
+- 자세한 파라메터에 대한 정보는 다음 테이블에 정리되어있다.  
+  
+    ![](/assets/img/paper1/table1.png){:width="800px"} 
+
+- 다음은 INLP와 ILP에 대한 솔루션 예시다.  
+  
+    ![](/assets/img/paper1/result.png){:width="800px"} 
+
+- group 1에 대한 실험 결과는 다음과 같다.  
+  
+    ![](/assets/img/paper1/table2.png){:width="600px"}  
+
+    - INLP는 모든 실험에서 속도와 솔루션 퀄리티 모두 좋았다.  
+
+    - INLP와 ILP간의 objective value가 7% 미만이었다.  
+
+    - ILP는 2~7초 정도 시간이 더 걸리지만 global optimal을 보장한다.  
+
+    - INLP-ILP 혼합 모델은 ILP와의 optimality gap이 0 이었고, 풀이 속도는 더욱 빨랐다. 
  
+ - group 2에 대한 실험 결과는 다음과 같다.  
+  
+    ![](/assets/img/paper1/table3.png){:width="600px"} 
+
+    - INLP는 1~9초 내에 내에 문제를 풀지만 gap이 14%~34%나 된다. 
+
+    - ILP는 문제 사이즈에 따라 2~125분만에 문제를 풀었다.  
+
+    - INLP-ILP 혼합 모델은 ILP에 비해 약 40% 빠르게 문제를 풀 수 있었다.
+
+- group 3에 대한 실험 결과는 다음과 같다.  
+
+    ![](/assets/img/paper1/table4.png){:width="700px"}  
+
+    - ILP는 시간 제한인 8시간을 넘겨 문제를 끝까지 풀지 못했으며, INLP보다 솔루션이 좋지 못했다.  
+
+    - INLP는 10~44분만에 문제를 풀었으며, ILP에 비해 12%~83% 좋은 솔루션을 보여줬다.  
+
+    - INLP-INL 혼합 모델은 평균 2.5시간 내에 global optimal을 찾았다. 그리고 INLP와의 gap은 22%~53%였다.  
+
+- 각 방법에 따른 계산 시간 그래프는 다음과 같다.  
+  
+    ![](/assets/img/paper1/compute_time.png){:width="700px"}  
+  
+    - 그래프가 log 함수의 형태를 띄는 것을 볼 수 있다.  
+  
+- INLP-ILP와 INLP의 gap에 대한 그래프는 다음과 같다.  
+  
+    ![](/assets/img/paper1/gap_graph.png){:width="700px"}  
+
+    - 문제 사이즈가 커질수록 gap이 커지는 것을 볼 수 있다. 
+
+## Conclusion  
+
+- 이 논문은 gradual covering decay, cooperative demand coverage, user-defined variable coverage performance와 같은 현실의 다양한 조건들을 동시에 반영했다. 
+
+- 의사결정권자가 설정한 파라메터에서 편차를 최소화 하는 multi-objective 모델을 만들었다. 
+
+- Non-linear한 문제를 network와 유사한 구조를 이용하여 linearize하여 문제를 효율적으로 풀었다.  
+
+- Non-linear문제와 linear문제를 조합하여 빠르게 global optimal을 찾아내는 모델을 만들었다.
