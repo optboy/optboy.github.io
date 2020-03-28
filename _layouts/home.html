@@ -13,11 +13,19 @@ layout: default
         {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
-        </h2>
+        {% if post.title.size >= 60 %}
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | slice: 0,60 }}...</a>
+          </h2>
+          {{ post.excerpt | markdownify | truncatewords: 30 }}
+        {% endif %}
 
-        {{ post.excerpt | markdownify | truncatewords: 30 }}
+        {% if post.title.size < 60 %}
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title}}</a>
+          </h2>
+          {{ post.excerpt | markdownify | truncatewords: 30 }}
+        {% endif %}
 
       </li>
     {% endfor %}

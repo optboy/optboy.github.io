@@ -209,7 +209,7 @@
 
 <p>저자는 터키의 Mumtaz Karatas이다.</p>
 
-<h2 id="어떤-주제의-논문인가">어떤 주제의 논문인가?</h2>
+<h2 id="1-어떤-주제의-논문인가">1. 어떤 주제의 논문인가?</h2>
 
 <p>이 논문은 <strong>facility location problem</strong>과 관련된 논문이다.</p>
 
@@ -232,7 +232,7 @@
 
 <p>그리고 이 논문에서는 후보지의 위치가 미리 정해져있는, discrete한 조건을 가진 위치선정문제이다.</p>
 
-<h2 id="왜-이런-문제들을-고쳐야하는가">왜 이런 문제들을 고쳐야하는가?</h2>
+<h2 id="2-왜-이런-문제들을-고쳐야하는가">2. 왜 이런 문제들을 고쳐야하는가?</h2>
 
 <p>현실을 반영한 모델을 만들기 위함이다. 현실을 충실히 반영하지 못한 모델은 쓸 수 없기 때문이다.</p>
 
@@ -292,7 +292,7 @@
   </li>
 </ul>
 
-<h2 id="이-문제들을-어떻게-풀었나">이 문제들을 어떻게 풀었나?</h2>
+<h2 id="3-이-문제들을-어떻게-풀었나">3. 이 문제들을 어떻게 풀었나?</h2>
 
 <p>수리모형을 통해 문제를 해결했다.</p>
 
@@ -302,9 +302,9 @@
 
 <p>최종적으로는 그 두개를 합한 combined INLP-ILP를 만들어 짧은 시간 안에 좋은 솔루션을 얻을 수 있게 되었다.</p>
 
-<h2 id="가정과-전제조건은">가정과 전제조건은?</h2>
+<h2 id="4-가정과-전제조건은">4. 가정과 전제조건은?</h2>
 
-<h3 id="--modeling-gradual-cover">- Modeling gradual cover</h3>
+<h3 id="41-modeling-gradual-cover">4.1 Modeling gradual cover</h3>
 
 <ul>
   <li>
@@ -353,7 +353,7 @@
   </li>
 </ul>
 
-<h3 id="--modeling-variable-coverage-performance-and-size">- Modeling variable coverage performance and size</h3>
+<h3 id="42-modeling-variable-coverage-performance-and-size">4.2 Modeling variable coverage performance and size</h3>
 
 <ul>
   <li>
@@ -391,7 +391,7 @@
   </li>
 </ul>
 
-<h3 id="modeling-cooperative-coverage">Modeling cooperative coverage</h3>
+<h3 id="43-modeling-cooperative-coverage">4.3 Modeling cooperative coverage</h3>
 
 <ul>
   <li>
@@ -416,7 +416,7 @@
   </li>
 </ul>
 
-<h3 id="multiple-objectives">Multiple objectives</h3>
+<h3 id="44-multiple-objectives">4.4 Multiple objectives</h3>
 
 <ul>
   <li>
@@ -439,8 +439,7 @@
   </li>
 </ul>
 
-<h4 id="alpha--coverage">
-<script type="math/tex">\alpha</script>- coverage</h4>
+<h4 id="441-alpha--coverage">4.4.1 <script type="math/tex">\alpha</script>- coverage</h4>
 
 <ul>
   <li>
@@ -459,7 +458,7 @@
   </li>
 </ul>
 
-<h4 id="budget">Budget</h4>
+<h4 id="442-budget">4.4.2 Budget</h4>
 
 <ul>
   <li>
@@ -485,11 +484,215 @@
 
     <ul>
       <li>
+        <p><script type="math/tex">\beta_j</script>는 위치별로 달리 주어지는 상수</p>
+      </li>
+      <li>
+        <p><script type="math/tex">\rho^m_r</script>에서 m은 marginal return curve를 결정한다. <script type="math/tex">m \lt 1</script> 일 경우 increase, $$m &lt; 1 일 경우 decrease이다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Budget 차원에서, 목적함수는 cost와 주어진 예산 <script type="math/tex">B</script>사이의 양(positive)의 편차를 최소화 한다.</p>
+  </li>
+</ul>
+
+<h4 id="443-capacity">4.4.3 Capacity</h4>
+
+<ul>
+  <li>
+    <p>많은 입지선정 모델들은 설비의 capacity에 제한을 두지 않아 demand를 무제한으로 충족할 수 있다. 하지만 이는 현실의 상황에는 맞지 않다.</p>
+  </li>
+  <li>
+    <p>이 논문에서는 capacity역시 설비의 size에 따라 커진다고 가정하고, 설비의 커버반경 <script type="math/tex">r</script>에 따른 capacity를 다음과 같이 정의했다.</p>
+
+    <p><img src="/assets/img/paper1/capacity.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>
+<script type="math/tex">CAP_r</script> : 어떤 설비의 커버반경이 <script type="math/tex">r</script>일때, 그 설비의 capacity</li>
+      <li>
+<script type="math/tex">\delta</script> : 상수</li>
+    </ul>
+  </li>
+  <li>
+    <p>목적함수에서 capacity는 workload와 비교되어 그 편차를 줄이는 데 쓰인다. 설비 용량에 제약을 둠과 동시에 workload balancing의 도구로 쓰이는 것이다.</p>
+  </li>
+</ul>
+
+<h2 id="5-model-formulation">5. Model Formulation</h2>
+
+<p>논문에선 앞서 설명한 내용들을 바탕으로 수리모델을 만들었다.</p>
+<h3 id="51-multi-objective-integer-non-linear-programming-inlp-formulation">5.1 Multi-objective integer non-linear programming (INLP) formulation</h3>
+
+<ul>
+  <li>
+    <p>Sets and indices</p>
+
+    <p><img src="/assets/img/paper1/set_indice.png" alt="" width="300px"></p>
+  </li>
+  <li>
+    <p>Parameter</p>
+
+    <p><img src="/assets/img/paper1/parameter.png" alt="" width="500px"></p>
+  </li>
+  <li>
+    <p>Decision variables</p>
+
+    <p><img src="/assets/img/paper1/DV.png" alt="" width="500px"></p>
+  </li>
+  <li>
+    <p>Objective function</p>
+
+    <p><img src="/assets/img/paper1/objective.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>Constraints</p>
+
+    <p><img src="/assets/img/paper1/constraint.png" alt="" width="500px"></p>
+
+    <ul>
+      <li>
+        <p>(9)번 제약식은 <a href="#43-modeling-cooperative-coverage">누적 커버 확률</a>을 정의한다.</p>
+      </li>
+      <li>
+        <p>(10)번 제약식은 한 장소에 최대 하나의 종류의 설비만이 설치될 수 있도록 한다.</p>
+      </li>
+      <li>
+        <p>(11)번 제약식은 설비의 물리적인 크기가 해당 위치의 크기보다 클 수 없도록 한다.  <script type="math/tex">s^f_r</script>은 <a href="#42-modeling-variable-coverage-performance-and-size">설비 크기</a>를 설명하면서 정의한 바 있다.</p>
+      </li>
+      <li>
+        <p>(12)번 제약식은 커버수준에 대한 편차를 정의한다.</p>
+      </li>
+      <li>
+        <p>(13)번 제약식은 <a href="#442-budget">예산</a>의 편차를 정의한다.</p>
+      </li>
+      <li>
+        <p>(14)번 제약식은 capacity의 편차를 정의한다. 이는 목적함수에서 workload balance를 맞추는 데 활용된다.</p>
+      </li>
+      <li>
+        <p>(15)번부터 (18)번 제약식은 변수 타입을 정의한다.</p>
+      </li>
     </ul>
   </li>
 </ul>
 
-<p>추후 업데이트 예정..</p>
+<h3 id="52-multi-objective-integer-linear-programming-ilp-formulation">5.2 Multi-objective integer linear programming (ILP) formulation</h3>
+
+<ul>
+  <li>
+    <p>INLP 모델은 convexity를 보장하지 않기 때문에 문제를 푸는게 까다롭다.</p>
+  </li>
+  <li>
+    <p>이 논문에서는 네트워크 개념을 도입하여 INLP를 linearize(선형화)한 ILP 모델을 소개한다.</p>
+  </li>
+  <li>
+    <p>이 방법은 경로를 따라 flow를 커버 확률을 capture하는 flow를 만드는 네트워크를 사용한다.</p>
+  </li>
+  <li>
+    <p>그러기 위해서, 새로운 decision variable로 <strong>transitory non-coverage probability</strong>변수를 정의하고, 제약식을 추가한다.</p>
+  </li>
+  <li>
+    <p>이해를 돕기위해 논문의 그림을 살펴보자.</p>
+
+    <p><img src="/assets/img/paper1/figure2.png" alt="" width="900px"></p>
+
+    <ul>
+      <li>
+        <p>위 그림은 하나의 demand <script type="math/tex">i</script>에 대한 flow를 보여준다. 각 demand에 대해 flow는 그 demand가 arc에 대해 커버되지 않을 확률을 나타낸다.</p>
+      </li>
+      <li>
+        <p>네트워크의 각 노드는 임의의 후보지 <script type="math/tex">j \in J</script>를 나타낸다.</p>
+      </li>
+      <li>
+        <p>각각의 네트워크 링크는 <script type="math/tex">\mid R\mid+1</script>개의 평행한 아크로 구성된다.</p>
+      </li>
+      <li>
+        <p>특히, 인접한 (adjacent)노드끼리는 <script type="math/tex">r \in R</script>에 대해 positive labeled arc이 있고, 하나의 negative labeled arc가 존재한다.</p>
+
+        <blockquote>
+          <p>positive labeled arc : <script type="math/tex">x_{i,j} = 1</script>이라면, 설비 크기가 <script type="math/tex">r</script>이고 나가는 노드가 <script type="math/tex">j</script>인 positive labeld arc에 flow가 발생한다.</p>
+        </blockquote>
+
+        <blockquote>
+          <p>negative labeled arc : 위치 <script type="math/tex">j</script>에 어떤 설비도 설치되지 않는다면, negative labeled arc에 flow가 발생한다.</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>이 아크들은 demand <script type="math/tex">i</script>의 전체적인 <em>non-coverage probability</em>와 관련하여 flow의 평가 기준이 된다.</p>
+      </li>
+      <li>
+        <p>전체 flow의 양은 flow가 최종 노드 <script type="math/tex">\mid J \mid+1</script>로 향하면서 유지되거나 줄어들어야 한다.</p>
+      </li>
+      <li>
+        <p>이때, 아크를 지나는 flow의 양을 뜻하는 변수(transitory non-coverage probability) <script type="math/tex">\pi^{+}_{i,(j+1),r}</script>과 <script type="math/tex">\pi^{-}_{i,(j+1),r}</script>이 사용된다.</p>
+      </li>
+      <li>
+        <p>게다가, <script type="math/tex">x_{j,r} = 1</script>이라면 노드 <script type="math/tex">j</script>를 떠나는 flow가 <script type="math/tex">q^{+}_{i,j,r}</script>의 비율만큼 scale down 된다. 반대로, <script type="math/tex">x_{j,r} = 0</script> 이라면, flow는 그래로 유지되며, <script type="math/tex">q^{-}_{i,j} = 1</script>이다.</p>
+
+        <blockquote>
+          <p><script type="math/tex">q^{+}_{i,j,r}</script> : <script type="math/tex">j</script>위치의 커버 반경 <script type="math/tex">r</script>을 갖는 설비가 demand <script type="math/tex">i</script>를 커버하지 못할 확률. 즉, <script type="math/tex">q^{+}_{i,j,r} = 1 - p_{i,j,r}</script></p>
+        </blockquote>
+      </li>
+      <li>
+        <p><script type="math/tex">\mid J \mid +1</script> 노드는 가상의 노드이며, 이는 demand <script type="math/tex">i</script>에 대한 총 flow양 <script type="math/tex">Q_i</script>를 의미하게 된다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Additional parameter</p>
+
+    <p><img src="/assets/img/paper1/add_parameter.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>Additional Decision Variable</p>
+
+    <p><img src="/assets/img/paper1/add_DV.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>Constraints</p>
+
+    <p><img src="/assets/img/paper1/new_const1.png" alt="" width="500px"><br>
+  <img src="/assets/img/paper1/new_const2.png" alt="" width="500px"></p>
+
+    <ul>
+      <li>
+        <p>(20)번 제약식은 각 demand의 첫번째 노드에서의 flow양의 총합(transitory non-coverage probabilities)을 1로 만들어 주어 flow를 초기화시켜준다.</p>
+      </li>
+      <li>
+        <p>(21)번 제약식은 flow-balance제약식이다. 들어오는 scaled flow와 나가는 unscaled flow를 맞춰준다.</p>
+      </li>
+      <li>
+        <p>(22)번 제약식은 <script type="math/tex">\mid J \mid</script>번째 노드에서 나와서 <script type="math/tex">\mid J \mid +1</script>노드로 들어가는 flow의 합을 통해 demand <script type="math/tex">i</script>의 최종 non-coverage probability <script type="math/tex">Q_i</script>를 계산한다.</p>
+      </li>
+      <li>
+        <p>(23)번 제약식은 (29)번 제약식과 함께 <script type="math/tex">\pi^{+}_{i,(j,j+1),r}</script>이 양수일 경우 <script type="math/tex">x_{j,r}</script>의 값이 1이 될 수 있도록 한다.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="53-combined-inlp-ilp-solution-procedure">5.3 Combined INLP-ILP solution procedure</h3>
+
+<ul>
+  <li>
+    <p>ILP는 global optimal을 보장하지만 시간이 너무 오래걸린다.</p>
+  </li>
+  <li>
+    <p>Genetic Algorithm, Simulated Annealing과 같은 메타휴리스틱 기법도 쓸 수는 있지만, 솔루션의 퀄리티를 보장할 수는 없다.</p>
+  </li>
+  <li>
+    <p>그래서 이 논문에서는 INLP와 ILP를 합치는 방법을 소개한다.</p>
+  </li>
+  <li>
+    <p>이 방법은 ILP를 시작할 때 solution space에서 좋은 시작점을 제공한다. 따라서 global optimal을 보장하면서 계산 시간은 짧은 것이다.</p>
+  </li>
+  <li>
+    <p>즉, <script type="math/tex">x^*</script>을 INLP의 최적해라고 할 때, <script type="math/tex">x^*</script>의 정보를 ILP 모델의 시작점으로 사용하는 것이다.</p>
+  </li>
+</ul>
+
+<h2 id="experiments">Experiments</h2>
+
 
   </div>
 

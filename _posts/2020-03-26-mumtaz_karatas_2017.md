@@ -11,7 +11,7 @@ categories: [Optimization]
 
 저자는 터키의 Mumtaz Karatas이다.
 
-## 어떤 주제의 논문인가?  
+## 1. 어떤 주제의 논문인가?  
   
 이 논문은 **facility location problem**과 관련된 논문이다.  
   
@@ -29,7 +29,7 @@ categories: [Optimization]
 
 그리고 이 논문에서는 후보지의 위치가 미리 정해져있는, discrete한 조건을 가진 위치선정문제이다.
 
-## 왜 이런 문제들을 고쳐야하는가?  
+## 2. 왜 이런 문제들을 고쳐야하는가?  
   
 현실을 반영한 모델을 만들기 위함이다. 현실을 충실히 반영하지 못한 모델은 쓸 수 없기 때문이다.  
   
@@ -61,7 +61,7 @@ categories: [Optimization]
       
     - 그리고 각 요인들은 대개 상충관계에 있다.
     
-## 이 문제들을 어떻게 풀었나?  
+## 3. 이 문제들을 어떻게 풀었나?  
   
 수리모형을 통해 문제를 해결했다.  
     
@@ -71,9 +71,9 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
   
 최종적으로는 그 두개를 합한 combined INLP-ILP를 만들어 짧은 시간 안에 좋은 솔루션을 얻을 수 있게 되었다.  
 
-## 가정과 전제조건은?  
+## 4. 가정과 전제조건은?  
 
-### - Modeling gradual cover  
+### 4.1 Modeling gradual cover  
     
 - 일반적인 deterministic coverage model은 설비의 커버 반경이 정해져있다. 그리고 그 반경 안에 들어오는 customer은 확정적으로 cover되지만 그 밖에 있다면 전혀 영향을 받지 않는다.  
     
@@ -102,7 +102,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
     - (b)는 $$\rho$$의 값에 따른 함수의 모습을 보여준다.
     - (c)는 두개의 설비에 대해서 demand가 커버될 확률을 누적그래프로 보여준다.  
 
-### - Modeling variable coverage performance and size  
+### 4.2 Modeling variable coverage performance and size  
   
 - 이러한 커버 문제에서는 대개 constant한 커버 성능(performance)을 가정하고, 그것은 의사결정 권한 밖의 것으로 생각한다.  
   
@@ -125,7 +125,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
     - $$s^f_r$$ : 커버 반경 $$\rho_r$$을 갖는 설비의 크기
     - $$s^{cl}_j$$ : 후보지 $$j$$의 물리적인 크기 
 
-### Modeling cooperative coverage  
+### 4.3 Modeling cooperative coverage  
 
 - 대부분의 입지선정 모델에서는 가장 가까운 설비 하나가 demand를 충족시키지만, 이 논문에서는 **다수의 설비**가 동시에 하나의 demand를 커버할 수 있도록 했다.  
   
@@ -141,7 +141,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 
 - 위 그래프 (c)를 보면, 여러개의 설비가 커버할 때 전체적인 커버 성능이 높아지는 것을 볼 수 있다. 
 
-### Multiple objectives  
+### 4.4 Multiple objectives  
   
 - 논문에서는 세가지 사항을 고려한다.  
   
@@ -155,7 +155,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
   
 - 모든 목적(Goal)의 집합 $$G$$에 대해 $$g \in G$$라 할때, 각각의 요소 $$g$$에 대해 의사결정권자는 가중치 $$w_g$$를 매긴다.  
   
-#### $$\alpha$$- coverage  
+#### 4.4.1 $$\alpha$$- coverage  
   
 - 이 목적은 미리 정해놓은 커버 분기점(threshold) $$\alpha$$ 안에서 demand가 커버될 확률로 정의된다.   
   
@@ -167,7 +167,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
   
 - 목적식에서 각 target $$\alpha$$값과의 편차를 최소화한다. 이 방법으로 infeasible을 방지하되, 가능한 높은 $$\alpha$$-coverage를 유지할 수 있게 해준다.
 
-#### Budget  
+#### 4.4.2 Budget  
   
 - 이 논문에서 cost는 다음과 같이 정의하였다.  
   
@@ -176,12 +176,140 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
     - $$j$$ : 설비 위치 
     - $$\rho_r$$ : 설비 커버 반경
     - $$c^f_j$$ : 고정비
-    - $$c^v_{j,r}$$ : 변동비
-
+    - $$c^v_{j,r}$$ : 변동비  
+  
 - 변동비는 non-decreasing function으로, 다음과 같이 정의하였다.  
   
     ![](/assets/img/paper1/variable_cost.png){:width="500px"}  
       
-    - 
+    - $$\beta_j$$는 위치별로 달리 주어지는 상수  
+      
+    - $$\rho^m_r$$에서 m은 marginal return curve를 결정한다. $$m \lt 1$$ 일 경우 increase, $$m < 1 일 경우 decrease이다.
 
-추후 업데이트 예정..
+- Budget 차원에서, 목적함수는 cost와 주어진 예산 $$B$$사이의 양(positive)의 편차를 최소화 한다.
+
+#### 4.4.3 Capacity  
+  
+- 많은 입지선정 모델들은 설비의 capacity에 제한을 두지 않아 demand를 무제한으로 충족할 수 있다. 하지만 이는 현실의 상황에는 맞지 않다.  
+  
+- 이 논문에서는 capacity역시 설비의 size에 따라 커진다고 가정하고, 설비의 커버반경 $$r$$에 따른 capacity를 다음과 같이 정의했다.  
+  
+    ![](/assets/img/paper1/capacity.png){:width="400px"}  
+  
+    - $$CAP_r$$ : 어떤 설비의 커버반경이 $$r$$일때, 그 설비의 capacity
+    - $$\delta$$ : 상수  
+  
+- 목적함수에서 capacity는 workload와 비교되어 그 편차를 줄이는 데 쓰인다. 설비 용량에 제약을 둠과 동시에 workload balancing의 도구로 쓰이는 것이다.  
+
+## 5. Model Formulation  
+
+논문에선 앞서 설명한 내용들을 바탕으로 수리모델을 만들었다.
+### 5.1 Multi-objective integer non-linear programming (INLP) formulation  
+  
+- Sets and indices  
+  
+    ![](/assets/img/paper1/set_indice.png){:width="300px"}  
+
+- Parameter
+
+    ![](/assets/img/paper1/parameter.png){:width="500px"}  
+  
+- Decision variables  
+  
+    ![](/assets/img/paper1/DV.png){:width="500px"}  
+
+- Objective function  
+  
+    ![](/assets/img/paper1/objective.png){:width="400px"}  
+
+- Constraints  
+  
+    ![](/assets/img/paper1/constraint.png){:width="500px"}  
+
+    - (9)번 제약식은 [누적 커버 확률](#43-modeling-cooperative-coverage)을 정의한다.  
+      
+    - (10)번 제약식은 한 장소에 최대 하나의 종류의 설비만이 설치될 수 있도록 한다.  
+      
+    - (11)번 제약식은 설비의 물리적인 크기가 해당 위치의 크기보다 클 수 없도록 한다.  $$s^f_r$$은 [설비 크기](#42-modeling-variable-coverage-performance-and-size)를 설명하면서 정의한 바 있다.
+      
+    - (12)번 제약식은 커버수준에 대한 편차를 정의한다.  
+      
+    - (13)번 제약식은 [예산](#442-budget)의 편차를 정의한다.  
+      
+    - (14)번 제약식은 capacity의 편차를 정의한다. 이는 목적함수에서 workload balance를 맞추는 데 활용된다.
+  
+    - (15)번부터 (18)번 제약식은 변수 타입을 정의한다.
+
+### 5.2 Multi-objective integer linear programming (ILP) formulation  
+  
+- INLP 모델은 convexity를 보장하지 않기 때문에 문제를 푸는게 까다롭다.  
+  
+- 이 논문에서는 네트워크 개념을 도입하여 INLP를 linearize(선형화)한 ILP 모델을 소개한다.  
+  
+- 이 방법은 경로를 따라 flow를 커버 확률을 capture하는 flow를 만드는 네트워크를 사용한다.  
+
+- 그러기 위해서, 새로운 decision variable로 **transitory non-coverage probability**변수를 정의하고, 제약식을 추가한다.  
+  
+- 이해를 돕기위해 논문의 그림을 살펴보자. 
+  
+    ![](/assets/img/paper1/figure2.png){:width="900px"}  
+
+    - 위 그림은 하나의 demand $$i$$에 대한 flow를 보여준다. 각 demand에 대해 flow는 그 demand가 arc에 대해 커버되지 않을 확률을 나타낸다.  
+      
+    - 네트워크의 각 노드는 임의의 후보지 $$j \in J$$를 나타낸다.  
+      
+    - 각각의 네트워크 링크는 $$\mid R\mid+1$$개의 평행한 아크로 구성된다.  
+      
+    - 특히, 인접한 (adjacent)노드끼리는 $$r \in R$$에 대해 positive labeled arc이 있고, 하나의 negative labeled arc가 존재한다.  
+
+        > positive labeled arc : $$x_{i,j} = 1$$이라면, 설비 크기가 $$r$$이고 나가는 노드가 $$j$$인 positive labeld arc에 flow가 발생한다.  
+        
+        > negative labeled arc : 위치 $$j$$에 어떤 설비도 설치되지 않는다면, negative labeled arc에 flow가 발생한다.
+      
+    - 이 아크들은 demand $$i$$의 전체적인 *non-coverage probability*와 관련하여 flow의 평가 기준이 된다.  
+      
+    - 전체 flow의 양은 flow가 최종 노드 $$\mid J \mid+1$$로 향하면서 유지되거나 줄어들어야 한다.  
+      
+    - 이때, 아크를 지나는 flow의 양을 뜻하는 변수(transitory non-coverage probability) $$\pi^{+}_{i,(j+1),r}$$과 $$\pi^{-}_{i,(j+1),r}$$이 사용된다.  
+  
+    - 게다가, $$x_{j,r} = 1$$이라면 노드 $$j$$를 떠나는 flow가 $$q^{+}_{i,j,r}$$의 비율만큼 scale down 된다. 반대로, $$x_{j,r} = 0$$ 이라면, flow는 그래로 유지되며, $$q^{-}_{i,j} = 1$$이다.
+
+        > $$q^{+}_{i,j,r}$$ : $$j$$위치의 커버 반경 $$r$$을 갖는 설비가 demand $$i$$를 커버하지 못할 확률. 즉, $$q^{+}_{i,j,r} = 1 - p_{i,j,r}$$
+
+    - $$\mid J \mid +1$$ 노드는 가상의 노드이며, 이는 demand $$i$$에 대한 총 flow양 $$Q_i$$를 의미하게 된다. 
+
+- Additional parameter  
+  
+    ![](/assets/img/paper1/add_parameter.png){:width="400px"}  
+
+- Additional Decision Variable  
+  
+    ![](/assets/img/paper1/add_DV.png){:width="400px"}  
+
+- Constraints  
+  
+    ![](/assets/img/paper1/new_const1.png){:width="500px"}  
+    ![](/assets/img/paper1/new_const2.png){:width="500px"} 
+
+    - (20)번 제약식은 각 demand의 첫번째 노드에서의 flow양의 총합(transitory non-coverage probabilities)을 1로 만들어 주어 flow를 초기화시켜준다.  
+      
+    - (21)번 제약식은 flow-balance제약식이다. 들어오는 scaled flow와 나가는 unscaled flow를 맞춰준다. 
+      
+    - (22)번 제약식은 $$\mid J \mid$$번째 노드에서 나와서 $$\mid J \mid +1$$노드로 들어가는 flow의 합을 통해 demand $$i$$의 최종 non-coverage probability $$Q_i$$를 계산한다. 
+      
+    - (23)번 제약식은 (29)번 제약식과 함께 $$\pi^{+}_{i,(j,j+1),r}$$이 양수일 경우 $$x_{j,r}$$의 값이 1이 될 수 있도록 한다.
+
+### 5.3 Combined INLP-ILP solution procedure  
+  
+- ILP는 global optimal을 보장하지만 시간이 너무 오래걸린다.  
+
+- Genetic Algorithm, Simulated Annealing과 같은 메타휴리스틱 기법도 쓸 수는 있지만, 솔루션의 퀄리티를 보장할 수는 없다.  
+  
+- 그래서 이 논문에서는 INLP와 ILP를 합치는 방법을 소개한다. 
+
+- 이 방법은 ILP를 시작할 때 solution space에서 좋은 시작점을 제공한다. 따라서 global optimal을 보장하면서 계산 시간은 짧은 것이다. 
+
+- 즉, $$x^*$$을 INLP의 최적해라고 할 때, $$x^*$$의 정보를 ILP 모델의 시작점으로 사용하는 것이다.  
+
+## Experiments  
+ 
