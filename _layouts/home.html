@@ -20,7 +20,7 @@ layout: default
           {{ post.excerpt | markdownify | truncatewords: 30 }}
         {% endif %}
 
-        {% if post.title.size < 60 %}
+        {% if 60 > post.title.size %}
           <h2>
             <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title}}</a>
           </h2>
