@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MIP를 활용한 시간표 스케줄링"
+title: "Integer Programming을 활용한 시간표 스케줄링"
 author: optboy
 categories: [Optimization]
 ---
@@ -77,6 +77,28 @@ categories: [Optimization]
 - 학생별로 근무가능 시간에 대한 데이터는 CSV파일로 따로 정리해서 넣어두었다.
     - avail.csv  
         ![](/assets/img/schedule/avail_csv.png){:width="500px"}  
+
+## 결과  
+  
+각 근무장소마다 알맞게 조교들이 배치되어 들어가있는 것을 볼 수 있다.  
+
+- 사무실  
+  
+    ![](/assets/img/schedule/office_result.png){:width="200px"}  
+
+- 실험실
+
+    ![](/assets/img/schedule/203_result.png){:width="250px"}  
+
+- 스터디룸  
+
+    ![](/assets/img/schedule/538_result.png){:width="250px"}  
+
+## 추후 업데이트
+
+- 웹페이지나 프로그램을 통해 시스템화해서 매학기 사용할 수 있도록 한다.  
+
+- 각 학생들에게 각 가능한 시간에 선호도를 매기도록 한 후, 목적식에서 전체 학생들의 만족도를 최대화 시키는 방향으로 업그레이드
 
 ## Code 코드 
 - [Github Repository](https://github.com/optboy/scheduling)
