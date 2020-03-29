@@ -376,3 +376,6 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 - Non-linear한 문제를 network와 유사한 구조를 이용하여 linearize하여 문제를 효율적으로 풀었다.  
 
 - Non-linear문제와 linear문제를 조합하여 빠르게 global optimal을 찾아내는 모델을 만들었다.
+
+#### 참고
+- [A multi-objective facility location problem in the presence of variable gradual coverage performance and cooperative cover](https://www.sciencedirect.com/science/article/abs/pii/S0377221717303120)
