@@ -347,15 +347,20 @@
 
 <p>이럴때 사용할 수 있는 것이 <code class="highlighter-rouge">.gitignore</code> 파일이다.</p>
 
-<h2 id="gitigniore-사용법"><strong>.gitigniore 사용법</strong></h2>
-<ol>
+<ul>
   <li>
-    <p>폴더의 최상위 공간에 <code class="highlighter-rouge">.gitignore</code> 이라는 이름의 파일을 생성한다. 기본적으로 숨김파일로 지정된다.</p>
+    <p><strong>.gitigniore 사용하기</strong></p>
+
+    <ol>
+      <li>
+        <p>폴더의 최상위 공간에 <code class="highlighter-rouge">.gitignore</code> 이라는 이름의 파일을 생성한다. 기본적으로 숨김파일로 지정된다.</p>
+      </li>
+      <li>
+        <p><a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" target="_blank" rel="noopener noreferrer nofollow">여기</a>를 참고해서 파일, 폴더 등등을 ignore파일 안에 적어준다.</p>
+      </li>
+    </ol>
   </li>
-  <li>
-    <p><a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" target="_blank" rel="noopener noreferrer nofollow">여기</a>를 참고해서 파일, 폴더 등등을 ignore파일 안에 적어준다.</p>
-  </li>
-</ol>
+</ul>
 
 <h1 id="처음-github의-코드를-받아오기">처음 Github의 코드를 받아오기</h1>
 
@@ -406,7 +411,7 @@
   </li>
 </ol>
 
-<h1 id="브랜치-주고받기">브랜치 주고받기</h1>
+<h1 id="원격-레포지토리에-브랜치-등록하기">원격 레포지토리에 브랜치 등록하기</h1>
 
 <ol>
   <li>
@@ -427,10 +432,82 @@
 </span></code></pre></div>    </div>
   </li>
   <li>
-    <p>Github상에서 확인하기
- test</p>
+    <p>Github상에서 확인하기</p>
+
+    <p><img src="/assets/img/github2/branch.png" alt="" width="300px"></p>
+
+    <ul>
+      <li>
+        <p>깃헙 repository 왼쪽 Branch를 눌러보면 다음과 같이 branch가 생긴 것을 볼 수 있다.</p>
+      </li>
+      <li>
+        <p>branch를 누르면 해당 branch에 저장된 파일이 나타난다.</p>
+      </li>
+    </ul>
   </li>
 </ol>
+
+<h1 id="원격-레포지토리의-브랜치를-받아오기">원격 레포지토리의 브랜치를 받아오기</h1>
+
+<ol>
+  <li>
+    <p>원격 레포지토리의 상태를 받아오기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git fetch
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>원격 레포지토리에 어떤 브랜치가 있는지 확인하기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git branch -a
+</span></code></pre></div>    </div>
+    <ul>
+      <li>로컬과 원격의 브랜치를 한번에 볼 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>새로운 브랜치를 만듦과 동시에 원격의 브랜치를 들고오기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git checkout -b [로컬에 만들 브랜치 이름] [원격 레포지토리 이름]/[원격에서 들고올 브랜치 이름]
+</span></code></pre></div>    </div>
+    <ul>
+      <li>뭔가 복잡해보이지만 사실 간단하다. 아까 했던 것 뒤에 원격 정보만 붙인 것이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="원격-브랜치-삭제하기">원격 브랜치 삭제하기</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```terminal
+git push -d [원격 이름] [삭제할 브랜치 이름]
+```
+</code></pre></div></div>
+
+<h1 id="충돌conflict-대비하기">충돌(conflict) 대비하기</h1>
+
+<ul>
+  <li>충돌이 일어나는 경우
+    <ol>
+      <li>브랜치간의 충돌 : 마스터에서 브랜치를 merge해올 때 같은 파일, 같은 줄에 코드가 겹치는 경우</li>
+      <li>사용자간의 충돌 : 다른 사람이 작업한걸 pull하지 않고 push해서 같은 파일, 같은 줄에 코드가 겹치는 경우<br>
+  <br>
+</li>
+    </ol>
+  </li>
+  <li>
+    <p>브랜치간의 충돌은 충돌이 일어난 부분에서 선택적으로 코드를 고르고 다시 add, commit 하면 됐다.</p>
+  </li>
+  <li>
+    <p>사용자간의 충돌도 마찬가지다. pull한 뒤 양쪽 작업에서 겹치는 부분에서 코드를 선택하여 필요없는 부분은 지우고 commit하고 push한다.</p>
+
+    <ul>
+      <li>이때, Head부분이 내 코드다.</li>
+    </ul>
+  </li>
+</ul>
 
   </div>
 
