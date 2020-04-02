@@ -357,7 +357,7 @@
   </li>
 </ol>
 
-<h1 id="github의-코드-받아오기">Github의 코드 받아오기</h1>
+<h1 id="처음-github의-코드를-받아오기">처음 Github의 코드를 받아오기</h1>
 
 <ol>
   <li>
@@ -374,6 +374,63 @@
   </li>
 </ol>
 
+<h1 id="업데이트된-github의-코드를-반영하기">업데이트된 Github의 코드를 반영하기</h1>
+
+<ol>
+  <li>
+    <p>원격 레포지토리의 내용을 불러오기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git fetch
+</span></code></pre></div>    </div>
+    <ul>
+      <li>fetch를 한다고 바로 동기화되는 것은 아니다.<br>
+ <br>
+</li>
+    </ul>
+  </li>
+  <li>
+    <p>원격 레포지토리와 동기화하기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git pull [remote repository 이름] [branch 이름]
+</span></code></pre></div>    </div>
+    <ul>
+      <li>
+        <p>pull까지 해주면 파일이나 커밋 내용이 동기화된다.</p>
+      </li>
+      <li>
+        <p>협업을 할 때는 코드를 push하기 전에 pull을 먼저 해서 최신 버전의 코드를 반영해서 push하는 것이 좋다.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="브랜치-주고받기">브랜치 주고받기</h1>
+
+<ol>
+  <li>
+    <p>먼저 브랜치를 만들고 해당 브랜치로 넘어간다.</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git checkout -b [브랜치 이름]
+</span></code></pre></div>    </div>
+    <ul>
+      <li>위 명령어로 브랜치 생성과 checkout을 한번에 할 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Github에 브랜치 올리기</p>
+
+    <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="go"> git push [원격 레포지토리 이름] [올릴 브랜치 이름]
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Github상에서 확인하기
+ test</p>
+  </li>
+</ol>
 
   </div>
 
