@@ -27,13 +27,13 @@ categories: [Optimization]
     3. variable coverage performance
     4. multi-objective location planning
 
-그리고 이 논문에서는 후보지의 위치가 미리 정해져있는, discrete한 조건을 가진 위치선정문제이다.
+그리고 이 논문에서는 후보지의 위치가 미리 정해져있는, discrete한 조건을 가진 위치선정문제를 다룬다.
 
-## 2. 왜 이런 문제들을 고쳐야하는가?  
+## 2. 이런 부분을 반영하고자 하는 이유가 있나?  
   
-현실을 반영한 모델을 만들기 위함이다. 현실을 충실히 반영하지 못한 모델은 쓸 수 없기 때문이다.  
+좀 더 현실을 반영한 모델을 만들기 위함이다. 현실을 충실히 반영하지 못한 모델은 쓸 수 없기 때문이다.  
   
-그렇다면 이 논문에서 이슈로 삼고 있는 각각의 문제들이 왜 문제가 되는지 알아보자.  
+그렇다면 이 논문에서 이슈로 삼고 있는 각각의 문제들에 대해 살펴보자.
   
 - **gradual covering decay**  
 
@@ -45,11 +45,13 @@ categories: [Optimization]
   
     - 하나의 customer이 꼭 하나의 설비에게서만 서비스를 받을 필요는 없다.  
       
-    - 여러개의 설비에 대해 부분적으로 서비스를 받는 경우도 충분히 존재한다.  
+    - 여러개의 설비가 하나의 customer에게 동시에 서비스 제공하는 경우도 충분히 존재한다. 
+
+    - 예를 들어, 경보 사이렌, 송신탑, 감시 센서 등이 그러하다.
   
 - **variable coverage performance**  
   
-    - 현실의 많은 설비들은 그 사이즈에 따라 커버할 수 있는 반경이 달라진다.  
+    - 현실의 많은 설비들은 그 사이즈에 따라 커버할 수 있는 반경과 capatity가 달라진다.
       
     - 그리고 설비들은 사이즈에 따라 cost가 달라진다.
 
@@ -116,7 +118,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
   
     ![](/assets/img/paper1/fermi_r.png){:width="500px"}  
       
-    - 그래프 (b)에서 보았듯, $$r$$값이 커지게 되면 커버될 확률이 커지게 된다.
+    - 그래프 (b)에서 보았듯, $$\rho_r$$값이 커지게 되면 커버될 확률이 커지게 된다.
 
 - 설비의 size는 $$\rho_r$$에 비례하고, 다음과 같은 식으로 계산될 수 있다.  
   
@@ -124,6 +126,8 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 
     - $$s^f_r$$ : 커버 반경 $$\rho_r$$을 갖는 설비의 크기
     - $$s^{cl}_j$$ : 후보지 $$j$$의 물리적인 크기 
+
+- 이때, feasibility를 유지하기 위해 모든 설비들에 대해 $$s^f_r \leq s^{cl}_j$$은 만족해야한다.
 
 ### 4.3 Modeling cooperative coverage  
 
@@ -165,7 +169,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 
 - $$\alpha$$값은 의사결정권자가 설정한다. $$\alpha$$값이 클 수록 가깝고 큰 설비를 선호하게 된다.  
   
-- 목적식에서 각 target $$\alpha$$값과의 편차를 최소화한다. 이 방법으로 infeasible을 방지하되, 가능한 높은 $$\alpha$$-coverage를 유지할 수 있게 해준다.
+- 목적식에서 각 target $$\alpha$$값과의 음(negative)의 편차를 최소화한다. 이 방법으로 infeasible을 방지하되, 가능한 높은 $$\alpha$$-coverage를 유지할 수 있게 해준다.
 
 #### 4.4.2 Budget  
   
@@ -184,11 +188,11 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
       
     - $$\beta_j$$는 위치별로 달리 주어지는 상수  
       
-    - $$\rho^m_r$$에서 m은 marginal return curve를 결정한다. $$m \lt 1$$ 일 경우 increase, $$m < 1 일 경우 decrease이다.
+    - $$\rho^m_r$$에서 m은 marginal return curve를 결정한다. $$m \gt 1$$ 일 경우 increase, $$m \lt 1$$ 일 경우 decrease이다.
 
 - Budget 차원에서, 목적함수는 cost와 주어진 예산 $$B$$사이의 양(positive)의 편차를 최소화 한다.
 
-#### 4.4.3 Capacity  
+#### 4.4.3 Workload Balance(Capacity)
   
 - 많은 입지선정 모델들은 설비의 capacity에 제한을 두지 않아 demand를 무제한으로 충족할 수 있다. 하지만 이는 현실의 상황에는 맞지 않다.  
   
@@ -242,9 +246,9 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
 
 ### 5.2 Multi-objective integer linear programming (ILP) formulation  
   
-- INLP 모델은 convexity를 보장하지 않기 때문에 문제를 푸는게 까다롭다.  
+- INLP 모델은 convexity를 보장하지 않기 때문에 global optimal을 보장하지 못한다.
   
-- 이 논문에서는 네트워크 개념을 도입하여 INLP를 linearize(선형화)한 ILP 모델을 소개한다.  
+- 따라서 이 논문에서는 네트워크 개념을 도입하여 INLP를 linearize(선형화)한 ILP 모델을 소개한다.  
   
 - 이 방법은 경로를 따라 flow를 커버 확률을 capture하는 flow를 만드는 네트워크를 사용한다.  
 
@@ -262,7 +266,7 @@ network 구조를 이용해서 INLP를 multi-objective integer linear program(IL
       
     - 특히, 인접한 (adjacent)노드끼리는 $$r \in R$$에 대해 positive labeled arc이 있고, 하나의 negative labeled arc가 존재한다.  
 
-        > positive labeled arc : $$x_{i,j} = 1$$이라면, 설비 크기가 $$r$$이고 나가는 노드가 $$j$$인 positive labeld arc에 flow가 발생한다.  
+        > positive labeled arc : $$x_{j,r} = 1$$이라면, 설비 크기가 $$r$$이고 나가는 노드가 $$j$$인 positive labeld arc에 flow가 발생한다.  
         
         > negative labeled arc : 위치 $$j$$에 어떤 설비도 설치되지 않는다면, negative labeled arc에 flow가 발생한다.
       
