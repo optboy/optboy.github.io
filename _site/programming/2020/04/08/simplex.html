@@ -40,7 +40,7 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="LP를 푸는 가장 대표적인 방법으로 심플렉스법이 있다." />
+<meta name="description" content="LP를 푸는 대표적인 방법으로 심플렉스 알고리즘이 있다." />
 
 
 
@@ -54,7 +54,7 @@
 
 
 <meta name="twitter:title" content="Simplex method - 심플렉스법" />
-<meta name="twitter:description" content="LP를 푸는 가장 대표적인 방법으로 심플렉스법이 있다." />
+<meta name="twitter:description" content="LP를 푸는 대표적인 방법으로 심플렉스 알고리즘이 있다." />
 
 
 
@@ -73,7 +73,7 @@
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="LP를 푸는 가장 대표적인 방법으로 심플렉스법이 있다." />
+<meta property="og:description" content="LP를 푸는 대표적인 방법으로 심플렉스 알고리즘이 있다." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
@@ -203,10 +203,28 @@
   </header> -->
 
   <div itemprop="articleBody">
-    <p>LP를 푸는 가장 대표적인 방법으로 심플렉스법이 있다.</p>
+    <p>LP를 푸는 대표적인 방법으로 심플렉스 알고리즘이 있다.</p>
 
-<p>학부 과정에서는 tableau를 이용해서 심플렉스 알고리즘을 배웠지만,<br>
-대학원 과정에서 이를 좀 더 이론적을 배웠다. 내용이 다소 복잡하지만 가볍게 정리해두고자 한다.</p>
+<p>학부 과정에서는 tableau를 이용해서 심플렉스 알고리즘으로 해를 찾는 방법을 배웠지만,<br>
+대학원 과정에서 그 원리에 대해 이론적으로 배우고 있다. 내용이 다소 복잡하지만 가볍게 정리해두고자 한다.</p>
+
+<h1 id="simplex-method">Simplex method</h1>
+
+<p>최적화를 하기 위해서는 <strong>거리</strong>와 <strong>방향</strong>을 알아야 한다.<br>
+어떤 지점에서 어떤 방향으로, 얼마나 가야 해가 더 좋아지는 지를 찾는 것이다.</p>
+
+<p>심플렉스 알고리즘에서도 마찬가지다.</p>
+
+<p>심플렉스 알고리즘은 BFS(Basic Feasible Solution)를 돌아다니면서 optimal을 찾는데,
+하나의 BFS에서 다른 BFS로 이동할때의 거리와 방향을 알아야 한다.<br>
+Polyhedron의 꼭지점들을 돌아다니는 것이다.</p>
+
+<p>어떤 feasible solution <script type="math/tex">x</script>가 있을 때, <script type="math/tex">x</script>의 주변에 해를 개선시킬 수 있는 곳을 찾는다.<br>
+만약 주변에 그런 feasible solution이 없다면, <strong>local optimal</strong>을 찾은 것이다.<br>
+<strong>local optimal</strong>은 대개 <strong>global optimal</strong>이 아니다.<br>
+하지만 문제가 <strong>Convex</strong>하다면 <strong>local optimal</strong>이 곧 <strong>global optimal</strong>이다.</p>
+
+<p>LP는 Convex이기 때문에 local optimal을 찾기만 하면 된다. 기회가 된다면 Convex에 대해서도 다뤄보려고 한다.</p>
 
 <h2 id="standard-form">standard form</h2>
 
@@ -224,6 +242,19 @@
 <blockquote>
   <p>full row rank는 각 row가 linearly independent한 matrix를 의미한다.</p>
 </blockquote>
+
+<h2 id="direction--어디로-보낼-것인가">direction : 어디로 보낼 것인가?</h2>
+
+<blockquote>
+  <p>Def : <script type="math/tex">P</script> is polyhedron. Given <script type="math/tex">x \in P, d \in R^n</script> is a feasible direction at <script type="math/tex">x</script> if <script type="math/tex">\exists \theta \gt 0</script> such that <script type="math/tex">x + \theta d \in P</script></p>
+</blockquote>
+
+<p>위 정의를 이해한대로 설명해보자면, Polyhedron안에 있는 점에 대해 어떤 방향으로 조금 움직였을때 그 점이 여전히 Polyhedron안에 있다면 해당 방향으로 이동이 가능하다는 것이다.</p>
+
+<p>하지만 우리는 더 좋은 방향으로 이동을 해야한다.<br>
+즉, <script type="math/tex">Ax = b</script>와 <script type="math/tex">x \geq 0</script>을 만족하고, 더 좋은 objective value를 갖는 새로운 점 <script type="math/tex">x+\theta d</script>를 찾아야 하는 것이다.</p>
+
+<p>계속 업데이트됩니다..</p>
 
 
   </div>
