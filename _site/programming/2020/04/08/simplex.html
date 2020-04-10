@@ -251,10 +251,61 @@ Polyhedron의 꼭지점들을 돌아다니는 것이다.</p>
 
 <p>위 정의를 이해한대로 설명해보자면, Polyhedron안에 있는 점에 대해 어떤 방향으로 조금 움직였을때 그 점이 여전히 Polyhedron안에 있다면 해당 방향으로 이동이 가능하다는 것이다.</p>
 
-<p>하지만 우리는 더 좋은 방향으로 이동을 해야한다.<br>
+<p>하지만 우리는 더 <strong>좋은</strong> 방향으로 이동을 해야한다.<br>
 즉, <script type="math/tex">Ax = b</script>와 <script type="math/tex">x \geq 0</script>을 만족하고, 더 좋은 objective value를 갖는 새로운 점 <script type="math/tex">x+\theta d</script>를 찾아야 하는 것이다.</p>
 
-<p>계속 업데이트됩니다..</p>
+<p>일단 점 <script type="math/tex">x</script>를 다음과 같이 이동시킨다고 생각해보자. 이때 <script type="math/tex">B</script>는 basic variable, <script type="math/tex">N</script>은 non-basic variable이다. 
+참고로, <script type="math/tex">m \times n</script>의 full row rank matrix이기에 m개의 basic variable이 생길테고, n-m개의 non-basic variable이 생긴다.</p>
+
+<script type="math/tex; mode=display">x+\theta d = \begin{pmatrix} x_B \\ x_N \end{pmatrix}  + \theta \begin{pmatrix} d_B \\ d_N \end{pmatrix}</script>
+
+<p>그리고 이때 non-basic variable의 방향 중 <script type="math/tex">d_j</script>만 값이 1이고 나머지는 0이라고 하자.</p>
+
+<p>위에서 말했듯이, <script type="math/tex">Ax = b</script>와 <script type="math/tex">x \geq 0</script>는 feasible한 솔루션을 위해 기본적으로 만족을 해야하는데, 
+특정 방향을 부여해도 이 조건은 만족해야할 것이다. 즉, <script type="math/tex">A(x+\theta d) = b</script> for <script type="math/tex">\theta > 0</script>역시 만족해야할 것이다.</p>
+
+<p>하지만 이를 만족하기 위해서는 <script type="math/tex">Ad = 0</script>이어야만 한다. <script type="math/tex">\theta</script>가 0보다 크기 때문이다.</p>
+
+<p>이는 다음과 같이 전개할 수 있다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    0 &\ = Ad \\
+    &\ = \sum^n_{i=1}A_id_i \\
+    &\ = \sum^m_{i=1}A_{B(i)}d_{B(i)} + A_j \\
+    &\ = Bd_B + A_j \\
+    \Rightarrow d_b &\ = -B^{-1}A_j
+} %]]></script>
+
+<p>이때 matrix <script type="math/tex">A</script>의 컬럼을 <script type="math/tex">\begin{bmatrix} B, N \end{bmatrix}</script>으로 구분하고 해를 <script type="math/tex">x = (x_B, x_N)</script>, 방향을 <script type="math/tex">d = (x_B, x_N)</script>으로 나누었을 때,</p>
+
+<script type="math/tex; mode=display">d=\begin{bmatrix} -B^{-1}A_j \\ e_j \end{bmatrix}</script>
+
+<p>으로 표현이 가능하다. 이를 <em>j-th basic direction</em>이라 부르고, 이는 모서리를 따라 움직이게 하는 <strong>방향</strong>이다.</p>
+
+<p>잠깐 정리를 좀 하자면, <script type="math/tex">B^{-1}</script>은 <script type="math/tex">m \times n</script> matrix, <script type="math/tex">A</script>는 <script type="math/tex">n \times 1</script> matrix이다. 따라서 이를 곱하면 m차원의 벡터가 된다. 그리고 <script type="math/tex">e_j</script>는 <script type="math/tex">j</script>번째만 값이 1이고 나머지는 0인 n-m차원의 벡터다. 결국 <script type="math/tex">d</script>는 n차원의 벡터가 된다.</p>
+
+<p>이때, <script type="math/tex">j</script>는 n-m개 만큼 있기 때문에, basic direction 역시 n-m개가 있다.</p>
+
+<p>사실 이 방향은 tableau를 통해 심플렉스를 풀때 칼럼에서 그대로 볼 수 있다.</p>
+
+<p>그리고, 비음제약식에서도 <script type="math/tex">Ax = b</script>를 성립해야 하는데, non-basic variable에 대해서 이때 음의 거리만큼 움직일 시에 비음제약(non-negativity constraint)을 즉시 위반하기 때문에 음의 거리로 움직이는 것은 제외하도록 한다.</p>
+
+<p>그렇기에 <strong>우리가 움직일 수 있는 방향은 non-negative한 n-m개의 basic direction들의 선형 조합</strong>이다.
+그리고 심플렉스 알고리즘에서는 이 basic direction 중에서 하나의 방향을 선택한다.</p>
+
+<p>추가적으로, basic direction은 extreme ray인데..
+추후에, extreme ray, cone 등에 대해 따로 알아보는 시간을 가져보겠다.</p>
+
+<blockquote>
+  <p>Note that if a direction satisfies <script type="math/tex">d_B = -B^{-1}A_j \geq 0</script>, it is an <strong>extreme ray</strong> of recession <strong>cone</strong> of <script type="math/tex">P</script></p>
+</blockquote>
+
+<h2 id="distance--얼마나-보낼-것인가">distance : 얼마나 보낼 것인가?</h2>
+
+<p>이제 방향을 알았다면, 어디까지 보낼 지 알아야 한다.</p>
+
+<p>일단 보내기 전에,</p>
 
 
   </div>
