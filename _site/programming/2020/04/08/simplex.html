@@ -301,11 +301,22 @@ Polyhedron의 꼭지점들을 돌아다니는 것이다.</p>
   <p>Note that if a direction satisfies <script type="math/tex">d_B = -B^{-1}A_j \geq 0</script>, it is an <strong>extreme ray</strong> of recession <strong>cone</strong> of <script type="math/tex">P</script></p>
 </blockquote>
 
-<h2 id="distance--얼마나-보낼-것인가">distance : 얼마나 보낼 것인가?</h2>
+<h3 id="그럼-basic-direction-중-어떤-방향을-선택할-것인가">그럼 basic direction 중 어떤 방향을 선택할 것인가?</h3>
 
-<p>이제 방향을 알았다면, 어디까지 보낼 지 알아야 한다.</p>
+<p>우리는 목적함수를 개선하는 방향을 찾고자 한다.</p>
 
-<p>일단 보내기 전에,</p>
+<script type="math/tex; mode=display">% <![CDATA[
+c'(x+\theta d^j) - c'x = \theta c'd^j < 0 %]]></script>
+
+<p><script type="math/tex">c'</script>이 목적함수의 계수일 때, 어떤 방향 <script type="math/tex">d^j</script>로 <script type="math/tex">\theta</script>만큼 이동했을 때 목적함수의 변화량이 음수라면(minimize문제일 때) 그 방향으로 이동할 가치가 있는 것이다.</p>
+
+<p><script type="math/tex">\theta</script>는 음수가 아니기에, <script type="math/tex">c'd^j</script>가 음수여야 하는데, 이는 다음과 같다.</p>
+
+<script type="math/tex; mode=display">c'd^j = (c'_B, c'_N)\begin{bmatrix}-B^{-1}A_j \\ e_j\end{bmatrix} = c_j - c'_{B}B^{-1}A_j \equiv \bar{c_j}</script>
+
+<p>여기서 <script type="math/tex">e_j</script>는 <script type="math/tex">j</script>번째만 1이기 때문에 <script type="math/tex">c_j</script>만 남게되고, 결국 <script type="math/tex">c_j - c'_{B}B^{-1}A_j</script>형태가 되는데, 이것이 <strong>reduced cost</strong>이다.</p>
+
+<p>즉, non-basic variable 중에서, reduced cost를 음수로 만드는 방향으로 가는 것이 목적함수를 개선시키는 것이다.</p>
 
 
   </div>
