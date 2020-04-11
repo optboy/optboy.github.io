@@ -328,10 +328,61 @@ c'(x+\theta d^j) - c'x = \theta c'd^j < 0 %]]></script>
 
 <p>여기까지, 우리는 어떤 방향으로 갈지는 알았다. 그렇다면 얼마나 가야할까?</p>
 
-<p>계속 업데이트 됩니다..!
-<!-- non-degenerate한 BFS만이 있다고 가정했을 때,  
-$$$$ --></p>
+<p>non-degenerate한 BFS만이 있다고 가정했을 때, <script type="math/tex">\bar{c_j} \geq 0, \forall j \in N</script>이라면 현재 솔루션이 optimal이다.
+어떤 reduced cost에도 음수가 없다면 현재 솔루션이 최적인 것인데,</p>
 
+<p>그렇지 않다면, 음수의 reduced cost를 가지는 <script type="math/tex">j</script>를 찾고(maximize문제일 때), <script type="math/tex">d</script>벡터(j번째 basis direction)을 찾아야 한다.</p>
+
+<p>이때 우리는 얼마나 갈 것인지를 의미하는 <script type="math/tex">\theta</script>값을 찾고 싶은 것이다.<br>
+polyhedron을 벗어나지 않을만큼 적절한 거리만큼을 가야하고, 움직였을 때 목적함수는 <script type="math/tex">\theta^{*}c'd = \theta^{*}\bar{c_j}</script>만큼 바뀌게 된다.</p>
+
+<p>그리고 벡터 <script type="math/tex">d</script>는 <script type="math/tex">A(x+\theta d) = b</script>와 <script type="math/tex">(x+\theta d) \geq 0</script>을 만족해야 한다.<br>
+이때,</p>
+
+<blockquote>
+  <p>if <script type="math/tex">d \geq 0</script>, then <script type="math/tex">(x+\theta d) \geq 0, \forall \theta \geq 0</script>. Hence <script type="math/tex">\theta^* = \infty</script></p>
+</blockquote>
+
+<p><script type="math/tex">d</script>가 0보다 크거나 같으면, 음수가 아닌 모든 <script type="math/tex">\theta</script>에 대해서 <script type="math/tex">x+\theta d \geq 0</script>를 만족하기 때문에 세타가 무한히 증가할 수 있다.</p>
+
+<blockquote>
+  <p>if <script type="math/tex">d_i \lt 0</script> for some <script type="math/tex">i</script>, <script type="math/tex">(x_i + \theta d_i) \leq 0 \Rightarrow \theta \leq -x_i/d_i</script></p>
+</blockquote>
+
+<p>어떤 <script type="math/tex">i</script>에 대한 <script type="math/tex">d_i</script>가 0보다 작다면, <script type="math/tex">(x_i+\theta d_i) \geq 0</script>이기 위해서 세타는 <script type="math/tex">-x_i/d_i</script>보다 작거나 같아야 한다.</p>
+
+<p>그래서 갈 수 있는 최대한의 거리가 다음과 같이 정의된다.</p>
+
+<script type="math/tex; mode=display">\theta^* = \min_{\{i=1,...,m:d_B(i)\lt0\}}(-\frac{x_{B(i)}}{d_{B(i)}})</script>
+
+<p>이를 <strong>minimum ratio test</strong>라고 부르며, 심플렉스를 tableau로 풀 때 leaving variable을 찾기 위해 쓰는 것이다.</p>
+
+<h2 id="그래서-이걸-언제까지-해야되나">그래서 이걸 언제까지 해야되나?</h2>
+
+<p>Polyhedron이 있고, 모든 BFS가 non-degeneratefkaus, 심플렉스 알고리즘은 언젠가 끝이 나게 되어 있다.</p>
+
+<p>끝나는 경우는 두가지가 있다.</p>
+
+<ul>
+  <li>최적의 basis를 찾고, 최적의 BFS를 찾는 경우.
+    <blockquote>
+      <p>reduced cost가 음수인 것이 없는 것이다. (minimize 문제일 때)</p>
+    </blockquote>
+  </li>
+  <li>
+<script type="math/tex">% <![CDATA[
+Ad = 0, d \geq 0, c'd < 0 %]]></script>를 만족하는 벡터 <script type="math/tex">d</script>를 찾았지만 optimal이  <script type="math/tex">-\infty</script>인 경우.
+    <blockquote>
+      <p>unbounded direction을 찾은 것이다. 이 경우 목적함수가 무한히 좋아지게 된다.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<hr>
+
+<p>수업 내용을 이해한대로 정리한 것이므로, 틀린 부분이 있을 수 있습니다.</p>
+
+<p>혹시 그런 부분을 발견한다면 언제든 연락주시면 감사히 배우겠습니다.</p>
 
   </div>
 
