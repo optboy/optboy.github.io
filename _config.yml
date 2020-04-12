@@ -34,3 +34,6 @@ header_page_refs: ['category', 'about']
 
 disqus_url: 'https-optboy-github-io.disqus.com'
 disqus_id: 'https-optboy-github-io'
+    
+paginate: 10               
+paginate_path: "/page:num/"

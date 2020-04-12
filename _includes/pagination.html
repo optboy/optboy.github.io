@@ -1,0 +1,38 @@
+{% if paginator.total_pages > 1 %}
+  <div class='pagination'>
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
+        &laquo; Prev
+      </a>
+    {% else %}
+      <span>&laquo; Prev</span>
+    {% endif %}
+    
+    Page {{paginator.page}} of {{ paginator.total_pages }}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">
+        Next &raquo;
+      </a>
+    {% else %}
+      <span>Next &raquo;</span>
+    {% endif %}
+  </div>
+{% endif %}
+</div>
+
+<style lang="scss">
+  .pagination {
+    margin: auto;
+    text-align: center;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 55px 0 25px 0;
+    color: #999;
+  }
+  span.pagination-selected {
+    display: inline-block;
+    font-size: 1.3rem;
+  }
+</style>
