@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>Convex</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="Convex" />
+<meta name="twitter:description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/04/13/convexity.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Convex" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/04/13/convexity.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-04-13T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/04/13/convexity.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">Convex</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-04-13T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Apr 13, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Convex</h1>
+    <p class="post-meta">
+      <time datetime="2020-04-13T00:00:00+09:00" itemprop="datePublished">
+        
+        Apr 13, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다.</p>
+
+<p>이번에는 <strong>convex</strong>라는 것이 무엇인지 알아보겠다.</p>
+
+<h2 id="convex-function이란">convex function이란?</h2>
+
+<p>convex function은 아래로 볼록한 함수를 뜻한다.</p>
+
+<p>이를 수학적으로 표현하자면,</p>
+<blockquote>
+  <p>Function <script type="math/tex">f:R^n \Rightarrow R</script> is called a <strong>convex function</strong> if <br>
+<script type="math/tex">f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda) f(y)</script><br>
+for all <script type="math/tex">x,y \in R^n</script> and all <script type="math/tex">\lambda \in [0,1]</script></p>
+</blockquote>
+
+<p>이를 도식화하면 다음과 같다.</p>
+
+<p><img src="/assets/img/convex/convex_func.png" alt="" width="500px"></p>
+
+<p>즉, x1, x2사이의 어떤 x값이 들어가더라도 함수의 결과값이 함수 위의 두 점을 잇는 선분에서의 값보다 작거나 같다면 convex function인 것이다.</p>
+
+<p>그리고 convex function에 음수를 취하게 되면 <strong>concave function</strong>이 된다.</p>
+
+<h2 id="convex-set이란">convex set이란?</h2>
+
+<p>convex set에 대한 수학적인 정의는 다음과 같다.</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">x_1,x_2 \in C, 0 \lt \theta \lt 1 \Rightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+</blockquote>
+
+<p>이를 풀어 설명하면, 어떤 집합에 속하는 두 점을 이용해 선분(line segment)을 만들었을 때, 그 선분 역시 집합에 포함된다면, 이 집합을 convex라고 할 수 있다.</p>
+
+<p>아래 그림을 보자.</p>
+
+<p><img src="/assets/img/convex/convex_set.gif" alt="" width="300px"></p>
+
+<p>위 그림에서 (A)에 속한 두 집합은 선분을 포함하기에 convex이지만, (B)에 속한 두 집합은 선분을 포함하지 않는 경우가 있으므로 convex set이 아니다.</p>
+
+<p>그렇다면 직선은 convex일까?</p>
+
+<p>직선도 convex로 볼 수 있다. <br>
+convex의 정의상, 직선 위의 두 점을 잡고 선분을 만들었을 때 그 선분은 직선에 포함되기 때문이다.</p>
+
+<p>사실 여기서의 선분은 <strong>convex combination</strong>으로 볼 수 있다.</p>
+
+<h2 id="convex-combination이란">convex combination이란?</h2>
+
+<p>수학적 정의는 다음과 같다.</p>
+
+<blockquote>
+  <p><script type="math/tex">x,y \in R^n, \lambda_1, \lambda_2 \gt 0, \lambda_1 + \lambda_2 = 1</script> then <script type="math/tex">lambda_1 x + \lambda_2 y</script> is said to be a convex combination of <script type="math/tex">x,y</script></p>
+</blockquote>
+
+<p>즉, convex combination은 위 식에서 보이는 바와 같이, 집합 내 두 점을 linear combination하되, 계수가 양수이고 계수의 합을 1로 제한한 것과 같다.</p>
+
+<p>이를 다음과 같이 일반화할 수 있다.</p>
+
+<blockquote>
+  <p><script type="math/tex">\sum^k_{i=1} \lambda_i x^i</script>, where <script type="math/tex">\sum^k_{i=1} \lambda_i = 1</script> and <script type="math/tex">\lambda_i \gt 0, i = 1,...,k</script> is a convex combination of the points <script type="math/tex">x^1,...,x^k</script></p>
+</blockquote>
+
+<p>그리고 집합 C에 포함된 모든 점들로 만든 convex combination의 집합은 <strong>convex hull</strong>이라고 한다. 
+convex hull은 <strong>conv C</strong>라고 표기한다.
+conv C는 항상 convex이며 집합 C를 포함하는 가장 작은 convex set이다.</p>
+
+<p><img src="/assets/img/convex/convex_hull.gif" alt="" width="300px"></p>
+
+<h2 id="convex-set과-convex-function의-관계">convex set과 convex function의 관계</h2>
+
+<blockquote>
+  <p>함수 f의 epigraph가 convex set일때, 함수 f는 convex function이다.</p>
+</blockquote>
+
+<p>여기서 epigraph는 함수의 그래프 위쪽 영역에 해당하는 집합이다. 따라서 supergraph라고도 한다.
+이를 수학적으로 정의하면 다음과 같다.</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">epi f = {(x,\mu) : x \in \mathbb{R}^n, \mu \in \mathbb{R}, \mu \geq f(x)} \subseteq \mathbb{R}^{n+1}</script>
+</blockquote>
+
+<p><img src="/assets/img/convex/epigraph.gif" alt="" width="300px"></p>
+
+<p>함수 f가 convex function이라면 epi f는 항상 convex set이고,
+epi f가 convex set이라면 함수 f가 convex function이다</p>
+
+<h2 id="convex의-특징">convex의 특징</h2>
+
+<p>업데이트 예정..</p>
+
+<!-- 
+1. convex의 교집합은 convex다.
+
+2. convex의 합집합은 convex가 아니다.
+    - IP도 convex의 합집합에 대한 문제로 볼 수 있다.
+    - B&B나 big-M등을 사용해서 문제 푼다. -->
+
+<h4 id="참고">참고</h4>
+
+<ul>
+  <li>
+<a href="http://chungmoklee.github.io/" target="_blank" rel="noopener noreferrer nofollow">이충목 교수님</a> 강의자료</li>
+  <li><a href="https://www.sciencedirect.com/topics/engineering/convex-set" target="_blank" rel="noopener noreferrer nofollow">ScienceDirect</a></li>
+  <li><a href="https://wikidocs.net/17495" target="_blank" rel="noopener noreferrer nofollow">모두를 위한 컨벡스 최적화</a></li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
