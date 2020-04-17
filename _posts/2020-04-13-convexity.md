@@ -2,7 +2,7 @@
 layout: post
 title: "Convex"
 author: optboy
-categories: [optimization]
+categories: [Optimization]
 ---
 
 최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다.  
