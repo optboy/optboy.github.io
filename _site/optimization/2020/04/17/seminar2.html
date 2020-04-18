@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[논문 리뷰] The hub covering flow problem</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="이번 연구실 세미나에서 발표할 논문은 “The hub covering flow problem”이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[논문 리뷰] The hub covering flow problem" />
+<meta name="twitter:description" content="이번 연구실 세미나에서 발표할 논문은 “The hub covering flow problem”이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/04/17/seminar2.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[논문 리뷰] The hub covering flow problem" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/04/17/seminar2.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="이번 연구실 세미나에서 발표할 논문은 “The hub covering flow problem”이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-04-17T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/04/17/seminar2.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[논문 리뷰] The hub covering flow problem</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-04-17T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Apr 17, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[논문 리뷰] The hub covering flow problem</h1>
+    <p class="post-meta">
+      <time datetime="2020-04-17T00:00:00+09:00" itemprop="datePublished">
+        
+        Apr 17, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>이번 연구실 세미나에서 발표할 논문은 <strong>“The hub covering flow problem”</strong>이다.</p>
+
+<h2 id="hub-covering-flow-problemhcfp이란">Hub covering flow problem(HCFP)이란?</h2>
+
+<p>HCFP는 hub-and-spoke(대도시 거점 노선 운항 방식)네트워크에서 non-hub node들을 hub-node에 할당하면서 최소한의 비용으로 hub node를 배치하는 문제이다.</p>
+
+<p>여기서 hub-and-spoke란 다음 그림과 같이 hub노드들을 중심으로 여러 노드가 연결되어 있는 방식의 네트워크이다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/paper2/hub-and-spoke.png" alt="" width="400px"></p>
+
+<p>이러한 hub-and-spoke방식은 일상 생활에서도 많이 찾아볼 수 있다.
+예를 들어, 항공망, 우편망, 통신망, 공공교통체계, 운송망 등이 hub-and-spoke방식을 사용한다.</p>
+
+<p>일반적으로 이러한 hub location problem에서는 노드들의 부분집합이 hub로 선택된다.
+hub 노드는 다른 노드들을 서로 연결하는 역할을 하고, non-hub 노드들은 single assignment나 multiple-assignment규칙에 의해 hub노드들에 연결된다.</p>
+
+<blockquote>
+  <p>single assignment network : 각 노드들이 정확히 하나의 hub 노드에 연결된다.
+multiple assignment network : 각 노드들이 적어도 하나의 hub 노드에 연결된다.</p>
+</blockquote>
+
+<p>이 논문에서는 single assignment network만을 다루고 있다.</p>
+
+<p>그리고 hub-and-spoke 시스템에서 demend는 origin node에서 destination node까지의 flow로 표현이 된다.</p>
+
+<p>hub location problem에는 다양한 변종 문제들이 존재한다.</p>
+
+<blockquote>
+  <p><script type="math/tex">p</script>-hub median problem, the hub covering problem(HCP), the <script type="math/tex">p</script>-hub centre problem, hub arc location problem …</p>
+</blockquote>
+
+<p>이 논문에서는 uncapacitated hub location problem(UHLP)와 the hub covering problem(HCP)의 특징들을 결합한다.</p>
+
+<blockquote>
+  <p>Uncapacitated hub loaction problem(UHLP) : hub를 여는 총 비용과 demand flow에 대한 운송비용의 총합을 최소화하는 네트워크를 찾는 것인데, demand flow에 어떤 capacity제약도 존재하지 않는 것이다.</p>
+</blockquote>
+
+<p>하지만 어떤 경우에는 노드간의 거리에 관한 제약이 필요할 수도 있다. 예를 들어, 항공네트워크에서는 비행기의 최대비행거리를 고려해줘야 할 것이다.</p>
+
+<p>이러한 제약은 location theory에서의 제약과 비슷하다. 
+설비와 demand point와의 거리가 설비의 커버반경 안에 들어온다면 cover되었다고 할 수 있고, 이러한 set covering problem은 설비의 설치 비용을 최소화하는 설비위치를 찾을 수 있다.</p>
+
+<p>HCP에서 set covering problem의 개념을 처음 도입하고자 했던 Campbell은 coverage에 대한 서로 다른 세가지 정의를 제안했다.</p>
+
+<blockquote>
+  <p>An origin-destination pair (<script type="math/tex">i</script>,<script type="math/tex">j</script>) is covered if</p>
+  <ol>
+    <li>the total length of the path from node <script type="math/tex">i</script> to node <script type="math/tex">j</script> through hub k first then hub <script type="math/tex">l</script> does not exceed a specified value</li>
+    <li>the length of each link in the path from node <script type="math/tex">i</script> to <script type="math/tex">j</script> through hub k first then <script type="math/tex">l</script> does not exceed a specified value</li>
+    <li>the length of each of the links connecting a non-hub node to a hub node in the path from node <script type="math/tex">i</script> to <script type="math/tex">j</script> does not exceed a specified value</li>
+  </ol>
+</blockquote>
+
+<p>이 논문에서는 세번째 정의를 coverage의 정의로 사용했다.</p>
+
+<p>이 논문에서는 hub covering flow problem(HCFP)를 통해 coverage를 충족시키면서 설비비용과 demand flow운송 비용을 최소화하는 방법을 제안한다.</p>
+
+<h2 id="model-formulation-hcfp">Model Formulation (HCFP)</h2>
+
+<p>이 논문에서는 single-assignment network를 사용해서 문제를 풀었으며, UHLP에서의 multi-commodity flow formation을 기반으로 formulation을 만들었다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/paper2/formulation.png" alt="" width="450px"></p>
+
+<ul>
+  <li>
+<script type="math/tex">N</script>: 네트워크의 노드의 집합</li>
+  <li>
+<script type="math/tex">Z_{ik}, \forall i,k \in N</script>: node <script type="math/tex">i</script>가 hub에 할당되면 1, 아니면 0인 binary variable
+    <ul>
+      <li>
+<script type="math/tex">Z_{kk} = 1</script>이라면, node <script type="math/tex">k</script>가 hub노드인 것이다.</li>
+    </ul>
+  </li>
+  <li>
+<script type="math/tex">F_k, \forall k \in N</script>: node <script type="math/tex">k</script>에 대해 설치,운영비를 연간으로 환산한 비용</li>
+  <li>
+<script type="math/tex">W_{ij}</script>: node <script type="math/tex">i</script>에서 node<script type="math/tex">j</script>까지의 demand flow</li>
+  <li>
+<script type="math/tex">O_i</script>: node <script type="math/tex">i</script>에서 시작한 총 demand</li>
+  <li>
+<script type="math/tex">D_i</script>: node <script type="math/tex">i</script>로 끝나는 총 demand</li>
+  <li>
+<script type="math/tex">c_{ij}</script>: node <script type="math/tex">i</script>에서 node <script type="math/tex">j</script>로 한 unit이 이동하는 비용</li>
+  <li>
+<script type="math/tex">\alpha</script>: transfer cost factor</li>
+  <li>
+<script type="math/tex">\chi</script>: collection cost factor</li>
+  <li>
+<script type="math/tex">\delta</script>: distrubution cost factor
+    <ul>
+      <li>
+<script type="math/tex">\alpha</script>, <script type="math/tex">\chi</script>, <script type="math/tex">\delta</script>는 운송비용 <script type="math/tex">c_{ij}</script>를 스케일링하는 데 사용된다. 그리고 <script type="math/tex">c_{ij}</script>는 symmetric하다고 가정했다.</li>
+    </ul>
+  </li>
+  <li>
+<script type="math/tex">y=Y^i_{kl}</script>: 노드 <script type="math/tex">i</script>에서 시작하여, hub <script type="math/tex">k</script>를 지나고 hub <script type="math/tex">l</script>을 지나는 flow의 양</li>
+  <li>
+<script type="math/tex">A_{ik}, \forall i,k i\in N</script>: non-hub node <script type="math/tex">i</script>가 node <script type="math/tex">k</script>에 있는 hub에 cover되었다면 1, 아니면 0인 binary variable
+    <ul>
+      <li>이 matrix를 통해 모델의 사이즈를 줄일 수 있다. 아래 (2)번 제약에서 볼 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="목적식">목적식</h3>
+<p>hub의 총 연간비용, hub간의 demand 운송비용, non-hub와 hub 사이의 운송비용을 각각 더한 것을 minimize하는 것이다.</p>
+
+<h3 id="제약식">제약식</h3>
+<p>(2) : node <script type="math/tex">i</script>를 cover할 수 있는 node <script type="math/tex">k</script>에만 node <script type="math/tex">i</script>가 할당될 수 있도록 한다.<br>
+(3),(7) : 네트워크가 single assignment rule을 따르도록 한다.<br>
+(4) : 각 노드 <script type="math/tex">i</script>와 hub에 대한 flow conservation 제약이다.<br>
+(5) : hub network에 존재하는 link들을 통해서만 flow가 흐를 수 있게 해준다.</p>
+
+<h2 id="실험-결과">실험 결과</h2>
+
+<ul>
+  <li>
+    <p>잘 알려진 데이터셋인 Civil Aeronautics Board(CAB)으로 실험을 했다.</p>
+
+    <p><img src="/assets/img/paper2/CAB.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>CAB 데이터셋에는 고정비에 대한 내용이 없기 때문에, 논문에서는 두가지 방법을 사용하여 고정비를 만들었다.</p>
+
+    <ul>
+      <li>constF : hub가 어디에 위치하든, 같은 비용으로 open된다고 가정한다.
+        <ul>
+          <li>
+            <script type="math/tex; mode=display">F_k = F, \forall k \in N</script>
+          </li>
+          <li>이 경우, <script type="math/tex">F</script>는 5000에서 50000사이의 값에서 5000씩 값을 증가시키면서 실험을 했다.<br>
+  <br>
+</li>
+        </ul>
+      </li>
+      <li>diffF: : 각 노드별 총 demand flow에 따라 hub의 고정비를 다르게 한다.
+        <ul>
+          <li>
+            <script type="math/tex; mode=display">F_k = \frac{O_k+D_k}{\theta}</script>
+          </li>
+          <li>위 식에 따르면, demand flow가 클 수록 hub를 open하는 비용이 높아진다.</li>
+          <li>scaling parameter <script type="math/tex">\theta</script>를 통해 opening비용과 운송비용간의 비율을 조정할 수 있다.</li>
+          <li>논문에서는 <script type="math/tex">\theta</script>를 10,20,30,40,50으로 두고 실험을 했다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>실험에서 각 hub에 대한 coverage radius는 네트워크에서 가장 긴 link와의 비율에 따라 설정하였다.
+    <ul>
+      <li>
+<script type="math/tex">\Delta</script>를 네트워크에서 가장 긴 link의 길이라 했을 때, 0.1<script type="math/tex">\Delta</script>, 0.2<script type="math/tex">\Delta</script>, …, 0.5<script type="math/tex">\Delta</script>를 실험에 사용하였다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><script type="math/tex">c_{ij}</script>는 <script type="math/tex">\frac{d_{ij}}{25000}</script>으로 설정하였다. 이때, <script type="math/tex">d_{ij}</script>는 노드 <script type="math/tex">i</script>와 <script type="math/tex">j</script>의 최단 경로 거리이다.</p>
+  </li>
+  <li>
+    <p><script type="math/tex">\alpha = 0.75, \chi = 1, \delta = 1</script>으로 설정하였다.</p>
+  </li>
+  <li>
+    <p>CPLEX 12.3, Intel Core 2 2.13GHz, 2RAM으로 실험을 진행했다.</p>
+  </li>
+  <li>
+    <p>constF에 대한 실험결과는 다음과 같다.</p>
+
+    <p><img src="/assets/img/paper2/table.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>diffF에 대한 실험결과는 다음과 같다.</p>
+
+    <p><img src="/assets/img/paper2/table2.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>다음 그래프는 constF에서 고정비와 coverage radius에 따른 hub의 개수변화를 나타낸다.</p>
+
+    <p><img src="/assets/img/paper2/constF_graph.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>
+        <p>하나의 그래프는 같은 고정비에 대해서 radius의 변화를 나타낸다.</p>
+      </li>
+      <li>
+        <p>당연히, 고정비가 증가하면 hub의 개수가 줄어드는 것을 볼 수 있다.</p>
+      </li>
+      <li>
+        <p>cover 반경이 커지면 hub의 개수가 줄어드는 것 또한 볼 수 있다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>다음 그래프는 diffF 고정비와 coverage radius에 따른 hub의 개수변화를 나타낸다.</p>
+
+    <p><img src="/assets/img/paper2/diffF_graph.png" alt="" width="400px"></p>
+  </li>
+  <li>
+    <p>다음 테이블은 constF에서 hub로 선택된 노드들을 보여준다.</p>
+
+    <p><img src="/assets/img/paper2/table3.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>결과적으로, demand flow가 큰 노드들이 hub를 가지는 것을 볼 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>다음 테이블은 diffF에서 hub로 선정된 노드들을 보여준다.</p>
+
+    <p><img src="/assets/img/paper2/table4.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>여기서는, demand flow가 작은 노드지만 demand가 큰 노드와 매우 근접한 노드들이 hub가 된 것을 볼 수 있다. <script type="math/tex">\blacksquare</script>표시된 지역이 hub로 선정된 지역이다.</li>
+    </ul>
+
+    <p><img src="/assets/img/paper2/map.png" alt="" width="800px"></p>
+  </li>
+</ul>
+
+<h2 id="multi-aircraft-hcfp">Multi-aircraft HCFP</h2>
+
+<p>HCFP에서 coverage와 관련된 parameter <script type="math/tex">A_{ik}</script>는 하나의 고정된 반지름값에 대한 것이었다.</p>
+
+<p>하지만 이것을 항공사의 경우에 대입해봤을 때, 항공사는여러가지 종류의 항공기가 있고, 이러한 가정으로는 현실적인 문제를 풀 수 없게 된다.</p>
+
+<p>따라서 이 논문에서는 HCFP에서 확장하여 여러가지 타입의 항공기에 대해 문제를 풀 수 있는 모델을 제시한다.</p>
+
+<p>multi-aircraft HCFP에서는 목적함수에서 coverage를 충족시키지 못한 경우 패널티를 주는 방법을 사용한다.
+즉, <script type="math/tex">R_k</script>가 hub <script type="math/tex">k</script>에서 출발하는 항공기의 최대 비행거리일 때, cost를 다음과 같이 재정의한다.</p>
+
+<script type="math/tex; mode=display">\hat{c_{ij}}=
+\begin{cases}
+c_{ik} \quad if \, 0 \leq d_{ik} \leq R_k \\
+M \quad if \, d_{ik} \gt R_k
+\end{cases}</script>
+
+<p>이렇게 penalty를 주는 방법을 사용하면, Campbell의 origin-destination pair이 cover되는 것의 두번째 정의를 사용할 수 있다.</p>
+
+<blockquote>
+  <p>an origin-destination pair (ij) is covered if the length of each link in the path from node i to j through hub k first then l does not exceed a specified value.</p>
+</blockquote>
+
+<p>이 두번째 정의는 hub와 non-hub간의 distance뿐만 아니라 hub끼리의 거리까지 한정한다.</p>
+
+<p>따라서 hub <script type="math/tex">k</script>에 두개의 다른 항공기 종류가 있고, 각각의 cost를 <script type="math/tex">c^1_{ik}, c^2_{ik}</script>라 할때, cost는 다음과 같이 재정의될 수 있다.</p>
+
+<script type="math/tex; mode=display">\hat{c_{ij}}=
+\begin{cases}
+c^1_{ik}(d_{ik}) \quad if \, 0 \leq d_{ik} \leq R^1_k \\
+c^2_{ik}(d_{ik}) \quad if \, R^1_k \lt d_{ik} \leq R^2_k \\
+M \quad if \, d_{ik} \gt R^2_k
+\end{cases}</script>
+
+<p>이 방법을 사용하면 목적식을 다음과 같이 바꿀 수 있고,</p>
+
+<p style="text-align: center;"><img src="/assets/img/paper2/new_obj.png" alt="" width="400px"></p>
+
+<p>위에서 <script type="math/tex">A_{ik}</script>가 들어가던 제약식(2) 대신 다음 제약을 넣을 수 있다.</p>
+
+<script type="math/tex; mode=display">Z_{ik} \leq Z_{kk}, \forall i,k \in N</script>
+
+<p>이 방법 역시 MILP이며 HCFP와 규모나 구조가 거의 동일하기 때문에 문제의 복잡도 역시 유사하다.</p>
+
+<ul>
+  <li>
+    <p>아래 그래프는 diffF에서 MAHCFP를 풀었을 때, <script type="math/tex">\tau, \beta</script>에 따른 hub개수를 나타낸다.</p>
+
+    <ul>
+      <li>
+        <p><script type="math/tex">\tau</script>: 더 멀리 갈 수 있는 항공기의 coverage radius</p>
+      </li>
+      <li>
+        <p><script type="math/tex">\beta</script>: 더 멀리 갈 수 있는 항공기의 cost가 줄어들수록 증가하는 값</p>
+      </li>
+    </ul>
+
+    <p><img src="/assets/img/paper2/figure4.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>예상대로, <script type="math/tex">\tau</script>가 증가하거나 <script type="math/tex">\beta</script>가 늘어나면 hub의 개수가 줄어드는 것을 볼 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>다음 그래프는 zone1, zone2에 대한 그래프이다.</p>
+
+    <ul>
+      <li>zone1 : 더 짧은 거리를 가는 항공기가 커버할 수 있는 공간</li>
+      <li>zone2 : 짧은 거리를 가는 항공기보다는 멀리 있지만, 더 멀리 가는 항공기가 커버할 수 있는 공간</li>
+    </ul>
+
+    <p><img src="/assets/img/paper2/zone.png" alt="" width="400px"></p>
+
+    <ul>
+      <li>역시 예상대로, <script type="math/tex">\tau</script>와 <script type="math/tex">\beta</script>값이 커질수록 zone1에 속하는 노드는 줄어들고 zone2에 속하는 노드가 많아진다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="결론">결론</h2>
+
+<ul>
+  <li>
+    <p>HCFP는 hub설치 비용, demand 운송비용과 coverage제약을 고려하여 최적의 hub-and-spoke network을 찾아낸다.</p>
+  </li>
+  <li>
+    <p>hub노드는 고정비를 고려하여, demand flow가 많은 노드 근처에 위치하는 것이 좋다. 하지만 고정비가 모두 같다면 demand flow가 높은 곳에 위치하는 것이 좋다.</p>
+  </li>
+  <li>
+    <p>HCFP의 확장을 통해 multi-aircraft HCFP를 고안했다. 이를 통해 여러가지 radius를 가진 경우에 대해서도 문제를 풀 수 있었다.</p>
+  </li>
+  <li>
+    <p>HCFP에 capacity를 고려하는 문제도 생각해볼만 하다.</p>
+  </li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
