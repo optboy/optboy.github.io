@@ -270,7 +270,7 @@ multiple assignment network : 각 노드들이 적어도 하나의 hub 노드에
   <li>
 <script type="math/tex">N</script>: 네트워크의 노드의 집합</li>
   <li>
-<script type="math/tex">Z_{ik}, \forall i,k \in N</script>: node <script type="math/tex">i</script>가 hub에 할당되면 1, 아니면 0인 binary variable
+<script type="math/tex">Z_{ik}, \forall i,k \in N</script>: node <script type="math/tex">i</script>가 hub <script type="math/tex">k</script>에 할당되면 1, 아니면 0인 binary variable
     <ul>
       <li>
 <script type="math/tex">Z_{kk} = 1</script>이라면, node <script type="math/tex">k</script>가 hub노드인 것이다.</li>
@@ -298,9 +298,9 @@ multiple assignment network : 각 노드들이 적어도 하나의 hub 노드에
     </ul>
   </li>
   <li>
-<script type="math/tex">y=Y^i_{kl}</script>: 노드 <script type="math/tex">i</script>에서 시작하여, hub <script type="math/tex">k</script>를 지나고 hub <script type="math/tex">l</script>을 지나는 flow의 양</li>
+<script type="math/tex">Y^i_{kl}</script>: 노드 <script type="math/tex">i</script>에서 시작하여, hub <script type="math/tex">k</script>를 지나고 hub <script type="math/tex">l</script>을 지나는 flow의 양</li>
   <li>
-<script type="math/tex">A_{ik}, \forall i,k i\in N</script>: non-hub node <script type="math/tex">i</script>가 node <script type="math/tex">k</script>에 있는 hub에 cover되었다면 1, 아니면 0인 binary variable
+<script type="math/tex">A_{ik}, \forall i,k \in N</script>: non-hub node <script type="math/tex">i</script>가 node <script type="math/tex">k</script>에 있는 hub에 cover되었다면 1, 아니면 0인 binary variable
     <ul>
       <li>이 matrix를 통해 모델의 사이즈를 줄일 수 있다. 아래 (2)번 제약에서 볼 수 있다.</li>
     </ul>
@@ -453,7 +453,7 @@ c^2_{ik}(d_{ik}) \quad if \, R^1_k \lt d_{ik} \leq R^2_k \\
 M \quad if \, d_{ik} \gt R^2_k
 \end{cases}</script>
 
-<p>이 방법을 사용하면 목적식을 다음과 같이 바꿀 수 있고,</p>
+<p>이렇게 바뀐 cost를 목적식에 넣어 다음과 같이 바꿀 수 있고,</p>
 
 <p style="text-align: center;"><img src="/assets/img/paper2/new_obj.png" alt="" width="400px"></p>
 
