@@ -63,12 +63,12 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//linear%20algebra/2020/04/20/calculus.html" />
+<meta name="twitter:url" content="http://localhost:4000//linear%20algebra/2020/04/20/vector.html" />
 
 <!-- Open Graph data -->
 <meta property="og:title" content="[선형대수] 벡터 - vector" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//linear%20algebra/2020/04/20/calculus.html" />
+<meta property="og:url" content="http://localhost:4000//linear%20algebra/2020/04/20/vector.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
@@ -100,7 +100,7 @@
 
     
     
-    <link rel="canonical" href="http://localhost:4000/linear%20algebra/2020/04/20/calculus.html">
+    <link rel="canonical" href="http://localhost:4000/linear%20algebra/2020/04/20/vector.html">
     
     
     
@@ -205,12 +205,108 @@
   <div itemprop="articleBody">
     <p>선형대수의 기본으로, 먼저 벡터가 무엇인지에 대해서 알아보았다.</p>
 
-<h2 id="벡터는-왜-필요한가">벡터는 왜 필요한가?</h2>
+<h2 id="벡터란-무엇인가">벡터란 무엇인가?</h2>
 <p>다룰 수 있는 물리량에는 스칼라(scalar)와 벡터(vecter)가 있다.</p>
 
 <ul>
   <li>스칼라 : 크기</li>
   <li>벡터 : 크기 + 방향</li>
+</ul>
+
+<p>벡터는 방향에 대한 정보도 담기 위해서 필요하다.</p>
+
+<h2 id="벡터-표현법">벡터 표현법</h2>
+
+<ul>
+  <li>
+    <p>그림<br>
+  화살표로 방향을, 화살표의 길이로 힘을 나타낸다.</p>
+
+    <p><img src="/assets/img/vector/vector.png" alt="" width="200px"></p>
+  </li>
+  <li>
+    <p>기호<br>
+  위 그림과 같이, 시작점이 A이고 끝점이 B인 벡터의 크기는 <script type="math/tex">\vec{AB}</script>라고 표기한다.</p>
+
+    <p>이때 <script type="math/tex">\vec{AB} \neq \vec{BA}</script></p>
+
+    <blockquote>
+      <p><strong>벡터가 같기 위해서는?</strong><br>
+방향과 크기가 모두 같아야 한다.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>좌표평면<br>
+  그리고 벡터는 다음과 같이 좌표평면 위에 나타낼 수 있다.</p>
+
+    <p><img src="/assets/img/vector/vector_plane.jpg" alt="" width="700px"></p>
+
+    <p>이때, 벡터의 시작점은 원점으로 한다.<br>
+  이를 통해 벡터의 유일성이 보장된다.<br>
+  그리고 끝점으로 벡터를 표현할 수 있게 된다. 이를 <strong>위치벡터</strong>라고 한다.</p>
+
+    <p>만약 두개의 점이 각각 <script type="math/tex">p_1=(x_1, y_1), p_2=(x_2, y_2)</script>라고 정의되었을 때,
+  위치벡터는 <script type="math/tex">\vec{p_1p_2} = (x_2-x_1,y_2-y_1)</script>으로 정의될 수 있다.</p>
+
+    <ul>
+      <li>위치벡터의 연산
+        <ul>
+          <li>덧셈 : 각각의 좌표를 더해주기만 하면 된다.</li>
+          <li>뺄셈 : 각각의 좌표를 빼준다.</li>
+          <li>스칼라배 : 각각의 좌표에 스칼라를 곱해준다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="벡터의-연산">벡터의 연산</h2>
+
+<ul>
+  <li>
+    <p>덧셈</p>
+
+    <p><img src="/assets/img/vector/vector_plus.png" alt="" width="600px"></p>
+
+    <p>위 그림과 같이, 두개의 벡터를 더해줄 수 있다.<br>
+  이는 평행사변형과 같은 모습을 하고 있기 때문에 <strong>평행사변형 법</strong>이라고 한다.</p>
+
+    <p>그리고 벡터에 대해서는 교환법칙이 성립한다.</p>
+
+    <blockquote>
+      <script type="math/tex; mode=display">\vec{AB} + \vec{BA} = \vec{BA} + \vec{AB}</script>
+    </blockquote>
+  </li>
+  <li>
+    <p>뺄셈</p>
+
+    <p><img src="/assets/img/vector/vector-subtraction.svg" alt="" width="400px"></p>
+
+    <p><script type="math/tex">\vec{U} - \vec{V}</script>뺄셈에 대해서는 위 그림과 같이 해줄 수 있다.<br>
+  첫번째 그림과 같이 <script type="math/tex">V</script>의 끝점에서 <script type="math/tex">U</script>의 끝점으로 오는 <strong>삼각형 법</strong>과<br>
+  두번째 그림과 같이 <script type="math/tex">-V</script>를 더하는 방식으로, 평행사변형 법을 이용하는 방법이 있다.</p>
+
+    <p>뺄셈의 경우에는 교환법칙이 성립하지 않는다.
+  대신, 다음 식이 성립한다.</p>
+    <blockquote>
+      <script type="math/tex; mode=display">\vec{AB} - \vec{BA} = -(\vec{BA} - \vec{AB})</script>
+    </blockquote>
+  </li>
+  <li>
+    <p>스칼라배(scalr multiplication)</p>
+
+    <p><img src="/assets/img/vector/scalar_multiplication.png" alt="" width="300px"></p>
+
+    <p>벡터의 스칼라배란, 벡터에 어떠한 스칼라 값을 곱하는 것인데, 이는 위 그림으로 이해할 수 있다.</p>
+  </li>
+</ul>
+
+<h4 id="참고">참고</h4>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=x-Ewz1ukXEA&amp;t=95s" target="_blank" rel="noopener noreferrer nofollow">쑤튜브</a></li>
+  <li><a href="https://suhak.tistory.com/225" target="_blank" rel="noopener noreferrer nofollow">수학 이야기</a></li>
+  <li><a href="https://www.mathfactory.net/10971" target="_blank" rel="noopener noreferrer nofollow">MATH FACTORY</a></li>
 </ul>
 
   </div>
