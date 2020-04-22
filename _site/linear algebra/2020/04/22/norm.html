@@ -22,7 +22,7 @@
     
     
     
-    <title>현우의 공유메모장</title>
+    <title>[선형대수] 노름 - norm</title>
     
     
     
@@ -40,9 +40,11 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta name="description" content="이번에는 노름(norm)에 대해서 알아보자." />
 
 
+
+  <meta name="keywords" itemprop="categories" content="Linear algebra" />
 
 
 
@@ -51,8 +53,8 @@
 
 
 
-<meta name="twitter:title" content="현우의 공유메모장" />
-<meta name="twitter:description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta name="twitter:title" content="[선형대수] 노름 - norm" />
+<meta name="twitter:description" content="이번에는 노름(norm)에 대해서 알아보자." />
 
 
 
@@ -61,36 +63,44 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//" />
+<meta name="twitter:url" content="http://localhost:4000//linear%20algebra/2020/04/22/norm.html" />
 
 <!-- Open Graph data -->
-<meta property="og:title" content="현우의 공유메모장" />
+<meta property="og:title" content="[선형대수] 노름 - norm" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//" />
+<meta property="og:url" content="http://localhost:4000//linear%20algebra/2020/04/22/norm.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="검색하긴 귀찮고 외우기엔 애매한 것들 모음집" />
+<meta property="og:description" content="이번에는 노름(norm)에 대해서 알아보자." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
 <meta property="og:locale" content="" />
 
 
+  <meta property="article:published_time" content="2020-04-22T00:00:00+09:00" />
+
+
+
+
+  
 
 
 
 
 
-
+  
+    <meta property="article:tag" content="Linear algebra" />
+  
 
 
 
 
     
     
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/linear%20algebra/2020/04/22/norm.html">
     
     
     
@@ -157,237 +167,151 @@
         
         
         <section class="page-header">
-            <h1 class="project-name">현우의 공유메모장</h1>
+            <h1 class="project-name">[선형대수] 노름 - norm</h1>
             <h2 class="project-tagline"></h2>
             
             <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-04-22T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Apr 22, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
             
             <!-- End: Post tagline -->
         </section>
         
         <section class="main-content">
             
-            <div>
+            <article itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
-    
-      <li>
-
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[선형대수] 노름 - norm</h1>
+    <p class="post-meta">
+      <time datetime="2020-04-22T00:00:00+09:00" itemprop="datePublished">
         
-        <span class="post-meta">Apr 22, 2020</span>
+        Apr 22, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
 
-        
+  <div itemprop="articleBody">
+    <p>이번에는 노름(norm)에 대해서 알아보자.</p>
 
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/linear%20algebra/2020/04/22/norm.html" title="[선형대수] 노름 - norm">[선형대수] 노름 - norm</a>
-          </h2>
-          <p>이번에는 노름(norm)에 대해서 알아보자.</p>
+<h2 id="노름이란">노름이란?</h2>
 
+<p>노름은 벡터의 길이 혹은 크기를 의미한다. (Magnitude라고도 한다.)</p>
 
-        
+<p>노름은 벡터 <script type="math/tex">v = (v_1,v_2)</script>에 대해 <script type="math/tex">\lVert v \rVert</script>라고 표기한다.</p>
 
-      </li>
-    
-      <li>
+<p>2차원 벡터의 노름은 피타고라스의 정리에 의해 다음이 성립한다.</p>
 
-        
-        <span class="post-meta">Apr 22, 2020</span>
+<blockquote>
+  <script type="math/tex; mode=display">\lVert v \rVert = \sqrt{v_1^2 + v_2^2}</script>
+</blockquote>
 
-        
+<p>이를 일반화하면 다음과 같다.</p>
 
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/linear%20algebra/2020/04/22/dot_product.html" title="[선형대수] 점 곱 - dot product">[선형대수] 점 곱 - dot product</a>
-          </h2>
-          <p>이번에는 dot product에 대해서 알아보자.</p>
+<blockquote>
+  <script type="math/tex; mode=display">v = (v_1,v_2,...,v_n),\, \lVert v \rVert = \{\sum^n_{k=1}V^2_k\}^{\frac{1}{2}}</script>
+</blockquote>
 
+<h2 id="노름의-성질">노름의 성질</h2>
 
-        
+<ul>
+  <li>노름은 길이이기 때문에 0보다 크거나 같다.</li>
+</ul>
 
-      </li>
-    
-      <li>
+<blockquote>
+  <script type="math/tex; mode=display">\lVert v \rVert \geq 0</script>
+</blockquote>
 
-        
-        <span class="post-meta">Apr 20, 2020</span>
+<ul>
+  <li>노름이 0이라면, 0벡터다.</li>
+</ul>
 
-        
+<blockquote>
+  <script type="math/tex; mode=display">\lVert v \rVert = 0 \Leftrightarrow v = \vec{0}</script>
+</blockquote>
 
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/linear%20algebra/2020/04/20/vector.html" title="[선형대수] 벡터 - vector">[선형대수] 벡터 - vector</a>
-          </h2>
-          <p>선형대수의 기본으로, 먼저 벡터가 무엇인지에 대해서 알아보았다.</p>
+<ul>
+  <li>노름의 스칼라배는 스칼라의 절댓값 만큼 곱해주면 된다. 길이 자체는 양수이기 때문이다.</li>
+</ul>
 
+<blockquote>
+  <script type="math/tex; mode=display">\lVert kv \rVert = \left\vert k \right\vert \lVert v \rVert</script>
+</blockquote>
 
-        
+<h2 id="단위-벡터---unit-vector">단위 벡터 - Unit Vector</h2>
 
-      </li>
-    
-      <li>
+<p>길이가 1인 벡터를 의미한다.</p>
 
-        
-        <span class="post-meta">Apr 20, 2020</span>
+<p>이를 구하기 위해서는 벡터의 길이로 나눠주면된다.<br>
+즉, <script type="math/tex">v</script>가 어떤 vector일 때, 유닛 벡터 <script type="math/tex">\vec{u}</script>는 다음과 같다.</p>
 
-        
+<blockquote>
+  <script type="math/tex; mode=display">\vec{u} = \frac{1}{\lVert v \rVert}v</script>
+</blockquote>
 
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/latex/2020/04/20/latex_blank.html" title="[LaTeX] 띄어쓰기 ">[LaTeX] 띄어쓰기 </a>
-          </h2>
-          <p>LaTeX에서 띄어쓰기를 하는 방법은 4가지가 있다.</p>
+<p>예를 들어 (1,0),(0,1),(1,0,0),(0,1,0)…등이 유닛 벡터인데,<br>
+이런 유닛 벡터를 두고 <strong>standard unit vector</strong>이라고 하고, <script type="math/tex">e_1, e_2, ...</script>으로 표기한다.</p>
 
+<h2 id="벡터의-거리">벡터의 거리</h2>
 
-        
+<p><script type="math/tex">v_1 = (x_1,y_1), v_2 = (x_2,y_2)</script>두 벡터가 있다고 하자.</p>
 
-      </li>
-    
-      <li>
+<p>상식적으로, 이 두 벡터의 거리는 피타고라스의 정리에 의해 다음과 같다.</p>
 
-        
-        <span class="post-meta">Apr 17, 2020</span>
+<blockquote>
+  <script type="math/tex; mode=display">\sqrt{(x_2-x_1)^2 + {y_2-y_1}^2}</script>
+</blockquote>
 
-        
+<p>이를 노름으로 표현하면, 다음과 같다.</p>
 
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/optimization/2020/04/17/seminar2.html" title="[논문 리뷰] The hub covering flow problem">[논문 리뷰] The hub covering flow problem</a>
-          </h2>
-          <p>이번 연구실 세미나에서 발표할 논문은 <strong>“The hub covering flow problem”</strong>이다.</p>
+<blockquote>
+  <script type="math/tex; mode=display">\lVert v_2 - v_1 \rVert</script>
+</blockquote>
 
-
-        
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Apr 13, 2020</span>
-
-        
-
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/optimization/2020/04/13/convexity.html" title="Convex">Convex</a>
-          </h2>
-          <p>최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다.</p>
+<p>사실, 이는 2차원에서의 거리를 나타내는 <script type="math/tex">L_2</script>노름에 해당한다.</p>
 
 
-        
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Apr 8, 2020</span>
-
-        
-
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/programming/2020/04/08/simplex.html" title="Simplex method - 심플렉스법">Simplex method - 심플렉스법</a>
-          </h2>
-          <p>LP를 푸는 대표적인 방법으로 심플렉스 알고리즘이 있다.</p>
-
-
-        
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Apr 4, 2020</span>
-
-        
-
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/programming/2020/04/04/NP_hard.html" title="NP-hard, NP-complete 문제">NP-hard, NP-complete 문제</a>
-          </h2>
-          <p>저번 포스팅에서는 P와 NP에 대해서 알아보았다.</p>
-
-
-        
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Apr 3, 2020</span>
-
-        
-
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/programming/2020/04/03/P_NP.html" title="P, NP 문제">P, NP 문제</a>
-          </h2>
-          <p>논문을 보다보면 NP-hard라는 용어가 나온다.<br>
-무슨 뜻인지 궁금해서 인터네에 쳐봤는데, 꽤 어려운 말들이 나왔다.</p>
-
-
-        
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Apr 2, 2020</span>
-
-        
-
-        
-          <h2>
-            <a class="post-link" href="http://localhost:4000/github/2020/04/02/github2.html" title="Github 기본 사용법 - 여럿이서 작업할 때">Github 기본 사용법 - 여럿이서 작업할 때</a>
-          </h2>
-          <p>저번 <a href="/github/2020/03/22/github.html">git</a>에 이어 이번에는 git을 이용하여 온라인에서 협업하는 법에 대해 알아보겠다. 여기서 <strong>Github</strong>이 등장한다.</p>
-
-
-        
-
-      </li>
-    
-  </ul>
-
-</div>
-
-
-  <div class="pagination">
-    
-      <span>« Prev</span>
-    
-    
-    Page 1 of 4
-
-    
-      <a href="/page2/">
-        Next »
-      </a>
-    
   </div>
 
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
 
 
-<style lang="scss">
-  .pagination {
-    margin: auto;
-    text-align: center;
-    display: block;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 55px 0 25px 0;
-    color: #999;
-  }
-  span.pagination-selected {
-    display: inline-block;
-    font-size: 1.3rem;
-  }
-</style>
+
             
             <footer class="site-footer">
                 <!-- SVG icons from https://iconmonstr.com -->
