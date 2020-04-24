@@ -45,3 +45,7 @@ $$
 ## dot product의 여러가지 성질 
 
 추후 업데이트 예정.
+
+#### 참고
+
+- [쑤튜브](https://www.youtube.com/watch?v=x-Ewz1ukXEA&t=95s)
