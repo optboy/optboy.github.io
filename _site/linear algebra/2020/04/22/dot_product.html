@@ -40,7 +40,7 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="이번에는 dot product에 대해서 알아보자." />
+<meta name="description" content="이번에는 dot product에 대해서 알아보자. 아래 내용은 유투버 쑤튜브님의 선형대수학 강의를 정리한 것이다." />
 
 
 
@@ -54,7 +54,7 @@
 
 
 <meta name="twitter:title" content="[선형대수] 점 곱 - dot product" />
-<meta name="twitter:description" content="이번에는 dot product에 대해서 알아보자." />
+<meta name="twitter:description" content="이번에는 dot product에 대해서 알아보자. 아래 내용은 유투버 쑤튜브님의 선형대수학 강의를 정리한 것이다." />
 
 
 
@@ -73,7 +73,7 @@
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="이번에는 dot product에 대해서 알아보자." />
+<meta property="og:description" content="이번에는 dot product에 대해서 알아보자. 아래 내용은 유투버 쑤튜브님의 선형대수학 강의를 정리한 것이다." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
@@ -203,13 +203,13 @@
   </header> -->
 
   <div itemprop="articleBody">
-    <p>이번에는 dot product에 대해서 알아보자.</p>
+    <p>이번에는 dot product에 대해서 알아보자. 아래 내용은 유투버 <strong>쑤튜브</strong>님의 선형대수학 강의를 정리한 것이다.</p>
 
 <h2 id="dot-productscalar-product란">dot product(scalar product)란?</h2>
 
 <p>dot product는 두 벡터를 곱해서 하나의 스칼라값이 나오도록 하는 연산이다.</p>
 
-<p><script type="math/tex">v_1 = (x_1, y_1), v_2 = (x_2, y_2)</script>를 서로 다른 벡터라고 했을 때, 다음과 같다.</p>
+<p><script type="math/tex">v_1 = (x_1, y_1), v_2 = (x_2, y_2)</script>를 서로 다른 벡터라고 했을 때, dot product연산은 다음과 같다.</p>
 
 <script type="math/tex; mode=display">v_1 \cdot v_2 = x_1 \cdot x_2 + y_1 \cdot y_2</script>
 
@@ -248,7 +248,104 @@
 
 <h2 id="dot-product의-여러가지-성질">dot product의 여러가지 성질</h2>
 
-<p>추후 업데이트 예정.</p>
+<ul>
+  <li>
+    <p>제 2 코사인 법칙</p>
+
+    <p><img src="/assets/img/dot_product/cosine.jpg" alt="" width="200px"></p>
+  </li>
+  <li>
+    <p>dot product의 기하학적 의미</p>
+
+    <p>두 벡터 <script type="math/tex">u,v</script>가 있고, <script type="math/tex">u</script>를 <script type="math/tex">v</script>에 대해 사영한 벡터를 <script type="math/tex">w</script>라고 할 때, <script type="math/tex">u \cdot v</script>는 <script type="math/tex">\lVert w \rVert \lVert v \rVert</script>와 같다.</p>
+
+    <p>그림으로 보면 다음과 같다.</p>
+
+    <p>하지만 이는 <script type="math/tex">\theta</script>가 0~90일 때 적용된다. 둔각이라면 -를 붙여줘야한다.</p>
+
+    <p style="text-align: center;"><img src="/assets/img/dot_product/dot_product_projection.png" alt="" width="300px"></p>
+
+    <script type="math/tex; mode=display">v_2 - v_1 = (x_2-x_1, y_2-y_1)</script>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+      cos\theta &= \frac{\lVert v_2 \rVert^2 \lVert v_1 \rVert^2 - \lVert v_2 - v_1 \rVert^2}{2\lVert v_2 \rVert \lVert v_1 \rVert}
+  } %]]></script>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+      \lVert v_2 \rVert^2 \lVert v_1 \rVert^2 - \lVert v_2 - v_1 \rVert^2 &= (\sqrt{v_2 \cdot v_2})^2 +(\sqrt{v_1 \cdot v_1})^2 - (\sqrt{(v_2-v_1) \cdot (v_2-v_1)})^2 \\
+      &= v_2 \cdot v_2 + v_1 \cdot v_1 - (v_2 - v_1) \cdot (v_2 - v_1) \\
+      &= v_2 \cdot v_2 + v_1 \cdot v_1 - \{ v_2 \cdot v_2 - v_1 \cdot v_1 - v_2 \cdot v_1 + v_1 \cdot v_1 \} \\
+      &= v_2 \cdot v_2 + v_1 \cdot v_1 - \{ v_2 \cdot v_2 + v_1 \cdot v_1 - 2v_1 \cdot v_2\} \\
+      &= 2v_1 \cdot v_2
+  } %]]></script>
+
+    <script type="math/tex; mode=display">cos\theta = \frac{2v_1 \cdot v_2}{2\lVert v_1 \rVert \lVert v_2 \rVert} = \frac{v_1 \cdot v_2}{\lVert v_1 \rVert \lVert v_2 \rVert}</script>
+
+    <script type="math/tex; mode=display">v_1 \cdot v_2 = \lVert v_1 \rVert \lVert v_2 \rVert cos\theta</script>
+  </li>
+  <li>
+    <p>벡터의 projection(사영)</p>
+
+    <p>projection이란, 두 벡터가 있을 때, 한 벡터에 대해 수선을 내린 것을 의미한다.</p>
+
+    <p>아래 그림은 벡터 <script type="math/tex">\vec{u}</script>를 <script type="math/tex">\vec{v}</script>에 사영시킨 것을 보여준다.</p>
+
+    <p>그리고 이렇게 사영시킨 벡터를 <script type="math/tex">proj_\vec{v}\vec{u}</script>라고 표기한다.</p>
+
+    <p style="text-align: center;"><img src="/assets/img/dot_product/parallelprojection1.jpg" alt="" width="300px"></p>
+
+    <p>위에서 보았듯이, <script type="math/tex">\vec{u} \cdot \vec{v}</script>는 다음과 같다.</p>
+
+    <script type="math/tex; mode=display">\vec{u} \cdot \vec{v} = \lVert proj_\vec{v}\vec{u} \rVert \lVert \vec{v} \rVert</script>
+
+    <p>즉, <script type="math/tex">proj_\vec{v}\vec{u}</script>의 길이는 다음과 같다.</p>
+
+    <script type="math/tex; mode=display">\lVert proj_\vec{v}\vec{u} \rVert = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{v} \rVert}</script>
+
+    <p>여기에, <script type="math/tex">proj_\vec{v}\vec{u}</script>의 방향은 <script type="math/tex">\vec{v}</script>와 같기 때문에, <script type="math/tex">vec{v}</script>의 단위벡터를 곱하면 <script type="math/tex">proj_\vec{v}\vec{u}</script>를 알 수 있다.</p>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+      proj_\vec{v}\vec{u} &= \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{v} \rVert} \frac{v}{\lVert \vec{v} \rVert} \\
+      &= \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{v} \rVert^2}\vec{v} \\
+      &= \frac{\vec{u} \cdot \vec{v}}{(\sqrt{\vec{v} \cdot \vec{v}})^2}\vec{v} \\
+      &= \frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}}\vec{v}
+  } %]]></script>
+  </li>
+  <li>
+    <p>코시-슈바르츠 부등식(Cauchy-Schwarz Inequality)</p>
+
+    <script type="math/tex; mode=display">(ax + by)^2 \leq (a^2+b^2)(x^2+y^2)</script>
+
+    <p>여기서 <script type="math/tex">ax+by</script>는 dot product형태다.<br>
+  <script type="math/tex">u = (a,b), v = (x,y)</script>라 할때 <script type="math/tex">u \cdot v = ax + by</script>이다.</p>
+
+    <p>그리고 <script type="math/tex">x^2 + y^2</script>은 norm의 제곱과 같다. 즉, 위 식은 다음과 같다.</p>
+
+    <script type="math/tex; mode=display">(u \cdot v)^2 \leq \lVert u \rVert^2 \lVert v\rVert^2</script>
+
+    <p>이를 정리하면,</p>
+
+    <script type="math/tex; mode=display">\lvert u \cdot v \rvert \leq \lVert u \rVert \lVert v\rVert</script>
+
+    <p>이를 dot product의 성질을 이용해 간단히 증명해보자.<br>
+  앞서 보았듯이, <script type="math/tex">u \cdot v = \lVert u \rVert \lVert v \rVert cos\theta</script>이 성립하고, <script type="math/tex">-1 \leq cos\theta \leq 1</script>이기 때문에 <script type="math/tex">-\lVert u \rVert \lVert v \rVert \leq u\cdot v \leq \lVert u \rVert \lVert v \rVert</script>이다.   이로써 <script type="math/tex">\lvert u \cdot v \rvert \leq \lVert u \rVert \lVert v\rVert</script>임을 알 수 있다.</p>
+  </li>
+  <li>
+    <p>이와 비슷한 방식으로 dot product를 활용하여 삼각부등식(Triangle Inequality)나 피타고라스 정리 등을 증명할 수 있다.</p>
+  </li>
+</ul>
+
+<h4 id="참고">참고</h4>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=x-Ewz1ukXEA&amp;t=95s" target="_blank" rel="noopener noreferrer nofollow">쑤튜브</a></li>
+  <li><a href="http://jccc-mpg.wikidot.com/vector-projection" target="_blank" rel="noopener noreferrer nofollow">JCCC-Math</a></li>
+  <li><a href="https://mathinsight.org/dot_product" target="_blank" rel="noopener noreferrer nofollow">mathinsight</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Triangle_inequality" target="_blank" rel="noopener noreferrer nofollow">wikipedia</a></li>
+</ul>
 
   </div>
 
