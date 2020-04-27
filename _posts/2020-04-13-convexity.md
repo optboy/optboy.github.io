@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Convex"
+title: "Convex에 대해서"
 author: optboy
 categories: [Optimization]
 ---
@@ -92,6 +92,6 @@ epi f가 convex set이라면 함수 f가 convex function이다
 
 #### 참고
 
-- [이충목 교수님](http://chungmoklee.github.io/) 강의자료
+- [이충목 교수님](http://chungmoklee.github.io/)의 수업과 강의자료
 - [ScienceDirect](https://www.sciencedirect.com/topics/engineering/convex-set)
 - [모두를 위한 컨벡스 최적화](https://wikidocs.net/17495)

@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/optimization/2020/04/27/duality.html</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/linear%20algebra/2020/04/22/norm.html</loc>
     </url>
     

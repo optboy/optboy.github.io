@@ -22,7 +22,7 @@
     
     
     
-    <title>Convex에 대해서</title>
+    <title>Duality에 대해서</title>
     
     
     
@@ -40,7 +40,7 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+<meta name="description" content="만약 학부 시절 OR에 대한 수업을 들었다면 LP, simplex method, IP, duality 등에 대한 내용을 공부한 적이 있을 것이다." />
 
 
 
@@ -53,8 +53,8 @@
 
 
 
-<meta name="twitter:title" content="Convex에 대해서" />
-<meta name="twitter:description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+<meta name="twitter:title" content="Duality에 대해서" />
+<meta name="twitter:description" content="만약 학부 시절 OR에 대한 수업을 들었다면 LP, simplex method, IP, duality 등에 대한 내용을 공부한 적이 있을 것이다." />
 
 
 
@@ -63,24 +63,24 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//optimization/2020/04/13/convexity.html" />
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/04/27/duality.html" />
 
 <!-- Open Graph data -->
-<meta property="og:title" content="Convex에 대해서" />
+<meta property="og:title" content="Duality에 대해서" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//optimization/2020/04/13/convexity.html" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/04/27/duality.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다." />
+<meta property="og:description" content="만약 학부 시절 OR에 대한 수업을 들었다면 LP, simplex method, IP, duality 등에 대한 내용을 공부한 적이 있을 것이다." />
 <meta property="og:site_name" content="현우의 공유메모장" />
 
 
 <meta property="og:locale" content="" />
 
 
-  <meta property="article:published_time" content="2020-04-13T00:00:00+09:00" />
+  <meta property="article:published_time" content="2020-04-27T00:00:00+09:00" />
 
 
 
@@ -100,7 +100,7 @@
 
     
     
-    <link rel="canonical" href="http://localhost:4000/optimization/2020/04/13/convexity.html">
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/04/27/duality.html">
     
     
     
@@ -167,15 +167,15 @@
         
         
         <section class="page-header">
-            <h1 class="project-name">Convex에 대해서</h1>
+            <h1 class="project-name">Duality에 대해서</h1>
             <h2 class="project-tagline"></h2>
             
             <!-- Post tagline -->
             
             <h2 class="project-date">
-                <time datetime="2020-04-13T00:00:00+09:00" itemprop="datePublished">
+                <time datetime="2020-04-27T00:00:00+09:00" itemprop="datePublished">
                     
-                    Apr 13, 2020
+                    Apr 27, 2020
                 </time>
                 
                 
@@ -191,11 +191,11 @@
             <article itemscope itemtype="http://schema.org/BlogPosting">
 
   <!-- <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Convex에 대해서</h1>
+    <h1 class="post-title" itemprop="name headline">Duality에 대해서</h1>
     <p class="post-meta">
-      <time datetime="2020-04-13T00:00:00+09:00" itemprop="datePublished">
+      <time datetime="2020-04-27T00:00:00+09:00" itemprop="datePublished">
         
-        Apr 13, 2020
+        Apr 27, 2020
       </time>
       
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
@@ -203,110 +203,135 @@
   </header> -->
 
   <div itemprop="articleBody">
-    <p>최적화 문제를 LP(Linear Programming)로 풀때, 목적함수와 제약식이 convex라면 문제는 쉽게 풀린다.</p>
+    <p>만약 학부 시절 OR에 대한 수업을 들었다면 LP, simplex method, IP, duality 등에 대한 내용을 공부한 적이 있을 것이다.</p>
 
-<p>이번에는 <strong>convex</strong>라는 것이 무엇인지 알아보겠다.</p>
+<p>나의 경우에, LP나 simplex와 같은 내용들은 직관적으로 이해할 수 있었지만 유독 duality는 제대로 이해하기가 쉽지 않았다.</p>
 
-<h2 id="convex-function이란">convex function이란?</h2>
+<p>그래서 무작정 식을 외웠던 기억이 있다…</p>
 
-<p>convex function은 아래로 볼록한 함수를 뜻한다.</p>
+<p>게다가, <strong>이걸 어떻게 알아낸걸까?</strong> 하는 생각이 많이 들었다. 신기할 정도로 딱딱 맞아 떨어지는 게 많았고, 이걸 사람이 어떻게 알 수 있었던 건지 궁금했다.</p>
 
-<p>이를 수학적으로 표현하자면,</p>
-<blockquote>
-  <p>Function <script type="math/tex">f:R^n \Rightarrow R</script> is called a <strong>convex function</strong> if <br>
-<script type="math/tex">f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda) f(y)</script><br>
-for all <script type="math/tex">x,y \in R^n</script> and all <script type="math/tex">\lambda \in [0,1]</script></p>
-</blockquote>
+<p>그리고 얼마 전 수업으로 duality에 대해 좀 더 깊게 배웠고, 이제 조금은 이해한 것 같아 까먹기 전에 빠르게 글로 옮겨 보려 한다.</p>
 
-<p>이를 도식화하면 다음과 같다.</p>
+<h2 id="duality가-왜-필요한가">Duality가 왜 필요한가?</h2>
 
-<p><img src="/assets/img/convex/convex_func.png" alt="" width="500px"></p>
+<p>먼저, 이게 왜 필요한지를 알아야 한다.</p>
 
-<p>즉, x1, x2사이의 어떤 x값이 들어가더라도 함수의 결과값이 함수 위의 두 점을 잇는 선분에서의 값보다 작거나 같다면 convex function인 것이다.</p>
+<p>결론부터 말하자면, dual을 통해 <strong>primal문제의 bound</strong>를 얻을 수 있다.</p>
 
-<p>그리고 convex function에 음수를 취하게 되면 <strong>concave function</strong>이 된다.</p>
+<p>특히 LP의 경우에는 dual을 이용해서 문제에 대한 다양한 정보를 알아낼 수 있다.</p>
 
-<h2 id="convex-set이란">convex set이란?</h2>
+<p>예를 들어, primal문제가 infeasible한지 아닌지를 증명하고 싶을 때 dual이 unbounded임을 보이면 된다.</p>
 
-<p>convex set에 대한 수학적인 정의는 다음과 같다.</p>
+<h2 id="duality는-어떻게-만들어졌나">Duality는 어떻게 만들어졌나?</h2>
 
-<blockquote>
-  <script type="math/tex; mode=display">x_1,x_2 \in C, 0 \lt \theta \lt 1 \Rightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
-</blockquote>
+<p>이를 이야기하기 위해서는 먼저 최적화의 발전 과정을 먼저 살펴볼 필요가 있다.<br>
+지금 최적화를 배울 때는 기본적으로 <strong>목적함수, 결정변수, 제약식</strong> 세가지 요소가 포함되어 있다.</p>
 
-<p>이를 풀어 설명하면, 어떤 집합에 속하는 두 점을 이용해 선분(line segment)을 만들었을 때, 그 선분 역시 집합에 포함된다면, 이 집합을 convex라고 할 수 있다.</p>
+<p>하지만 오래 전에 최적화를 하는 방식에는 제약식이라는게 존재하지 않았다.<br>
+그럼 어떻게 제약을 뒀는가?</p>
 
-<p>아래 그림을 보자.</p>
+<p>어떤 방식으로든 목적함수 안에 제약식을 포함시키고 목적함수를 이용해서 최적화를 했다.<br>
+물론 지금도 그러한 방식을 쓰는 경우가 있다.</p>
 
-<p><img src="/assets/img/convex/convex_set.gif" alt="" width="300px"></p>
+<p>그럼 어떻게 제약식을 목적함수에 넣었단 말인가?<br>
+목적함수 내에서 제약을 만족하지 못한다면, <strong>패널티(penalty)</strong>를 주는 방식을 사용했다.</p>
 
-<p>위 그림에서 (A)에 속한 두 집합은 선분을 포함하기에 convex이지만, (B)에 속한 두 집합은 선분을 포함하지 않는 경우가 있으므로 convex set이 아니다.</p>
-
-<p>그렇다면 직선은 convex일까?</p>
-
-<p>직선도 convex로 볼 수 있다. <br>
-convex의 정의상, 직선 위의 두 점을 잡고 선분을 만들었을 때 그 선분은 직선에 포함되기 때문이다.</p>
-
-<p>사실 여기서의 선분은 <strong>convex combination</strong>으로 볼 수 있다.</p>
-
-<h2 id="convex-combination이란">convex combination이란?</h2>
-
-<p>수학적 정의는 다음과 같다.</p>
+<p>이러한 방법은 일종의 <strong>relaxation</strong>방법으로 사용될 수 있고,<br>
+그 중 dual을 만들어낸 것이 그 유명한 <strong>Lagrangian Relaxation</strong>이다.</p>
 
 <blockquote>
-  <p><script type="math/tex">x,y \in R^n, \lambda_1, \lambda_2 \gt 0, \lambda_1 + \lambda_2 = 1</script> then <script type="math/tex">lambda_1 x + \lambda_2 y</script> is said to be a convex combination of <script type="math/tex">x,y</script></p>
+  <p><strong>Relaxation이란?</strong><br>
+쉽게 말하자면, 복잡한 문제를 좀 더 쉽게 만드는 것이다. 예를 들어, IP에서 정수조건을 완화(relaxation)해서 LP를 만든다던가 하는 것 역시 relaxation의 일종이다.<br>
+조금 더 구체적으로 말해보자면, 어떤 문제 <script type="math/tex">A</script>가 있을 때, <script type="math/tex">A</script>의 feasible set을 포함하는 feasible set을 가지고, <script type="math/tex">A</script>의 solution보다 더 좋거나 같은 solution을 갖는 문제 <script type="math/tex">B</script>가 있다면, 문제 <script type="math/tex">B</script>는 문제 <script type="math/tex">A</script>의 relaxation인 것이다.</p>
+
+  <p>이러한 relaxation문제에서 중요한 이슈는 문제를 <strong>최대한 쉽고, tight하게</strong> 만드는 것이다.</p>
+
+  <p>이때 <strong>tight</strong>하다는 것은 optimal과 ralaxation문제를 통해 나온 해의 값이 최대한 가깝도록 하는 것을 의미한다. 
+그 이유는, relaxation의 방법은 매우 다양하고, 거기서 우리는 좋은 bound를 찾는 것이 목적이기 때문이다.</p>
 </blockquote>
 
-<p>즉, convex combination은 위 식에서 보이는 바와 같이, 집합 내 두 점을 linear combination하되, 계수가 양수이고 계수의 합을 1로 제한한 것과 같다.</p>
+<h3 id="lagrangian-relaxation">Lagrangian Relaxation</h3>
 
-<p>이를 다음과 같이 일반화할 수 있다.</p>
+<p>그렇다면 <strong>Lagrangian Relaxation</strong>에 대해서 알아보자.</p>
 
-<blockquote>
-  <p><script type="math/tex">\sum^k_{i=1} \lambda_i x^i</script>, where <script type="math/tex">\sum^k_{i=1} \lambda_i = 1</script> and <script type="math/tex">\lambda_i \gt 0, i = 1,...,k</script> is a convex combination of the points <script type="math/tex">x^1,...,x^k</script></p>
-</blockquote>
+<p>자, 다음과 같은 문제가 있다.</p>
 
-<p>그리고 집합 C에 포함된 모든 점들로 만든 convex combination의 집합은 <strong>convex hull</strong>이라고 한다. 
-convex hull은 <strong>conv C</strong>라고 표기한다.
-conv C는 항상 convex이며 집합 C를 포함하는 가장 작은 convex set이다.</p>
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    min \quad c'x & \\
+    Ax &= b \\
+    x &\geq 0 
+} %]]></script>
 
-<p><img src="/assets/img/convex/convex_hull.gif" alt="" width="300px"></p>
+<p>위에서 언급했듯이, lagrangian relaxation에서는 패널티를 이용해서 제약식을 목적함수에 포함시킨다.</p>
 
-<h2 id="convex-set과-convex-function의-관계">convex set과 convex function의 관계</h2>
+<p>즉, <script type="math/tex">Ax = b</script>를 목적함수에 넣어야 하고, <script type="math/tex">p'</script>를 패널티라고 할 때 목적함수는 다음과 같이 만들 수 있다.</p>
 
-<blockquote>
-  <p>함수 f의 epigraph가 convex set일때, 함수 f는 convex function이다.</p>
-</blockquote>
+<p>Lagrangian function : <script type="math/tex">L(x,p) = c'x + p'(b-Ax)</script></p>
 
-<p>여기서 epigraph는 함수의 그래프 위쪽 영역에 해당하는 집합이다. 따라서 supergraph라고도 한다.
-이를 수학적으로 정의하면 다음과 같다.</p>
+<p>그리고 이를 이용하여 문제를 다음과 같이 표현할 수 있다.</p>
 
-<blockquote>
-  <script type="math/tex; mode=display">epi f = {(x,\mu) : x \in \mathbb{R}^n, \mu \in \mathbb{R}, \mu \geq f(x)} \subseteq \mathbb{R}^{n+1}</script>
-</blockquote>
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    min \quad L(x,p) &= c'x + p'(b - Ax) \\
+    x &\geq 0 
+} %]]></script>
 
-<p><img src="/assets/img/convex/epigraph.gif" alt="" width="300px"></p>
+<p>위 식에서 <script type="math/tex">b-Ax = 0</script>, 즉 원래 문제의 제약식인 <script type="math/tex">Ax = b</script>가 아니라면 그 값이 패널티 <script type="math/tex">p'</script>와 곱해져 해에 영향을 주게 되는 것이다.</p>
 
-<p>함수 f가 convex function이라면 epi f는 항상 convex set이고,
-epi f가 convex set이라면 함수 f가 convex function이다</p>
+<p>이때, 패널티 <script type="math/tex">p</script>를 실수라고 했을 때 Lagrangian relaxation 문제의 해를 <script type="math/tex">g(p)</script>라 하자, 이때 원래 문제의 optimal을 <script type="math/tex">x^*</script>이라 가정하면, <script type="math/tex">x^*</script>은 원 문제의 feasible solution이기도 하기에, 다음을 만족한다.</p>
 
-<h2 id="convex의-특징">convex의 특징</h2>
+<script type="math/tex; mode=display">g(p) = min_{x\geq 0}[c'x + p'(b-Ax)] \leq c'x^* + p'(b-Ax^*) = c'x</script>
 
-<p>업데이트 예정..</p>
+<p>즉, <strong><script type="math/tex">g(p)</script>는 원래 문제의 lower bound</strong>가 되는 것이다.</p>
 
-<!-- 
-1. convex의 교집합은 convex다.
+<p>그리고 우리는 <strong>optimal solution과 가장 가까운 lower bound</strong>를 찾고 싶은 것이다. 가장 tight한 문제를 찾는 것이다.<br>
+그러므로 우리는 (Minimization문제이기 때문에) 가장 큰 <script type="math/tex">g(x)</script>를 찾아야 하고, 이는 또 다른 <strong>최적화 문제</strong>와 같다.</p>
 
-2. convex의 합집합은 convex가 아니다.
-    - IP도 convex의 합집합에 대한 문제로 볼 수 있다.
-    - B&B나 big-M등을 사용해서 문제 푼다. -->
+<p>이를 표현하면, 다음과 같다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    max \quad & g(p) \\
+    st. \quad & no \, constraints\, on\, p \\
+    where \quad & g(p) = min_{x\leq 0}[c'x + p'(b-Ax)]
+} %]]></script>
+
+<p>이때, <script type="math/tex">g(p)</script>는 다음과 같다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    g(p) &= min_{x\geq 0}[c'x + p'(b-Ax)] \\
+    &= p'b + min_{x\geq 0}(c' - p'A)x
+} %]]></script>
+
+<p>여기서 <script type="math/tex">min_{x\geq 0}(c' - p'A)x</script>는 다음과 같이 두가지 값으로 나뉘게 된다.</p>
+
+<script type="math/tex; mode=display">min_{x\geq 0}(c' - p'A)x =
+\begin{cases}
+0, \quad if \, c'-p'A \geq 0 \\
+-\infty, \quad otherwise
+\end{cases}</script>
+
+<p>이때 우리는 g(p)를 최대화해야 하는데, <script type="math/tex">min_{x\geq 0}(c' - p'A)x</script>이 <script type="math/tex">-infty</script>이면 안되기 때문에,<br>
+값이 0만 나오도록 하는 제약을 걸어준다. 즉, <script type="math/tex">c'-p'A \geq 0</script>인 제약을 걸어준다.</p>
+
+<p>그러면 다음과 같은 식이 나온다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\eqalignno{
+    max &\quad p'b \\
+    s.t. &\quad p'A \leq c' \qquad (p'A_j \leq c_j, \quad \forall j)
+} %]]></script>
+
+<p>어디서 보던 것과 비슷한 형태라는 것을 알 수 있다.<br>
+이것이 바로 <strong>dual</strong>인 것이다.</p>
 
 <h4 id="참고">참고</h4>
-
 <ul>
   <li>
 <a href="http://chungmoklee.github.io/" target="_blank" rel="noopener noreferrer nofollow">이충목 교수님</a>의 수업과 강의자료</li>
-  <li><a href="https://www.sciencedirect.com/topics/engineering/convex-set" target="_blank" rel="noopener noreferrer nofollow">ScienceDirect</a></li>
-  <li><a href="https://wikidocs.net/17495" target="_blank" rel="noopener noreferrer nofollow">모두를 위한 컨벡스 최적화</a></li>
 </ul>
 
   </div>
