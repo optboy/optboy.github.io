@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[논문 리뷰] Multi-period planning for eletric car charging station locations: A case of Korean Expressways</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="이번 세미나 발표 주제는 전기차 충전소 설치 문제이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[논문 리뷰] Multi-period planning for eletric car charging station locations: A case of Korean Expressways" />
+<meta name="twitter:description" content="이번 세미나 발표 주제는 전기차 충전소 설치 문제이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/05/01/seminar3.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[논문 리뷰] Multi-period planning for eletric car charging station locations: A case of Korean Expressways" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/05/01/seminar3.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="이번 세미나 발표 주제는 전기차 충전소 설치 문제이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-05-01T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/05/01/seminar3.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[논문 리뷰] Multi-period planning for eletric car charging station locations: A case of Korean Expressways</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-05-01T00:00:00+09:00" itemprop="datePublished">
+                    
+                    May 1, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[논문 리뷰] Multi-period planning for eletric car charging station locations: A case of Korean Expressways</h1>
+    <p class="post-meta">
+      <time datetime="2020-05-01T00:00:00+09:00" itemprop="datePublished">
+        
+        May 1, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>이번 세미나 발표 주제는 전기차 충전소 설치 문제이다.</p>
+
+<p>준비한 논문은 Multi-period planning for eletric car charging station locations: A case of Korean Expressways이며,</p>
+
+<p>저자는 Sung Hoon Chung, Changhyun Kwon 교수님이다.</p>
+
+<h2 id="전기차-충전소-설치-문제를-푸는-이유">전기차 충전소 설치 문제를 푸는 이유?</h2>
+<p style="text-align: center;"><img src="/assets/img/paper3/ev_charger.jpg" alt="" width="300px"></p>
+
+<p>최근 환경문제로 인해 점점 전기차에 대한 수요가 늘고 있지만, 전기차 대중화에는 여전히 많은 걸림돌이 존재한다.</p>
+
+<p>그리고 그 중에서도 손꼽히는 문제로는 <strong>전기자동차의 주행거리</strong> 문제, <strong>부족한 충전소</strong>와 <strong>오래걸리는 충전 시간</strong>이다.</p>
+
+<p>2014년 기준으로, 완충된 전기차는 여러가지 환경적 요소들을 고려했을 때 60~160km까지 달릴 수 있고, 이는 장거리 운전에는 부족한 주행거리다.<br>
+그렇기 때문에 장거리를 가기 위해서는 충전소를 들려야 한다. 하지만 충전소가 보통의 주유소만큼 퍼져있지 않기 때문에, 경로를 우회해서 가야하는 경우가 생기게 된다. 이러한 문제로 인해 소비자들은 전기차를 구매하기를 망설이게 되는 것이다.</p>
+
+<p>현실적으로, 향후 몇년안에 전기차의 주행거리를 극적으로 올리는 것은 어렵기 때문에, 충전소를 적절한 위치에 설치하여 위 문제를 개선하고자 하는 것이다.</p>
+
+<p>특히 이 논문에서는 교통량을 고려하여 여러기간에 걸친 계획을 수립하는 데에 도움을 주고자 한다.</p>
+
+<h2 id="논문에서-문제를-푸는-방법">논문에서 문제를 푸는 방법</h2>
+
+<p>이 논문에서는 수리모형을 이용한 최적화 모델을 만들어 위치 선정 문제를 풀어낸다.</p>
+
+<p>특히, flow-interceptig model을 이용한 flow-refuling location model(FRLM)에서 속도를 개선한 방법인 network expansion method를 기반으로 하여 모델링을 했다. 자세한 내용은 뒤에서 설명하도록 하겠다.</p>
+
+<p>그리고 이 논문에서는 다른 논문들과는 다르게 multi-period optimal construction plan을 제시하였다.<br>
+왜냐하면, 현실적으로, 많은 충전소를 한번에 짓는 것은 한정된 예산으로는 할 수 없는 것이기 때문이다.<br>
+충전소가 많아져야 전기차가 많아지고, 전기차가 많아져야 충전소가 많아지는데(chicken-and-egg problem), 이 논문에서는 중앙정부 주도하에 충분한 시간을 갖고 점진적으로 충전소의 개수를 효율적으로 늘려나가야 한다는 가정하에 문제를 풀었기에 multi-period 문제를 푼 것이다.</p>
+
+<p>최종적으로 이 논문에서는 다음의 세가지 방법을 제안한다.</p>
+
+<ol>
+  <li>multi-period optimization method</li>
+  <li>forward-myoptic method</li>
+  <li>backward-myoptic method</li>
+</ol>
+
+<h2 id="an-expanded-network-and-frlm">An expanded network and FRLM</h2>
+
+<p>앞서 언급한 network expansion과 FRLM이 무엇인지 알아보기 전에, 기본적인 가정이 존재한다.</p>
+
+<blockquote>
+  <p>각각의 origin-destination paie(O-D pair)에는 최단 경로가 존재하고, 운전자는 언제나 최단경로를 이용한다.</p>
+</blockquote>
+
+<p>그리고 용어를 잠깐 살펴보자면,</p>
+
+<p>travel demand, flow, O-D pair는 각 경로의 최단경로와 관련이 있는 것이다.</p>
+
+<p>이때 경로(path)란, origin에서 destination까지의 arc들의 순서를 의미하며,</p>
+
+<p>demand는 origin에서 destination까지 가기를 희망하는 차량의 수를 의미한다.</p>
+
+<p>flow는 arc에 부여되는 demand의 움직임을 의미한다. 통행량 정도로 생각할 수 있다.</p>
+
+<p>그리고 차량이 가는 경로에 충전소가 있다면, 그 경로는 cover되었다고 하고, cover된 경로를 가는 차량들이 있다면 flow가 cover되었다고 한다.</p>
+
+<h3 id="network-expansion-technique">network expansion technique</h3>
+
+<p>먼저 논문에서는 아래와 같은 노테이션을 이용한다.</p>
+
+<p><script type="math/tex">N^q</script> : 경로<script type="math/tex">q</script>가 갖는 노드(node)의 집합
+<script type="math/tex">A^q</script> : 경로<script type="math/tex">q</script>가 갖는 아크(arc)의 집합
+<script type="math/tex">G(N^q,A^q)</script> : 어떤 경로 <script type="math/tex">q</script>를 갖는 노드와 아크로 이루어진 도로 네트워크
+<script type="math/tex">d_q(i,j)</script> : 경로 <script type="math/tex">q</script>에 속하는 노드 <script type="math/tex">i,j</script>사이의 거리
+<script type="math/tex">ord_q(i)</script> : 경로 <script type="math/tex">q</script>에서 노드 <script type="math/tex">i</script>의 순서 
+<script type="math/tex">R</script> : 전기차의 최대 주행 가능 거리</p>
+
+<p>그리고 논문에서는 두가지 가정을 추가한다.</p>
+
+<ul>
+  <li>
+    <p>만약 경로 <script type="math/tex">q</script>위에 있는 어떤 연속되는 두 노드 <script type="math/tex">i,j</script>가 있고, <script type="math/tex">d_q(i,j) > R</script>이라면 <script type="math/tex">i</script>에서 <script type="math/tex">j</script>로 가는 것은 불가능한 것이다.<br>
+  따라서, 네트워크 <script type="math/tex">G</script>에는 R보다 짧은 arc만이 존재하게 된고, 만약 <script type="math/tex">R</script>보다 더 긴 arc가 있다면, arc위에 노드를 추가한다.</p>
+  </li>
+  <li>
+    <p>origin과 destination 노드에서는 배터리의 용량이 적어도 절반은 채워져 있다.<br>
+  이것은 origin과 destination과 <script type="math/tex">\frac{R}{2}</script>거리 내에 적어도 하나의 충전소는 위치해야한다는 것과 같다.</p>
+  </li>
+</ul>
+
+<p>이러한 가정을 통해 각 경로 <script type="math/tex">q</script>마다 source 노드, sink 노드, pseudo arc를 추가하여 expanded network를 만든다.<br>
+그리고 경로 <script type="math/tex">q</script>에 대한 expanded network를 <script type="math/tex">G(\hat{N^q}, \hat{A^q})</script>로 정의한다.</p>
+
+<p>구체적으로 expanded network를 만드는 방법은 다음과 같다.</p>
+
+<ol>
+  <li>orgin노드 <script type="math/tex">O</script>이전에 source노드 <script type="math/tex">s</script>를 추가한다. 그리고 두 노드를 pseudo arc <script type="math/tex">(s,O)</script>로 연결한다. 그리고 detination노드 <script type="math/tex">D</script>뒤에 sink노드 <script type="math/tex">k</script>를 추가하고 두 노드를 pueudo arc <script type="math/tex">(D,k)</script>로 연결한다. 이는 다음과 같이 표현할 수 있다.
+    <p style="text-align: center;"><img src="/assets/img/paper3/step1.png" alt="" width="400px"></p>
+  </li>
+  <li>source 노드 <script type="math/tex">s</script>를 어떤 다른 노드와 연결한다. 만약 origin 노드에서 절반만큼 충전된 상태로 <script type="math/tex">i</script>노드로 갈 수 있다면, source노드와 경로 <script type="math/tex">q</script>에 있는 <script type="math/tex">i</script> 노드를 pseudo arc <script type="math/tex">(s,i)</script>로 연결한다. 이는 다음과 같이 표현할 수 있다.
+    <p style="text-align: center;"><img src="/assets/img/paper3/step1.png" alt="" width="400px"></p>
+  </li>
+  <li>sink 노드 <script type="math/tex">K</script>를 어떤 다른 노드와 연결한다. 만약 경로 <script type="math/tex">q</script>에 있는 <script type="math/tex">j</script> 노드에서 절반만큼 충전된 상태로 destination 노드 <script type="math/tex">D</script>로 갈 수 있다면, 노드 <script type="math/tex">j</script>와 <script type="math/tex">k</script>를 pseudo arc <script type="math/tex">(j,k)</script>로 연결한다. 이는 다음과 같이 표현할 수 있다.
+    <p style="text-align: center;"><img src="/assets/img/paper3/step3.png" alt="" width="400px"></p>
+  </li>
+  <li>경로 <script type="math/tex">q</script>위에 있는 두 노드 <script type="math/tex">i,j</script>에 대해서, 만약 <script type="math/tex">i</script>노드가 <script type="math/tex">j</script>노드보다 우선하고, 배터리가 완충된 상태로 <script type="math/tex">i</script>노드에서 <script type="math/tex">j</script>노드로 갈 수 있다면(reachable), 두 노드를 연결한다. 이는 다음과 같이 표현할 수 있다.
+    <p style="text-align: center;"><img src="/assets/img/paper3/step4.png" alt="" width="400px"></p>
+  </li>
+</ol>
+
+<p>한 경로에 대해서 expanded network를 만들었다면, 가능한 모든 경로에 대해서 같은 절차를 반복해준다.</p>
+
+<h2 id="mathematical-formulation">Mathematical Formulation</h2>
+
+<p>앞서 설명한 expanded network flow로 FRLM 수리 모형을 만들면 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/paper3/notation.png" alt="" width="600px"></p>
+
+<p style="text-align: center;"><img src="/assets/img/paper3/FRLM_formulation.png" alt="" width="600px"></p>
+
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
