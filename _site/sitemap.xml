@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/machine%20learning/2020/05/07/SVM.html</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/optimization/2020/05/01/seminar3.html</loc>
     </url>
     
@@ -38,7 +42,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/programming/2020/04/08/simplex.html</loc>
+        <loc>http://localhost:4000/optimization/2020/04/08/simplex.html</loc>
     </url>
     
     <url>

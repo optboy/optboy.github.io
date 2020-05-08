@@ -221,9 +221,9 @@
 
 <p>현실적으로, 향후 몇년안에 전기차의 주행거리를 극적으로 올리는 것은 어렵기 때문에, 충전소를 적절한 위치에 설치하여 위 문제를 개선하고자 하는 것이다.</p>
 
-<p>특히 이 논문에서는 교통량을 고려하여 여러기간에 걸친 계획을 수립하는 데에 도움을 주고자 한다.</p>
+<p>특히 이 논문에서는 교통량을 고려하여 여러기간에 걸친 계획(multi-period plan)을 수립하는 데에 도움을 주고자 한다.</p>
 
-<h2 id="논문에서-문제를-푸는-방법">논문에서 문제를 푸는 방법</h2>
+<h2 id="논문에서-충전소-설치-문제를-푸는-방법">논문에서 충전소 설치 문제를 푸는 방법</h2>
 
 <p>이 논문에서는 수리모형을 이용한 최적화 모델을 만들어 위치 선정 문제를 풀어낸다.</p>
 
@@ -237,8 +237,8 @@
 
 <ol>
   <li>multi-period optimization method</li>
-  <li>forward-myoptic method</li>
-  <li>backward-myoptic method</li>
+  <li>forward-myopic method</li>
+  <li>backward-myopic method</li>
 </ol>
 
 <h2 id="an-expanded-network-and-frlm">An expanded network and FRLM</h2>
@@ -246,20 +246,18 @@
 <p>앞서 언급한 network expansion과 FRLM이 무엇인지 알아보기 전에, 기본적인 가정이 존재한다.</p>
 
 <blockquote>
-  <p>각각의 origin-destination paie(O-D pair)에는 <strong>최단 경로</strong>가 존재하고, 운전자는 언제나 최단경로를 이용한다.</p>
+  <p>각각의 origin-destination pair(O-D pair)에는 <strong>최단 경로</strong>가 존재하고, 운전자는 언제나 최단경로를 이용한다.</p>
 </blockquote>
 
-<p>그리고 용어를 잠깐 살펴보자면,</p>
+<p>여기서 사용하는 용어를 잠깐 살펴보자면,</p>
 
-<p>travel demand, flow, O-D pair는 각 경로의 최단경로와 관련이 있는 것이다.</p>
-
-<p>이때 경로(path)란, origin에서 destination까지의 arc들의 순서를 의미하며,</p>
+<p>경로(path)란, origin에서 destination까지의 최단경로에 대한 arc들의 순서를 의미하며,</p>
 
 <p>demand는 origin에서 destination까지 가기를 희망하는 차량의 수를 의미한다.</p>
 
 <p>flow는 arc에 부여되는 demand의 움직임을 의미한다. 통행량 정도로 생각할 수 있다.</p>
 
-<p>그리고 차량이 가는 경로에 충전소가 있다면, 그 경로는 cover되었다고 하고, cover된 경로를 가는 차량들이 있다면 flow가 cover되었다고 한다.</p>
+<p>그리고 차량이 충전소를 거쳐서 경로를 끝까지 갈 수 있다면, 그 경로는 cover되었다고 하고, cover된 경로를 가는 차량들이 있다면 flow가 cover되었다고 한다.</p>
 
 <h3 id="network-expansion-technique">network expansion technique</h3>
 
@@ -275,13 +273,15 @@
 <p>그리고 논문에서는 두가지 가정을 추가한다.</p>
 
 <ul>
-  <li>
-    <p>만약 경로 <script type="math/tex">q</script>위에 있는 어떤 연속되는 두 노드 <script type="math/tex">i,j</script>가 있고, <script type="math/tex">d_q(i,j) > R</script>이라면 <script type="math/tex">i</script>에서 <script type="math/tex">j</script>로 가는 것은 불가능한 것이다.<br>
-  따라서, 네트워크 <script type="math/tex">G</script>에는 R보다 짧은 arc만이 존재하게 된고, 만약 <script type="math/tex">R</script>보다 더 긴 arc가 있다면, arc위에 노드를 추가한다.</p>
+  <li>만약 경로 <script type="math/tex">q</script>위에 있는 어떤 연속되는 두 노드 <script type="math/tex">i,j</script>가 있고, <script type="math/tex">d_q(i,j) > R</script>이라면 <script type="math/tex">i</script>에서 <script type="math/tex">j</script>로 가는 것은 불가능한 것이다.
+    <ul>
+      <li>따라서, 네트워크 <script type="math/tex">G</script>에는 R보다 짧은 arc만이 존재하게 된고, 만약 <script type="math/tex">R</script>보다 더 긴 arc가 있다면, arc위에 노드를 추가한다.</li>
+    </ul>
   </li>
-  <li>
-    <p>origin과 destination 노드에서는 배터리의 용량이 적어도 절반은 채워져 있다.<br>
-  이것은 origin과 destination과 <script type="math/tex">\frac{R}{2}</script>거리 내에 적어도 하나의 충전소는 위치해야한다는 것과 같다.</p>
+  <li>origin과 destination 노드에서는 배터리의 용량이 적어도 절반은 채워져 있다.
+    <ul>
+      <li>이것은 origin과 destination과 <script type="math/tex">\frac{R}{2}</script>거리 내에 적어도 하나의 충전소는 위치해야한다는 것과 같다.</li>
+    </ul>
   </li>
 </ul>
 
@@ -295,7 +295,7 @@
     <p style="text-align: center;"><img src="/assets/img/paper3/step1.png" alt="" width="400px"></p>
   </li>
   <li>source 노드 <script type="math/tex">s</script>를 어떤 다른 노드와 연결한다. 만약 origin 노드에서 절반만큼 충전된 상태로 <script type="math/tex">i</script>노드로 갈 수 있다면, source노드와 경로 <script type="math/tex">q</script>에 있는 <script type="math/tex">i</script> 노드를 pseudo arc <script type="math/tex">(s,i)</script>로 연결한다. 이는 다음과 같이 표현할 수 있다.
-    <p style="text-align: center;"><img src="/assets/img/paper3/step1.png" alt="" width="400px"></p>
+    <p style="text-align: center;"><img src="/assets/img/paper3/step2.png" alt="" width="400px"></p>
   </li>
   <li>sink 노드 <script type="math/tex">K</script>를 어떤 다른 노드와 연결한다. 만약 경로 <script type="math/tex">q</script>에 있는 <script type="math/tex">j</script> 노드에서 절반만큼 충전된 상태로 destination 노드 <script type="math/tex">D</script>로 갈 수 있다면, 노드 <script type="math/tex">j</script>와 <script type="math/tex">k</script>를 pseudo arc <script type="math/tex">(j,k)</script>로 연결한다. 이는 다음과 같이 표현할 수 있다.
     <p style="text-align: center;"><img src="/assets/img/paper3/step3.png" alt="" width="400px"></p>
@@ -319,7 +319,7 @@
 
 <p>(2) : cover된 경로들의 <strong>flow의 총합을 최대화</strong>한다.</p>
 
-<p>(3) : 전통적인 <strong>flow balance 제약식</strong></p>
+<p>(3) : <strong>flow balance 제약식</strong></p>
 
 <p>(4) : 충전소가 설치되지 않은 노드에서 출발하는 flow가 없다.</p>
 
@@ -391,7 +391,7 @@
 
 <p>이전 솔루션 <script type="math/tex">y^1</script>을 넣고 다음 기간에 대한 문제 FRLM(<script type="math/tex">n_2</script>;<script type="math/tex">y^1</script>,<strong>1</strong>)을 푼다.</p>
 
-<p>이를 FRLM(<script type="math/tex">n_t</script>;y^{t-1},1)까지 푸는 것이다.</p>
+<p>이를 FRLM(<script type="math/tex">n_t;y^{t-1},1</script>)까지 푸는 것이다.</p>
 
 <h3 id="backward-myopic-b-myopic-method">Backward-myopic (B-myopic) method</h3>
 
@@ -442,7 +442,7 @@
 
 <p style="text-align: center;"><img src="/assets/img/paper3/travel_demand.png" alt="" width="400px"></p>
 
-<p>그리고 논문에서는 이번 연구와 현실과의 차이를 분명히 드러내고, 그 차이가 현실적용에 큰 문제가 생기지 않음을 밝히고 있다. 예를 들어 다음과 같다.</p>
+<p>그리고 논문에서는 연구와 현실과의 차이를 언급하면서, 그 차이가 현실적용에 큰 문제가 생기지 않음을 밝히고 있다.</p>
 
 <ul>
   <li>네트워크 밖에서 충전을 할 수 있지 않는가?
@@ -480,7 +480,7 @@
 
 <p style="text-align: center;"><img src="/assets/img/paper3/table_5.png" alt="" width="700px"></p>
 
-<p>결과적으로, 한 경우를 제외한 모든 경우에 M-opt의 flow coverage가 가장 좋았고, VKT(Vehicle Kilomether traveled)역시 가장 좋았다. 
+<p>결과적으로, 한 경우를 제외한 모든 경우에 M-opt의 flow coverage가 가장 좋았고, VKT covered(Vehicle Kilomether traveled)역시 가장 좋았다. 
 하지만 대부분 그 차이는 1.5퍼센트 이내였다.</p>
 
 <p>다음 표는 actual coverage에 대한 결과를 보여준다. 이때 actual coverage란, 모델에 들어가지 않은 모든 경로를 포함했을 때, cover된 경로의 비율을 뜻한다.</p>
