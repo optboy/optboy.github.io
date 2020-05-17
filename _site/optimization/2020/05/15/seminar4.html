@@ -484,7 +484,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_1.png" alt="" width="600px"></p>
 
-<p>그리고 선형화 과정에서 생긴 제약식인 <script type="math/tex">Q^w_j \geq \bar{R}(r^w_j) + \bar{R}_{max}(y_j-1)</script>과  <script type="math/tex">Q^w_j \geq 0</script>을 다음 식으로 바꿔준다.</p>
+<p>그리고 선형화 과정에서 생긴 제약식인 <script type="math/tex">Q^w_j \geq \bar{R}(r^w_j) + \bar{R}_{max}(y_j-1)</script>을 다음 식으로 바꿔준다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_2.png" alt="" width="900px"></p>
 
@@ -497,7 +497,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_3.png" alt="" width="900px"></p>
 
-<p><script type="math/tex">a^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j)</script> <script type="math/tex">b^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j) - \bar{R^{'}}(r^{w(k)}_j)r^{w(k)}_j</script>이기 때문에 결과적으로 다음과 같은 MILP 모델이 만들어진다.</p>
+<p><script type="math/tex">a^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j)</script>이고, <script type="math/tex">b^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j) - \bar{R^{'}}(r^{w(k)}_j)r^{w(k)}_j</script>이기 때문에 결과적으로 다음과 같은 MILP 모델이 만들어진다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_5.png" alt="" width="400px"></p>
 
@@ -510,7 +510,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 <script type="math/tex; mode=display">\hat{R}(r^w_j) = max_{k \in K}\{a^{w(k)}_j r^w_j + b^{w(k)}_j\}</script>
 
 <p>이때 optimal solution에 대한 error는 <script type="math/tex">\epsilon</script>에 의해 몇개의 접선이 생길 것인지 정해지면서 조절된다. 
-즉, 만약 <script type="math/tex">\bar{R}(r^w_j) - \hat{epsilon} \leq \hat{R}(r^w_j) \leq \hat{R}(r^w_j)</script>를 만족한다면, 우리는 다음 부등식을 얻을 수 있다.</p>
+즉, 만약 <script type="math/tex">\bar{R}(r^w_j) - \hat{\epsilon} \leq \hat{R}(r^w_j) \leq \hat{R}(r^w_j)</script>를 만족한다면, 우리는 다음 부등식을 얻을 수 있다.</p>
 
 <script type="math/tex; mode=display">Obj(x^*,y^*,e^*,r^*) - Obj^{\mathrm{II}}(Q^*, B^*, x^*, y^*, e^*, r^*) \leq \epsilon \qquad(37)</script>
 
@@ -518,19 +518,19 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_6.png" alt="" width="900px"></p>
 
-<p>convex function <script type="math/tex">\hat{R}(r^w_j)</script>을 <script type="math/tex">r^w_j \in [r^{w(L)}_j, r^{w(U)}_j]</script>의 domain에 대해 근사하기 위해서 주어진 허용오차 <script type="math/tex">\epsilon</script>에 대해서 접선의 집합을 <script type="math/tex">E = \{r^{w(k)}_j, k \in K\}</script>라 할 수 있고, 이 접선의 집합을 다음 알고리즘으로 구할 수 있다.</p>
+<p>convex function <script type="math/tex">\hat{R}(r^w_j)</script>을 <script type="math/tex">r^w_j \in [r^{w(L)}_j, r^{w(U)}_j]</script>의 domain에 대해 근사하기 위해서 주어진 허용오차 <script type="math/tex">\epsilon</script>에 대해서 접점의 집합을 <script type="math/tex">E = \{r^{w(k)}_j, k \in K\}</script>라 할 수 있고, 이 접점의 집합을 다음 알고리즘으로 구할 수 있다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/pseudo.png" alt="" width="900px"></p>
 
-<p>pseudo-code를 보면, <em>FindTangentPoint</em>는 접선을 찾기위한 재귀함수이다. 
-각각의 재귀 단계에서, 함수는 <script type="math/tex">[r^{w(L)}_j, r^{w(U)}_j]</script> domain에 대한 접선과 에러를 반환한다.<br>
+<p>pseudo-code를 보면, <em>FindTangentPoint</em>는 접점을 찾기위한 재귀함수이다. 
+각각의 재귀 단계에서, 함수는 <script type="math/tex">[r^{w(L)}_j, r^{w(U)}_j]</script> domain에 대한 접점과 에러를 반환한다.<br>
 <em>TangentLine</em>은 부수적인 함수로, 접선의 기울기와 절편을 반환한다.<br>
 <em>Intersection</em>은 두 직선의 교차점의 좌표를 반환한다.<br>
-이때 <script type="math/tex">r^w_j \in [E_{conf}, E]</script>인 경우, 즉 충분히 배터리 용량이 큰 경우 불안감 <script type="math/tex">\bar{R}(r^w_j)</script>이 0이기 때문에 접선을 <script type="math/tex">r^w_j \in [0, E_{conf}]</script>에 대해서만 구해준다.</p>
+이때 <script type="math/tex">r^w_j \in [E_{conf}, E]</script>인 경우, 즉 충분히 배터리 용량이 큰 경우 불안감 <script type="math/tex">\bar{R}(r^w_j)</script>이 0이기 때문에 접점을 <script type="math/tex">r^w_j \in [0, E_{conf}]</script>에 대해서만 구해준다.</p>
 
 <h2 id="model-extension">Model Extension</h2>
 
-<p>이전의 모델은 RFLM과 DRFLM을 직접적으로 확장하여 range anxiety를 고려한 EV 충전소 설치 문제를 푸는 것이었다.</p>
+<p>이때까지의 모델은 RFLM과 DRFLM을 직접적으로 확장하여 range anxiety를 고려한 EV 충전소 설치 문제를 푸는 것이었다.</p>
 
 <p>여기서 추가적으로, 충전을 하기 위해 기다리고, 멈춰야 하는 비용을 고려해줄 수 있다.</p>
 
@@ -560,6 +560,122 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 <h2 id="실험-결과">실험 결과</h2>
 
 <p>실험에는 25의 node를 가진 network와 현실의 Texas Highway network를 사용했다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_7.png" alt="" width="300px"></p>
+
+<p>위 그림은 첫번째 실험에 사용한 네트워크이며 25개의 노드와 86개의 링크가 있다. 이때 링크(i,j)에 대한 전력소비량은 미리 정해놓은 정수 집합에서 랜덤하게 뽑아서 사용했다. 모든 노드가 출발지, 도착지, 충전소 후보지로 고려되었으며, 그 결과 300개의 OD pair와 25개의 후보지가 생겼다. 그리고 통행량은 gravity model을 따라서 만들었다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_8.png" alt="" width="600px"></p>
+
+<p>위 그림은 두번째 네트워크로, 124개의 노드와 476개의 링크가 있다. 그리고 각각의 링크에는 길이가 정해져있으며, 차량은 주행거리가 243km, 40kWh인 전기차 모델으로 선정했다. 그리고 배터리 소비량은 기존의 40kWh에서 5kWh의 편차를 갖는 유니폼분포에서 랜덤하게 정수를 뽑아냈다. 텍사스의 가장 큰 도시 30개를 출발지와 도착지로 선정했으며, 그 결과 435개의 OD-pair이 생겼다. 모든 노드를 충전소 후보지로 선정했으며, 이번 네트워크에서도 gravity model을 사용해서 flow양을 구했다.</p>
+
+<p>실험에서는 다른 논문에서 그러하듯이, 출발지와 도착지에서 차량의 충전상태는 용량의 절반으로 하였으며, 운전자의 range anxiety profile은 다음 convex piece-wise polynomial function을 사용하였다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/convex_function.png" alt="" width="800px"></p>
+
+<p>전반적인 parameter는 다음과 같이 정해졌다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_1.png" alt="" width="800px"></p>
+
+<h3 id="알고리즘의-성능">알고리즘의 성능</h3>
+
+<p>다음은 25개 노드 네트워크에 대해서 outer-approximation algorithm의 <script type="math/tex">\epsilon</script>을 바꾸면서 실험한 결과이다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_2.png" alt="" width="800px"></p>
+
+<p>다음으로 텍사스 네트워크에 대한 실험 결과이다. 이번 실험에서는 경로 우회에 관한 오차범위를 3가지로 나눠서 실험했으며, 예산을 10단계로 나누어서 실험을 하였다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_3.png" alt="" width="800px"></p>
+
+<p>3시간 내에 풀지 못한 경우는 <script type="math/tex">GAP_{abs}</script>로 absolute optimality gap을 표기했다.</p>
+
+<h3 id="maximum-flow-model과의-비교">Maximum flow model과의 비교</h3>
+
+<p>논문에서는 EV운전자의 range anxiety를 최소화 하는 것의 장점을 보이기 위해 기존의 maximum flow model과 covered flow ratio(CFR)과 충전소의 위치를 비교하였다. 이때 최대한 최적으로 만들어주기 위해 <script type="math/tex">\epsilon</script>은 0.01으로 설정했으며 다음과 같은 결과가 나왔다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_4.png" alt="" width="800px"></p>
+
+<p>결과적으로, 거의 동일한 flow를 capture하는 것을 볼 수 있다. 
+논문 가장 처음 언급된 예시와 이 실험결과는 range anxiety의 효용성을 보여준다.</p>
+
+<h2 id="extended-model과의-비교">Extended model과의 비교</h2>
+
+<p>flow coverage에 charging impedance가 어떤 영향을 주는 지 실험하기 위해 DCSP와 DCSPCI를 25개 노드 네트워크에 대해 비교하였고 그 결과는 다음과 같았다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_5.png" alt="" width="800px"></p>
+
+<p>이 경우 charging impedance가 flow coverage를 상당히 줄이는 것을 볼 수 있다. 심지어 예산이 증가하면 할수록 charging impedance의 부정적인 영향이 커졌다.</p>
+
+<h2 id="sensitivity-analysis">Sensitivity Analysis</h2>
+
+<p>그리고 논문에서는 parameter에 따른 여러가지 지표들의 결과를 분석했다. 이때는 25개 네트워크를 이용해서 실험을 했다.</p>
+
+<p>여기서 실험과 결과에 쓰이는 약자들을 정리하자면 다음과 같다.</p>
+
+<ul>
+  <li>UL : Upper left corner nodes {1,2,…,9}</li>
+  <li>MR : Middle right hand nodes {10,11,…,21}</li>
+  <li>LB : Lower bottim nodes {22,…,25}</li>
+  <li>CF : Covered OD pairs</li>
+  <li>UF : Uncovered OD pairs</li>
+  <li>CFR : Covered OD pairs ratio</li>
+  <li>UFR : Uncovered OD pairs ratio</li>
+  <li>ARA : Accumulated range anxiety per covered EV drivers</li>
+  <li>MRA : Maximal driving range anxiety</li>
+</ul>
+
+<p>먼저, 예산에 따른 결과는 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_6.png" alt="" width="800px"></p>
+
+<p>그리고 그 배터리 용량에 따른 결과는 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_7.png" alt="" width="800px"></p>
+
+<p>그리고 경로 우회에 대한 오차허용계수에 따른 결과는 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_8.png" alt="" width="800px"></p>
+
+<p>그리고 OD pair의 개수를 조절하면서 실험을 해본 결과는 다음과 같았다. 이번 경우는 텍사스 네트워크를 사용해서 실험을 했다.
+원래의 OD pair 435개에서 flow의 양이 많은 OD pair순으로 내림차순으로 잘라서 OD pair의 수를 달리 하였다.
+이때 FR은 Flow ratio, SNL은 same location number, SLR은 same location rate이다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/table_9.png" alt="" width="800px"></p>
+
+<h2 id="결과-및-추후-연구">결과 및 추후 연구</h2>
+
+<ul>
+  <li>
+    <p>이번 연구에서는 전기차 운전자의 불안감과 경로우회를 고려해서 전기차 충전소 입지선정 문제를 풀었다.</p>
+  </li>
+  <li>
+    <p>전기차 운전자들은 어떠한 기준 아래로 배터리 용량이 내려가면 불안갑을 느낀다.</p>
+  </li>
+  <li>
+    <p>range anxiety는 기존 연구를 따라, nonlinear한 함수로 가정되었다.</p>
+  </li>
+  <li>
+    <p>charging logic과 path detour behavior을 명시적으로 모델 안에 제약으로 넣어 컴팩트한 모델을 만들었고, 이를 통해 미리 경로에 대한 조합을 만들지 않아도 되었다.</p>
+  </li>
+  <li>
+    <p>nonlinear한 range anxiety 함수로 인해, solver로 풀 수 없었기 때문에, outer-approximation method를 사용하여 <script type="math/tex">\epsilon</script>-optimal solution을 찾아냈다.</p>
+  </li>
+  <li>
+    <p>charging impedance를 고려한 확장된 모델을 개발하였다.</p>
+  </li>
+  <li>
+    <p>25개의 노드에 대한 네트워크와 실제 텍사스 네트워크를 통해 실험을 진행하였으며, 여러가지 비교연구를 진행하였다.</p>
+  </li>
+  <li>
+    <p>규모가 큰 네트워크에도 효율적으로 작동하는 알고리즘이 개발될 수 있을 것이다.</p>
+  </li>
+  <li>
+    <p>배터리 용량에 따른 운전자의 불안감에 대한 정량적인 분석이 좀 더 필요할 것이다.</p>
+  </li>
+  <li>
+    <p>논문의 컴팩트한 모델이 charging demand, driving range, 전력소비량, 부분 충전, 대기열 등의 불확실성을 가진 문제와 결합한다거나 장기적인 관점에서의 계획문제와 함께 연구될 수 있을 것이다.</p>
+  </li>
+</ul>
 
 <h4 id="참고">참고</h4>
 
