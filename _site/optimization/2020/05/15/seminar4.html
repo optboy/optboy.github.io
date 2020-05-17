@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[논문 리뷰] Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="이번 세미나 발표 논문은 Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[논문 리뷰] Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers" />
+<meta name="twitter:description" content="이번 세미나 발표 논문은 Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/05/15/seminar4.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[논문 리뷰] Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/05/15/seminar4.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="이번 세미나 발표 논문은 Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-05-15T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/05/15/seminar4.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[논문 리뷰] Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-05-15T00:00:00+09:00" itemprop="datePublished">
+                    
+                    May 15, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[논문 리뷰] Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers</h1>
+    <p class="post-meta">
+      <time datetime="2020-05-15T00:00:00+09:00" itemprop="datePublished">
+        
+        May 15, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>이번 세미나 발표 논문은 Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers이다.</p>
+
+<p>주제는 전기차 충전소 설치문제인데, 배터리에 대한 운전자의 불안감과 탈선을 최소화하도록 충전소를 설치하는 것이 주요 내용이다.</p>
+
+<p>논문의 저자는 홍콩 폴리텍 대학교의 Min Xu, Hai Yang, Shuaian Wang이다.</p>
+
+<h2 id="연구-배경">연구 배경</h2>
+
+<p>전기차가 화석연료에 대한 의존성과 온실가스 배출 경감에 도움이 될 것으로 기대하고 있다.</p>
+
+<p>그런데 사람들은 여러가지 이유로, 전기차를 구매하기를 망설인다.</p>
+
+<p>그 주요 요인 중에 하나가 도착지에 가기 전에 전기가 바닥날 걱정(<strong>range anxiety</strong>)이다.</p>
+
+<p>이러한 걱정을 줄이기 위해서는 충분한 충전 네트워크가 구축되어 있어야 한다.</p>
+
+<p>전기차 충전소의 종류는 3가지로 나눌 수 있다.</p>
+
+<ul>
+  <li>AC Level 1 : normal/slow charging station</li>
+  <li>AC Level 2 : normal/slow charging station</li>
+  <li>DC Level 3 : fast EV charging station</li>
+</ul>
+
+<p>Level 1,2와 같은 일반 충전소는 충전시간이 오래걸리기 때문에 가정용으로 쓰기에 적합하고, 고속 충전을 지원하는 Level 3 충전소는 고속도로나 지하철 근처와 같은 공공 장소에서 사용하기 좋다.</p>
+
+<p>그러나 고속충전소는 조달비용이나 설치비용이 매우 비싸다. 일반적으로 조달에는 $10,000~$40,000, 설치에는 $4000~$51,000이 든다고 한다.</p>
+
+<p>그렇기 때문에, 최적화된 방식으로 신중한 계획을 세울 필요가 있다.</p>
+
+<h2 id="관련-연구">관련 연구</h2>
+
+<h3 id="전기차-충전소-설치-문제에-관한-연구">전기차 충전소 설치 문제에 관한 연구</h3>
+<p>이 문제에 대한 연구가 꽤 많이 진행되고 있는데, EV 충전소는 보통 경로 중간에 위치한다는 점에서 demand를 네트워크의 origin-destination(OD) pair를 지나는 통행량으로 두고 모델링을 진행한다. 이와 관련된 것으로, 최대한 많은 flow를 capture하도록 하는 flow-capturing location model(FCLM)이 개발되었다.</p>
+
+<p>그리고 FCLM이 확장되어 하나의 경로에 대해서 여러개의 충전소를 지나치는 것을 고려한 flow refueling location model(FRLM)이 개발되었다.
+도착지에 무사히 도달하기 위해 충전소를 적절히 조합한다는 개념이 나오게 된 것이다.</p>
+
+<p>그리고나서 FRLM이 다시 한번 확장되어 운전자들이 충전을 위해 우회하는 경우를 고려한 모델인 deviation-flow refueling location model(DFRLM)이 개발된다.</p>
+
+<p>그리고 이러한 연구들을 통해 여러개의 충전소를 거치는 것에 대한 효용성에 대한 연구가 많이 진행되었다.</p>
+
+<p>하지만 위 방법들은 OD pair에 대한 가능한 EV 충전소 조합과 우회 경로 조합을 미리 찾아야하는 문제들이고, 그러한 조합을 찾는 것 자체가 쉽지 않은 
+문제이기에 큰 사이즈의 문제에 대해서는 한계가 있다.</p>
+
+<h3 id="운전자들의-range-anxiety에-대한-연구">운전자들의 range anxiety에 대한 연구</h3>
+
+<p>그리고 EV 운전자들이 느끼는 range anxiety에 대한 경험적인 연구도 많이 진행되었다.<br>
+운전자들은 충전상태가 용량의 50%이하로 떨어지자마자 불안감을 느끼는 경우가 많은 것으로 나타났고,<br>
+데이터에 따르면, 배터리의 상태(SoC)가 운전자의 불안감에 비선형적인 영향을 미친다는 것을 발견했다.<br>
+그리고 EV의 기능들이 운전자들의 불안감에 영향을 많이 끼치는 것으로 나타났으나, 충전 기반시설들이 그러한 불안감을 줄여준다는 것을 발견했다.
+그리고 range anxiety를 comfortable range threshold라 불리는 minumum range margin으로 대체하여 사용했다.
+그리고 재충전에 대한 접근성(recharge accessibility)가 range anxiety에 중요한 요인이었다.</p>
+
+<p>이외에도 다양한 연구가 진행된 바 있다.</p>
+
+<h2 id="ev-충전소-설치문제에-range-anxiety가-고려되어야-하는-이유">EV 충전소 설치문제에 range anxiety가 고려되어야 하는 이유?</h2>
+
+<p>다음 그림를 보자. link 위에 적힌 퍼센트는 배터리 소비량을 나타내고있다.</p>
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_1.png" alt="" width="350px"></p>
+
+<p>그리고 다음과 같은 가정이 있다고 하자.</p>
+<ol>
+  <li>Origin에서 완충된 상태로 출발을 한다.</li>
+  <li>하나의 충전소를 지을 수 있다.</li>
+  <li>comfortable range threshold는 30%이다.</li>
+</ol>
+
+<p>이때, RFLM이나 DRFLM에서는 노드 B나 C에 충전소를 설치한다면 flow가 경로를 끝까지 할 수 있다.
+하지만, 운전자의 불안감을 감안한다면, 노드 B에 충전소를 설치했을 때 C-&gt;D로 가는 동안 배터리의 상태가 10%까지 떨어지기 때문에<br>
+노드 B보다는 노드C에 설치하는 것이 더 좋은 선택이다.</p>
+
+<p>이러한 이유로, range anxiety는 EV 충전소 설치문제에 충분히 고려될만한 것이다.</p>
+
+<h2 id="논문의-목적">논문의 목적</h2>
+
+<p>이번 논문은 운전자의 range anxiety와 우회 경로를 고려하여 도시간의 이동에 대한 EV급속충전소 설치 문제를 풀고자 한다.</p>
+
+<p>그리고 논문에서는 다음 몇가지 가정을 한다.</p>
+<ol>
+  <li>먼저 EV는 제한된 주행거리를 가지고 있다.</li>
+  <li>운전자의 불안감은 EV 배터리 잔여량에 의해 nonlinear하게 변화한다.</li>
+  <li>운전자는 충전을 위해 OD-pair의 최단경로를 벗어나서 이동하기도 한다.</li>
+</ol>
+
+<p>이러한 가정하에, 논문은 제한된 예산 내에서 전체 운전자의 range anxiety를 최소화하는 충전소의 위치를 구하는 것을 목적으로 한다.</p>
+
+<p>이를 위해, 논문에서는 미리 경로에 대한 조합을 미리 계산하는 FRLM/DFRLM의 방법을 벗어나서 충전 방식과 경로 우회에 대한 것을 직접 명시하는 MIP모델을 만든다.<br>
+하지만 range anxiety가 비선형이기 때문에 이는 non-linear모델이고, 이는 solver로 쉽게 풀수는 없다.<br>
+그래서 논문에서는 허용오차 <script type="math/tex">\epsilon</script>을 도입하여, optimal에 오차를 의미하는 <script type="math/tex">\epsilon</script>-optimal solution을 효율적으로 얻는 방법을 제안한다.</p>
+
+<h2 id="가정과-notation">가정과 notation</h2>
+
+<p>먼저 논문에서는 다음과 같은 notation을 사용한다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/notation.png" alt="" width="600px"></p>
+
+<p>그리고 논문은 다음과 같은 가정을 둔다.</p>
+
+<ol>
+  <li>EV충전소에 대한 후보지 노드에만 충전소를 설치할 수 있다.</li>
+  <li>출발지에서의 배터리 양과 도착지에서의 배터리 양은 미리 지정한 각각의 기준을 따른다.</li>
+  <li>충전소에서 충전을 할 시 완충을 한다.</li>
+  <li>충전소에는 용량 제약이 없다.</li>
+  <li>미리 정해놓은 오차범위 내에서, 운전자들은 최단경로를 우회해서 충전을 한다.</li>
+  <li>운전자들은 여러개의 충전소를 거칠 수 있다.</li>
+</ol>
+
+<h2 id="charging-logic">Charging Logic</h2>
+
+<p>먼저 두개의 binary decision variable <script type="math/tex">y_i</script>와 <script type="math/tex">x^w_{ij}</script>를 정의한다.</p>
+
+<p><script type="math/tex">y_i</script> : <script type="math/tex">i</script> 지역에 충전소를 설치할 것인지
+<script type="math/tex">x^w_{ij}</script> : OD pair <script type="math/tex">w</script>에 노드<script type="math/tex">i</script>에서 노드<script type="math/tex">j</script>로 가는 flow가 존재 하는지</p>
+
+<p>그리고 보조적인 continuous variable <script type="math/tex">e^w_i</script>을 정의한다.</p>
+
+<p><script type="math/tex">e^w_i</script> : 노드 <script type="math/tex">i</script>를 지난 직후의 배터리 잔여량</p>
+
+<p>그리고 일반적인 네트워크에 대한 충전 로직을을 포뮬레이션하기위해 다음 그림과 같은 네트워크를 사용한다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_2.png" alt="" width="300px"></p>
+
+<ol>
+  <li>
+    <p>이때 기본적으로 link <script type="math/tex">i,j</script>간의 거리가 현재 배터리의 용량보다 크다면, 갈 수 없다.</p>
+
+    <script type="math/tex; mode=display">e^w_i \geq d_{ij}x^w_{ij}</script>
+  </li>
+  <li>
+    <p>그리고 만약 다음 노드<script type="math/tex">j</script>에 충전소가 설치되어 있다면, 배터리 용량이 최대 <script type="math/tex">E</script>가 된다.</p>
+
+    <script type="math/tex; mode=display">e^w_j = E</script>
+  </li>
+  <li>
+    <p>만약 다음 노드에 충전소가 있지만, 그 노드로 가지 않을 경우, 어떤 제약도 존재하지 않는다.</p>
+
+    <script type="math/tex; mode=display">0 \leq e^w_e \leq E</script>
+  </li>
+  <li>
+    <p>그리고 다음 노드에 충전소가 없는데 그쪽으로 간다면, 배터리 용량이 줄어들게 된다.</p>
+
+    <script type="math/tex; mode=display">e^w_j = e^w_i - d_{ij}</script>
+  </li>
+  <li>
+    <p>다음 노드에 충전소가 없고, 그쪽으로 가지 않는다면, 이 역시 제약이 존재하지 않게 된다.</p>
+
+    <script type="math/tex; mode=display">0 \leq e^w_e \leq E</script>
+  </li>
+</ol>
+
+<p>앞서 나온 제약들을 통합하여 제약을 한번에 표현해주어야 하는데, 이때 3,5번은 아무 제약식이 아니기 때문에 2,4번을 합쳐야 한다. 특히 3,5번 제약을 위반하지 않고 2번 제약을 표현하기 위해서는 다음 식을 만들 수 있다.</p>
+
+<script type="math/tex; mode=display">Ey_j \leq e^w_j \leq E</script>
+
+<p>그리고 2,3,5번 제약을 위반하지 않고 4번 제약을 표현해주기 위해서 다음과 같은 제약식으로 바꿔줄 수 있다.</p>
+
+<script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ji} + Ey_j</script>
+
+<p>다음으로, 4번 제약의 <script type="math/tex">e^w_i - d_{ij}</script>를 양수로 유지해주기 위해서, 새로운 항 <script type="math/tex">d_{ij}(1-x^w_{ij})</script>를 추가해준다. 그리고 5번 제약을 위해서 <script type="math/tex">E(1-x^w_{ij})</script>를 추가해준다.</p>
+
+<script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ij} + Ey_j + d_{ij}(1-x^w_{ij}) + E(1 - x^w_{ij})</script>
+
+<p>이를 정리하면 다음 식이 나오게 된다.</p>
+
+<script type="math/tex; mode=display">e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)</script>
+
+<p>최종적으로 충전에 대한 1~5번 제약은 다음 두 식으로 정리할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{cases}
+Ey_j \leq e^w_j \leq E\\
+e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
+\end{cases}</script>
+
+<h2 id="driving-range-anxiety">Driving range anxiety</h2>
+
+<p>앞서 언급한 선행 연구에 따르면, 다음과 같은 연구가 있었다.</p>
+
+<ol>
+  <li>Range anxiety는 잔여 배터리 용량에 큰 영향을 받는다.</li>
+  <li>EV 운전자들이 range anxiety에서부터 자유로운 구간(comforatble range threshold)이 존재한다.</li>
+  <li>배터리 상태(SoC)가 0에 가까워지면서 range anxiety는 높아지고, 변화량 역시 증가한다.</li>
+</ol>
+
+<p>이러한 연구에 따라 논문에서는 다음 가정을 둔다.</p>
+
+<ul>
+  <li>EV 운전자의 range anxiety는 배터리 잔여량이 증가할 수록 최대값<script type="math/tex">R_{max}</script>부터 comfortable range threshold(<script type="math/tex">E_conf</script>)까지  convex하게 떨어진다. 그리고 SoC가 최대량 <script type="math/tex">E</script>가 되면 range anxiety는 0이 된다.</li>
+</ul>
+
+<p>다음 그림을 보면, SoC에 따른 EV운전자의 range anxiety의 변화량에 대한 그래프를 보여준다. SoC가 <script type="math/tex">E_{conf}</script>에 도달하기까지 그 변화량이 점점 줄어드는 것을 볼 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_3.png" alt="" width="400px"></p>
+
+<p>그리고 다음 그림을 보면, 일정한 속도로 운전했을 때 배터리의 상태는 선형적으로 줄어들고, SoC가 <script type="math/tex">E_{conf}</script>보다 낮아졌을 경우 다시 충전될 때 까지 range anxiety가 convex하게 증가하는 것을 볼 수 있다. 완충된 경우 다시 range anxiety는 0이 된다.<br>
+그리고 논문에서는, 선형적인 SoC에 대한 함수를 <script type="math/tex">S(t)</script>, convex한 range anxiety에 대한 함수를 R(t)라고 둔다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_4.png" alt="" width="400px"></p>
+
+<p>그리고 다음 그림은 전체 주행중 배터리의 상태와 range anxiety를 나타낸다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_5.png" alt="" width="500px"></p>
+
+<p>그리고 모델을 만들기 위해서 origin부터 첫 충전소까지, 두개의 붙어있는 충전소, 마지막 충전소부터 destination까지의 경로를 각각 쪼개서 sub-path를 만든다. 그리고 마지막 sub-path의 마지막 노드에서의 최종 SoC를 <script type="math/tex">r</script>이라고 한다. 이때 위 그림에서 주황색 부분은 다음 식에 의해 계산될 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/equation_1.png" alt="" width="150px"></p>
+
+<p>각 sub-path들은 충전소 혹은 도착지인 마지막 노드로 구분되기 때문에 우리는 각 sub-path들에 대한 range anxiety의 합으로 전체 경로에 대한 range anxiety를 표현할 수 있다. 정확히 말해서, <script type="math/tex">r^w_j</script>를 OD pair <script type="math/tex">w</script>에서 차량이 충전소나 도착지 <script type="math/tex">j</script>에 도착했을 때의 SoC라고 정의한다면, 앞서 유도한 제약을 이용해서 다음 식으로 나타낼 수 있다.</p>
+
+<script type="math/tex; mode=display">r^w_j \leq e^w_i - d_{ij}x^w_{ij} + E(1-x^w_{ij}), \forall (i,j) \in A, j \in I \cup \{s(w)\}, w \in W</script>
+
+<p>그리고 총 누적 range anxiety는 다음 식으로 표현된다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/equation_2.png" alt="" width="300px"></p>
+
+<h2 id="optimization-model">Optimization Model</h2>
+
+<p>주행거리나 예산의 한계로 인해서 충전을 할 수 없는 경우를 위해, 논문에서는 시작점과 도착점을 잇는 길이가 0인 추가적인 링크를 하나 만든다. 이 링크를 통해 갈 수 있게 하기 위해서 링크를 갈때 소비되는 전기량 역시 0으로 설정한다.</p>
+
+<p>그렇게하여 만들어진 DSCP모델은 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/formulation.png" alt="" width="900px"></p>
+
+<h3 id="모델-설명">모델 설명</h3>
+<ul>
+  <li>
+    <p>목적식은 총 range anxiety와 big-M의 총합을 minimize하는 것이다. 여기서 big-M은 cover되지 못한 demand에 대해서 패널티를 부여하는 것이다. 그렇기 때문에 big-M의 값은 충분히 커야한다.</p>
+  </li>
+  <li>14번 제약식은 각 OD pair에 대한 flow conservation 제약이다.</li>
+  <li>
+    <p>15번 제약식은 충전소 설치 비용이 예산을 넘지 못하게 하는 제약식이다.</p>
+  </li>
+  <li>16~18번 제약식은 앞 부분에서 설명한 charging logic에 대한 것으로, 16,17번은 차량이 지나가면서 SoC가 바뀌도록 하는 제약식이다.</li>
+  <li>16번 제약식은 차량이 이동하면서 배터리의 용량이 줄어드는 것을 표현했다.</li>
+  <li>17번 제약식은 충전소가 있는 곳에서 차량의 배터리가 완충되는 것을 표현했다.</li>
+  <li>
+    <p>18번 제약식은 현재 배터리 용량보다 큰 전기를 필요로하는 경로로는 갈 수 없도록 한다.</p>
+  </li>
+  <li>여기서 16번, 17번 제약식은 19번, 20번 제약식으로 축소될 수 있다.</li>
+  <li>
+    <p>그리고 21번 22번 제약식은 각각의 sub-path의 마지막 SoC의 상한을 정한다.</p>
+  </li>
+  <li>23번 제약은 우회하는 경로의 거리에 제약을 둔다.</li>
+  <li>
+    <p>24, 25번 제약은 출발할 때와 도착할 때 필요한 SoC에 대한 제약이다.</p>
+  </li>
+  <li>26, 27번 제약은 decision variable을 binary로 정의하는 제약이다.</li>
+</ul>
+
+<h2 id="모델의-특징">모델의 특징</h2>
+
+<p>FRLM과 RFRLM모델은 미리 계산한 경로 조합을 통해 문제를 풀기 때문에 detour tolerance나 EV의 주행거리에 따라 문제 사이즈가 크게 바뀌고, 작은 네트워크에 대해서도 쉽게 문제를 풀 수 없는 반면, 이 모델은 polynomial 개수의 제약이 있고, 네트워크에 대해서 사이즈가 고정되어 있다.</p>
+
+<p>그리고 모델 내에 charging logic과 range feasibility를 명시했기 때문에 미리 경로의 조합을 구할 필요가 없고, 실험 결과 메모리가 부족한 경우도 일어나지 않았다.</p>
+
+<p>그리고 이 모델의 또 다른 장점으로, 충전소의 capacity나 다양한 주행거리를 고려한 특별한 문제에 대해서도 유연하게 문제를 풀 수 있다는 것이다. 예를 들어 목적함수를 바꿔서 flow를 maximize하는 문제로 바꿀 수도 있고, 예산을 설정하는 것 대신 cost를 부여해서 set covering 문제로 바꿀 수도 있다.</p>
+
+<p>그런데, 이러한 장점이 있는 것은 사실이나 목적식에 <script type="math/tex">\bar{R}(r^w_j)y_j</script>와 같은 bilinear한 항이 존재하고, 적분 과정에서 nonlinear한 부분이 존재하기 때문에 쉽게 풀 수는 없다.</p>
+
+<p>하지만 다행히, bilinear한 항은 다음과 같은 방식으로 선형화할 수 있다. 먼저 새로운 변수 <script type="math/tex">Q^w_j</script>를 만들고, 최적해에서 <script type="math/tex">Q^w_j = \bar{R}(r^w_j)y_j</script>가 되도록 다음 두 제약식을 추가한다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_28_29.png" alt="" width="900px"></p>
+
+<p>여기서 <script type="math/tex">\bar{R}_{max}</script>는 sub-path에 대한 누적된 range anxiety의 최대값이다. 그리고 이와 같이 선형화를 한다면, 다음 proposition을 만족하게 된다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/proposition.png" alt="" width="900px"></p>
+
+<p><script type="math/tex">S()</script>는 선형적으로 감소하는 함수이기 때문에, 그 역함수인 <script type="math/tex">S^{-1}()</script> 역시 선형적으로 감소할 것이다. 즉, <script type="math/tex">S^{-1'}(r) \geq 0</script>이고 <script type="math/tex">S^{-1''} = 0</script>을 가진다. 그리고 <script type="math/tex">R()</script>은 증가하고, 미분가능하기 때문에, 우리는 <script type="math/tex">R^{'}() \geq 0</script>을 가진다. 그렇기 때문에 위 증명과 같은 <script type="math/tex">\bar{R}^{''}(r) \geq 0</script> 식이 나오게 되고, <script type="math/tex">\bar{R}(r)</script>이 convex함수임을 알 수 있게 된다.그렇기 때문에 논문의 모델 DCSP가 mixed-integer convex programming model임을 알 수 있게 되는 것이다.</p>
+
+<h2 id="outer-approximation-algorithm">Outer-approximation algorithm</h2>
+
+<p>The outer-approximation algorithm은 nonlinear한 부등식을 갖는 MIP문제에 대해 허용오차를 주고 <script type="math/tex">\epsilon</script>-optimal solution을 찾는 방법으로, 1986년 소개되어 여러 분야에서 사용된 바 있다.</p>
+
+<p>이 알고리즘은 일반적인 convex한 nonlinear MIP를 풀 수 있게 하는데, 결과적으로 나오는 MILP는 cplex와 같은 상용솔버로 풀 수 있게 된다.</p>
+
+<p>outer-approximation algorithm을 적용하기 위해서는 nonlinear한 <script type="math/tex">\bar{R}(r^w_j)</script>를 대신하는 <script type="math/tex">B^w_j</script>라는 continuous variable을 새로 만들고, 목적함수와 제약식에 넣어준다.</p>
+
+<p>먼저 목적식은 다음과 같이 바꿔준다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_1.png" alt="" width="600px"></p>
+
+<p>그리고 선형화 과정에서 생긴 제약식인 <script type="math/tex">Q^w_j \geq \bar{R}(r^w_j) + \bar{R}_{max}(y_j-1)</script>과  <script type="math/tex">Q^w_j \geq 0</script>을 다음 식으로 바꿔준다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_2.png" alt="" width="900px"></p>
+
+<p>여기서 <script type="math/tex">B^w_j \geq \bar{R}(r^w_j)</script>제약식은 다음 그림처럼 <script type="math/tex">\bar{R}(r^w_j)</script> 커브의 접선이 되는 많은 선형 함수로 대체하여 완화할 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/fig_6.png" alt="" width="400px"></p>
+
+<p>이러한 선형함수들은 과소평가된 range anxiety로 해석될 수 있고, 하나의 집합 <script type="math/tex">K = \{1,2,...,K-1,K\}</script>로 표현될 수 있다.<br>
+<script type="math/tex">a^{w(k)}_j</script>와 <script type="math/tex">b^{w(k)}_j</script>를 <script type="math/tex">\bar{R}(r^w_j)</script>의 k번째 접선의 기울기와 절편이라고 하자. 이때 <script type="math/tex">B^w_j \geq \bar{R}(r^w_j)</script> 식은 다음과 같이 표현될 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_3.png" alt="" width="900px"></p>
+
+<p><script type="math/tex">a^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j)</script> <script type="math/tex">b^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j) - \bar{R^{'}}(r^{w(k)}_j)r^{w(k)}_j</script>이기 때문에 결과적으로 다음과 같은 MILP 모델이 만들어진다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_5.png" alt="" width="400px"></p>
+
+<p>이 모델의 경우에는, 목적함수의 <script type="math/tex">Q^w_j</script>와 <script type="math/tex">\bar{R}(r^w_{s(w)})</script>가 과소평가되었기 때문에 원래 문제의 relaxation문제라고 볼 수 있다. 그렇기 때문에 이 문제는 다음 proposition에서와 같이, 원래문제의 lower bound를 제공한다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/proposition_2.png" alt="" width="800px"></p>
+
+<p><script type="math/tex">\bar{R}(r^w_j)</script>에 대한 piecewise linear approximation function을 다음과 같이 정의하자</p>
+
+<script type="math/tex; mode=display">\hat{R}(r^w_j) = max_{k \in K}\{a^{w(k)}_j r^w_j + b^{w(k)}_j\}</script>
+
+<p>이때 optimal solution에 대한 error는 <script type="math/tex">\epsilon</script>에 의해 몇개의 접선이 생길 것인지 정해지면서 조절된다. 
+즉, 만약 <script type="math/tex">\bar{R}(r^w_j) - \hat{epsilon} \leq \hat{R}(r^w_j) \leq \hat{R}(r^w_j)</script>를 만족한다면, 우리는 다음 부등식을 얻을 수 있다.</p>
+
+<script type="math/tex; mode=display">Obj(x^*,y^*,e^*,r^*) - Obj^{\mathrm{II}}(Q^*, B^*, x^*, y^*, e^*, r^*) \leq \epsilon \qquad(37)</script>
+
+<p>그리고 다음 proposition을 통해 우리는 36,37번 식으로 <script type="math/tex">\epsilon</script>-optimal solution을 얻을 수 있다는 것을 알 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/outer_6.png" alt="" width="900px"></p>
+
+<p>convex function <script type="math/tex">\hat{R}(r^w_j)</script>을 <script type="math/tex">r^w_j \in [r^{w(L)}_j, r^{w(U)}_j]</script>의 domain에 대해 근사하기 위해서 주어진 허용오차 <script type="math/tex">\epsilon</script>에 대해서 접선의 집합을 <script type="math/tex">E = \{r^{w(k)}_j, k \in K\}</script>라 할 수 있고, 이 접선의 집합을 다음 알고리즘으로 구할 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/pseudo.png" alt="" width="900px"></p>
+
+<p>pseudo-code를 보면, <em>FindTangentPoint</em>는 접선을 찾기위한 재귀함수이다. 
+각각의 재귀 단계에서, 함수는 <script type="math/tex">[r^{w(L)}_j, r^{w(U)}_j]</script> domain에 대한 접선과 에러를 반환한다.<br>
+<em>TangentLine</em>은 부수적인 함수로, 접선의 기울기와 절편을 반환한다.<br>
+<em>Intersection</em>은 두 직선의 교차점의 좌표를 반환한다.<br>
+이때 <script type="math/tex">r^w_j \in [E_{conf}, E]</script>인 경우, 즉 충분히 배터리 용량이 큰 경우 불안감 <script type="math/tex">\bar{R}(r^w_j)</script>이 0이기 때문에 접선을 <script type="math/tex">r^w_j \in [0, E_{conf}]</script>에 대해서만 구해준다.</p>
+
+<h2 id="model-extension">Model Extension</h2>
+
+<p>이전의 모델은 RFLM과 DRFLM을 직접적으로 확장하여 range anxiety를 고려한 EV 충전소 설치 문제를 푸는 것이었다.</p>
+
+<p>여기서 추가적으로, 충전을 하기 위해 기다리고, 멈춰야 하는 비용을 고려해줄 수 있다.</p>
+
+<p>그러기 위해서 각각의 OD pair에 대해서 새로운 binary decision variable <script type="math/tex">y^w_i, \forall i \in I, w \in W</script>을 정의한다.</p>
+
+<p>이 변수는 운전자가 OD pair <script type="math/tex">w</script>의 충전소 <script type="math/tex">i</script>에서 충전을 하는지에 관한 것이다.</p>
+
+<p>charging impedance를 고려하여 충전소 위치를 선정하는 문제인 DCSPCI는 원래 문제의 13,16,17번 제약의 <script type="math/tex">y_i</script>를 <script type="math/tex">y^w_i</script>로 바꾸고, 23번 제약식의 좌변에 총 charging impdedance를 더해주고, <script type="math/tex">y^w_i</script>와 <script type="math/tex">y_i</script>를 연결시켜주는 제약을 추가하여 포물레이션 할 수 있다.</p>
+
+<p>논문에서는 일반적인 charging impedance로 charging-amount-independent와 charging-amount-dependent 두가지 요소를 고려했다. 특히 <script type="math/tex">i</script> 충전소에서의 평균 charging impedance를 뜻하는 <script type="math/tex">\alpha_i</script>와 충전소 <script type="math/tex">i</script>에서 충전 단위마다 발생하는 charging-amount-dependent impedance를 의미하는 <script type="math/tex">\beta</script>를 이용해서 23번 제약식에 다음 항을 추가한다.</p>
+
+<script type="math/tex; mode=display">\sum_{i \in I}[\alpha_i y^w_i + \beta_i(E-r^w_i)y^w_j]</script>
+
+<p>이로 얻어지는 최종적인 수리모형은 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/DCSPCI.png" alt="" width="900px"></p>
+
+<p>42번 제약에서는 charging-amount-impedance가 들어갔으며, 이는 bilinear하다. 원래 문제에서 bilinear을 없앤 것과 같이, 새로운 변수 <script type="math/tex">P^w_i, \forall i \in I, w \in W</script>를 이용해서 43번 제약식의 <script type="math/tex">(E - r^w_j)y^w_i</script>를 대체할 수 있다. 그리고 다음 식으로 최적해에서 <script type="math/tex">P^w_i = (E - r^w_j)y^w_i</script>가 성립하도록 강제할 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/DCSPCI_const_1.png" alt="" width="900px">
+<img src="/assets/img/seminar4/DCSPCI_const_2.png" alt="" width="900px"></p>
+
+<p>그리고 이 경우에도 proposition 1은 여전히 유효하기 때문에, 앞서 소개한 outer-approximation algorithm을 여기서도 사용할 수 있다. 따라서 DCSPCI에 대한 <script type="math/tex">\epsilon</script>-optimal solution을 다음 MILP 모델을 이용해서 구할 수 있다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar4/MILP_2.png" alt="" width="900px"></p>
+
+<h2 id="실험-결과">실험 결과</h2>
+
+<p>실험에는 25의 node를 가진 network와 현실의 Texas Highway network를 사용했다.</p>
+
+<h4 id="참고">참고</h4>
+
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
