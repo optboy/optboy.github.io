@@ -205,7 +205,7 @@
   <div itemprop="articleBody">
     <p>이번 세미나 발표 논문은 Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers이다.</p>
 
-<p>주제는 전기차 충전소 설치문제인데, 배터리에 대한 운전자의 불안감과 탈선을 최소화하도록 충전소를 설치하는 것이 주요 내용이다.</p>
+<p>주제는 전기차 충전소 설치문제인데, 배터리에 대한 운전자의 불안감과 경로 우회를 최소화하도록 충전소를 설치하는 것이 주요 내용이다.</p>
 
 <p>논문의 저자는 홍콩 폴리텍 대학교의 Min Xu, Hai Yang, Shuaian Wang이다.</p>
 
@@ -245,16 +245,17 @@
 
 <p>그리고 이러한 연구들을 통해 여러개의 충전소를 거치는 것에 대한 효용성에 대한 연구가 많이 진행되었다.</p>
 
-<p>하지만 위 방법들은 OD pair에 대한 가능한 EV 충전소 조합과 우회 경로 조합을 미리 찾아야하는 문제들이고, 그러한 조합을 찾는 것 자체가 쉽지 않은 
-문제이기에 큰 사이즈의 문제에 대해서는 한계가 있다.</p>
+<p>하지만 위 방법들은 OD pair에 대한 가능한 EV 충전소 조합과 우회 경로 조합을 미리 찾아야하는 문제들이고, 그러한 조합을 통해 문제를 푸는 것이 쉽지 않기 때문에 큰 사이즈의 문제에 대해서는 한계가 있다.</p>
 
 <h3 id="운전자들의-range-anxiety에-대한-연구">운전자들의 range anxiety에 대한 연구</h3>
 
-<p>그리고 EV 운전자들이 느끼는 range anxiety에 대한 경험적인 연구도 많이 진행되었다.<br>
-운전자들은 충전상태가 용량의 50%이하로 떨어지자마자 불안감을 느끼는 경우가 많은 것으로 나타났고,<br>
-데이터에 따르면, 배터리의 상태(SoC)가 운전자의 불안감에 비선형적인 영향을 미친다는 것을 발견했다.<br>
-그리고 EV의 기능들이 운전자들의 불안감에 영향을 많이 끼치는 것으로 나타났으나, 충전 기반시설들이 그러한 불안감을 줄여준다는 것을 발견했다.
-그리고 range anxiety를 comfortable range threshold라 불리는 minumum range margin으로 대체하여 사용했다.
+<p>그리고 EV 운전자들이 느끼는 range anxiety에 대한 경험적인 연구도 많이 진행되었다.</p>
+
+<p>운전자들은 충전상태가 용량의 50%이하로 떨어지자마자 불안감을 느끼는 경우가 많은 것으로 나타났고,<br>
+데이터에 따르면, 배터리의 상태(SoC)가 운전자의 불안감에 비선형적인 영향을 미친다는 것을 발견했다.</p>
+
+<p>그리고 EV의 기능들이 운전자들의 불안감에 영향을 많이 끼치는 것으로 나타났으나, 충전 기반시설들이 그러한 불안감을 줄여준다는 것을 발견했다.
+그리고 range anxiety는 배터리 용량이 어떤 시점에 도달했을 때 생기기 시작하는데, 이 용량을 comfortable range threshold라 부른다.
 그리고 재충전에 대한 접근성(recharge accessibility)가 range anxiety에 중요한 요인이었다.</p>
 
 <p>이외에도 다양한 연구가 진행된 바 있다.</p>
@@ -272,10 +273,10 @@
 </ol>
 
 <p>이때, RFLM이나 DRFLM에서는 노드 B나 C에 충전소를 설치한다면 flow가 경로를 끝까지 할 수 있다.
-하지만, 운전자의 불안감을 감안한다면, 노드 B에 충전소를 설치했을 때 C-&gt;D로 가는 동안 배터리의 상태가 10%까지 떨어지기 때문에<br>
+하지만, 운전자의 불안감을 감안한다면, 노드 B에 충전소를 설치했을 때 노드 C에서 노드 D로 가는 동안 배터리의 상태가 10%까지 떨어지기 때문에<br>
 노드 B보다는 노드C에 설치하는 것이 더 좋은 선택이다.</p>
 
-<p>이러한 이유로, range anxiety는 EV 충전소 설치문제에 충분히 고려될만한 것이다.</p>
+<p>이러한 이유로, range anxiety는 EV 충전소 설치문제에 충분히 고려될 만하다.</p>
 
 <h2 id="논문의-목적">논문의 목적</h2>
 
@@ -290,7 +291,7 @@
 
 <p>이러한 가정하에, 논문은 제한된 예산 내에서 전체 운전자의 range anxiety를 최소화하는 충전소의 위치를 구하는 것을 목적으로 한다.</p>
 
-<p>이를 위해, 논문에서는 미리 경로에 대한 조합을 미리 계산하는 FRLM/DFRLM의 방법을 벗어나서 충전 방식과 경로 우회에 대한 것을 직접 명시하는 MIP모델을 만든다.<br>
+<p>이를 위해, 논문에서는 미리 경로에 대한 조합을 미리 계산하는 FRLM이나 DFRLM의 방법을 벗어나서 충전 방식과 경로 우회에 대한 것을 직접 명시하는 MIP모델을 만든다.<br>
 하지만 range anxiety가 비선형이기 때문에 이는 non-linear모델이고, 이는 solver로 쉽게 풀수는 없다.<br>
 그래서 논문에서는 허용오차 <script type="math/tex">\epsilon</script>을 도입하여, optimal에 오차를 의미하는 <script type="math/tex">\epsilon</script>-optimal solution을 효율적으로 얻는 방법을 제안한다.</p>
 
@@ -298,7 +299,7 @@
 
 <p>먼저 논문에서는 다음과 같은 notation을 사용한다.</p>
 
-<p style="text-align: center;"><img src="/assets/img/seminar4/notation.png" alt="" width="600px"></p>
+<p style="text-align: center;"><img src="/assets/img/seminar4/notation.png" alt="" width="800px"></p>
 
 <p>그리고 논문은 다음과 같은 가정을 둔다.</p>
 
@@ -315,14 +316,14 @@
 
 <p>먼저 두개의 binary decision variable <script type="math/tex">y_i</script>와 <script type="math/tex">x^w_{ij}</script>를 정의한다.</p>
 
-<p><script type="math/tex">y_i</script> : <script type="math/tex">i</script> 지역에 충전소를 설치할 것인지
+<p><script type="math/tex">y_i</script> : <script type="math/tex">i</script> 지역에 충전소를 설치할 것인지<br>
 <script type="math/tex">x^w_{ij}</script> : OD pair <script type="math/tex">w</script>에 노드<script type="math/tex">i</script>에서 노드<script type="math/tex">j</script>로 가는 flow가 존재 하는지</p>
 
-<p>그리고 보조적인 continuous variable <script type="math/tex">e^w_i</script>을 정의한다.</p>
+<p>그리고 continuous variable <script type="math/tex">e^w_i</script>을 정의한다.</p>
 
 <p><script type="math/tex">e^w_i</script> : 노드 <script type="math/tex">i</script>를 지난 직후의 배터리 잔여량</p>
 
-<p>그리고 일반적인 네트워크에 대한 충전 로직을을 포뮬레이션하기위해 다음 그림과 같은 네트워크를 사용한다.</p>
+<p>그리고 일반적인 네트워크에 대한 충전 로직을 포뮬레이션하기위해 다음 그림과 같은 네트워크를 사용한다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/fig_2.png" alt="" width="300px"></p>
 
@@ -340,7 +341,7 @@
   <li>
     <p>만약 다음 노드에 충전소가 있지만, 그 노드로 가지 않을 경우, 어떤 제약도 존재하지 않는다.</p>
 
-    <script type="math/tex; mode=display">0 \leq e^w_e \leq E</script>
+    <script type="math/tex; mode=display">0 \leq e^w_j \leq E</script>
   </li>
   <li>
     <p>그리고 다음 노드에 충전소가 없는데 그쪽으로 간다면, 배터리 용량이 줄어들게 된다.</p>
@@ -350,7 +351,7 @@
   <li>
     <p>다음 노드에 충전소가 없고, 그쪽으로 가지 않는다면, 이 역시 제약이 존재하지 않게 된다.</p>
 
-    <script type="math/tex; mode=display">0 \leq e^w_e \leq E</script>
+    <script type="math/tex; mode=display">0 \leq e^w_j \leq E</script>
   </li>
 </ol>
 
@@ -360,21 +361,21 @@
 
 <p>그리고 2,3,5번 제약을 위반하지 않고 4번 제약을 표현해주기 위해서 다음과 같은 제약식으로 바꿔줄 수 있다.</p>
 
-<script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ji} + Ey_j</script>
+<script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ij} + Ey_j</script>
 
-<p>다음으로, 4번 제약의 <script type="math/tex">e^w_i - d_{ij}</script>를 양수로 유지해주기 위해서, 새로운 항 <script type="math/tex">d_{ij}(1-x^w_{ij})</script>를 추가해준다. 그리고 5번 제약을 위해서 <script type="math/tex">E(1-x^w_{ij})</script>를 추가해준다.</p>
+<p>다음으로, 4번 제약의 <script type="math/tex">e^w_i - d_{ij}</script>가 음수가 되지 않게 하기 위해서, 새로운 항 <script type="math/tex">d_{ij}(1-x^w_{ij})</script>를 추가해준다. 그리고 5번 제약을 위해서 <script type="math/tex">E(1-x^w_{ij})</script>를 추가해준다.</p>
 
 <script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ij} + Ey_j + d_{ij}(1-x^w_{ij}) + E(1 - x^w_{ij})</script>
 
 <p>이를 정리하면 다음 식이 나오게 된다.</p>
 
-<script type="math/tex; mode=display">e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)</script>
+<script type="math/tex; mode=display">e^w_j \leq e^w_i - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)</script>
 
 <p>최종적으로 충전에 대한 1~5번 제약은 다음 두 식으로 정리할 수 있다.</p>
 
 <script type="math/tex; mode=display">\begin{cases}
 Ey_j \leq e^w_j \leq E\\
-e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
+e^w_j \leq e^w_i - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 \end{cases}</script>
 
 <h2 id="driving-range-anxiety">Driving range anxiety</h2>
@@ -390,7 +391,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 <p>이러한 연구에 따라 논문에서는 다음 가정을 둔다.</p>
 
 <ul>
-  <li>EV 운전자의 range anxiety는 배터리 잔여량이 증가할 수록 최대값<script type="math/tex">R_{max}</script>부터 comfortable range threshold(<script type="math/tex">E_conf</script>)까지  convex하게 떨어진다. 그리고 SoC가 최대량 <script type="math/tex">E</script>가 되면 range anxiety는 0이 된다.</li>
+  <li>EV 운전자의 range anxiety는 배터리 잔여량이 증가할 수록 최대값<script type="math/tex">R_{max}</script>부터 comfortable range threshold(<script type="math/tex">E_{conf}</script>)까지  convex하게 떨어진다. 그리고 SoC가 최대량 <script type="math/tex">E</script>가 되면 range anxiety는 0이 된다.</li>
 </ul>
 
 <p>다음 그림을 보면, SoC에 따른 EV운전자의 range anxiety의 변화량에 대한 그래프를 보여준다. SoC가 <script type="math/tex">E_{conf}</script>에 도달하기까지 그 변화량이 점점 줄어드는 것을 볼 수 있다.</p>
@@ -398,7 +399,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 <p style="text-align: center;"><img src="/assets/img/seminar4/fig_3.png" alt="" width="400px"></p>
 
 <p>그리고 다음 그림을 보면, 일정한 속도로 운전했을 때 배터리의 상태는 선형적으로 줄어들고, SoC가 <script type="math/tex">E_{conf}</script>보다 낮아졌을 경우 다시 충전될 때 까지 range anxiety가 convex하게 증가하는 것을 볼 수 있다. 완충된 경우 다시 range anxiety는 0이 된다.<br>
-그리고 논문에서는, 선형적인 SoC에 대한 함수를 <script type="math/tex">S(t)</script>, convex한 range anxiety에 대한 함수를 R(t)라고 둔다.</p>
+그리고 논문에서는, 선형적인 SoC에 대한 함수를 <script type="math/tex">S(t)</script>, convex한 range anxiety에 대한 함수를 <script type="math/tex">R(t)</script>라고 둔다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/fig_4.png" alt="" width="400px"></p>
 
@@ -420,7 +421,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <h2 id="optimization-model">Optimization Model</h2>
 
-<p>주행거리나 예산의 한계로 인해서 충전을 할 수 없는 경우를 위해, 논문에서는 시작점과 도착점을 잇는 길이가 0인 추가적인 링크를 하나 만든다. 이 링크를 통해 갈 수 있게 하기 위해서 링크를 갈때 소비되는 전기량 역시 0으로 설정한다.</p>
+<p>주행거리나 예산의 한계로 인해서 충전을 할 수 없는 경우를 위해, 논문에서는 시작점과 도착점을 잇는 길이가 0인 추가적인 링크를 하나 만든다. 이 링크를 통해 갈 수 있게 하기 위해서 origin에서의 배터리 양이 destination에서의 배터리 양보다 크거나 같다면 이 링크를 갈때 소비되는 전기량을 0으로 설정하고 그 외의 경우에는 origin에서의 배터리양 - destination에서의 배터리 양으로 설정한다.</p>
 
 <p>그렇게하여 만들어진 DSCP모델은 다음과 같다.</p>
 
@@ -497,7 +498,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_3.png" alt="" width="900px"></p>
 
-<p><script type="math/tex">a^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j)</script>이고, <script type="math/tex">b^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j) - \bar{R^{'}}(r^{w(k)}_j)r^{w(k)}_j</script>이기 때문에 결과적으로 다음과 같은 MILP 모델이 만들어진다.</p>
+<p><script type="math/tex">a^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j)</script>이고, <script type="math/tex">b^{w(k)}_j = \bar{R^{'}}(r^{w(k)}_j) - \bar{R^{'}}(r^{w(k)}_j)r^{w(k)}_j</script>이고, 결과적으로 다음과 같은 MILP 모델이 만들어진다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/outer_5.png" alt="" width="400px"></p>
 
@@ -510,7 +511,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 <script type="math/tex; mode=display">\hat{R}(r^w_j) = max_{k \in K}\{a^{w(k)}_j r^w_j + b^{w(k)}_j\}</script>
 
 <p>이때 optimal solution에 대한 error는 <script type="math/tex">\epsilon</script>에 의해 몇개의 접선이 생길 것인지 정해지면서 조절된다. 
-즉, 만약 <script type="math/tex">\bar{R}(r^w_j) - \hat{\epsilon} \leq \hat{R}(r^w_j) \leq \hat{R}(r^w_j)</script>를 만족한다면, 우리는 다음 부등식을 얻을 수 있다.</p>
+즉, 만약 <script type="math/tex">\bar{R}(r^w_j) - \hat{\epsilon} \leq \hat{R}(r^w_j) \leq \bar{R}(r^w_j)</script>를 만족한다면, 우리는 다음 부등식을 얻을 수 있다.</p>
 
 <script type="math/tex; mode=display">Obj(x^*,y^*,e^*,r^*) - Obj^{\mathrm{II}}(Q^*, B^*, x^*, y^*, e^*, r^*) \leq \epsilon \qquad(37)</script>
 
@@ -573,7 +574,7 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/convex_function.png" alt="" width="800px"></p>
 
-<p>전반적인 parameter는 다음과 같이 정해졌다.</p>
+<p>전반적인 parameter는 다음과 같이 정하여 각각에 대해 실험을 진행했다.</p>
 
 <p style="text-align: center;"><img src="/assets/img/seminar4/table_1.png" alt="" width="800px"></p>
 
@@ -679,6 +680,9 @@ e^w_j \leq e^w_j - d_{ij}x^w_{ij} + E(1-x^w_{ij}+y_j)
 
 <h4 id="참고">참고</h4>
 
+<ul>
+  <li><a href="https://www.sciencedirect.com/science/article/pii/S0968090X19313208" target="_blank" rel="noopener noreferrer nofollow"><em>Mitigate the range anxiety: Siting battery charging stations for electric vehicle drivers</em></a></li>
+</ul>
 
   </div>
 
