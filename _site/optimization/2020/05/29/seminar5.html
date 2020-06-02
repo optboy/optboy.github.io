@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[논문 리뷰] A Green Vehicle Routing Problem</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="이번 세미나에서 발표할 논문은 A Green Vehicle Routing Problem이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[논문 리뷰] A Green Vehicle Routing Problem" />
+<meta name="twitter:description" content="이번 세미나에서 발표할 논문은 A Green Vehicle Routing Problem이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/05/29/seminar5.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[논문 리뷰] A Green Vehicle Routing Problem" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/05/29/seminar5.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="이번 세미나에서 발표할 논문은 A Green Vehicle Routing Problem이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-05-29T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/05/29/seminar5.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[논문 리뷰] A Green Vehicle Routing Problem</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-05-29T00:00:00+09:00" itemprop="datePublished">
+                    
+                    May 29, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[논문 리뷰] A Green Vehicle Routing Problem</h1>
+    <p class="post-meta">
+      <time datetime="2020-05-29T00:00:00+09:00" itemprop="datePublished">
+        
+        May 29, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>이번 세미나에서 발표할 논문은 <em>A Green Vehicle Routing Problem</em>이다.</p>
+
+<h1 id="무슨-논문인가">무슨 논문인가?</h1>
+
+<p>이 논문에서는 대체연료차량(AFV)의 충전을 고려하는 VRP문제를 푼다.</p>
+
+<h1 id="연구의-목적과-필요성">연구의 목적과 필요성</h1>
+
+<p>2009년 미국에서의 총 온실가스 배출량의 28%가 교통분야에서 나왔다. 이에, 화석 연료 사용을 줄이기 위한 많은 노력들이 있어왔다. 그러한 노력 중 하나가 화석연료를 바이오디젤, 전기, 에탄올, 수소, 천연가스 등과 같은 대체 연료로 바꾸는 것이다. 실제로, 정부나 지자체를 비롯하여 여러 기업들이 대체연료차량(AFV)로 운송수단을 바꾸고 있는 상황이다. 이러한 변화가 절실한 이유는 운송에 쓰이는 트럭들은 전체 차량 중에 4%밖에 되지 않지만, 미국의 온실가스배출의 19.2%를 차지하고 있기 때문이다.</p>
+
+<p>이 논문에서는 대체연료를 사용하는 차량들이 충전소를 찾기 어려운 문제가 있고, 많은 기업이나 기관들이 최소한의 비용으로 고객들을 serve하고자 한다는 점에서, 연료가 부족할 위험을 줄임과 동시에 최단경로를 찾고자 한다. 그리고 이러한 문제를 G-VRP(Green Vehicle Routing Problem)이라 이름붙였다.</p>
+
+<p>G-VRP문제에서는 depot, customer, AFSs(대체연료차량충전소)을 의미하는 node들이 있으며, depot을 지나서 customer을 최소한의 거리로 serve하고나서 다시 depot로 돌아오는 것이 목적이다. 이때 차량의 주행거리는 차량 연료의 capacity를 넘지 못하기 때문에 경로 중간에 AFSs를 거쳐 충전을 해야한다.</p>
+
+<p>이 논문에서는 G-VRP를 mixed-integer linear programming(MILP)로 포뮬레이션했다.</p>
+
+<h1 id="문제에-대한-예시">문제에 대한 예시</h1>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/example.png" alt="" width="800px"></p>
+
+<p>위 예시에서 트럭이 한대있고 차량의 연료 capacity는 50갤런이며, 1마일당 0.2갤런을 소비한다고 하자. 그리고 3개의 AFSs(F1,F2,F3)가 있다. 차량은 depot D에서 출발해서 C1~C6을 거쳐서 다시 D로 돌아와야 한다. 이때 C1~C6을 방문하기 위해서는 339마일을 주행해야하고 이는 67.8갤런을 필요로 한다. 즉, 차량의 capacity보다 17.8갤런이 더 필요한 것이다. 그래서 차량은 최소한 한번은 충전소를 방문해야만 한다. 이때 충전소를 방문한다면 354마일을 주행해야하며, 이는 기존의 최단경로보다 15마일 더 길다.</p>
+
+<h1 id="논문에서-제안하는-방법">논문에서 제안하는 방법</h1>
+
+<p>VRP문제는 NP-hard문제로 알려져 있고, G-VRP는 VRP의 특별한 경우이므로, G-VRP역시 NP-hard이다. 그렇기 때문에 문제 사이즈가 큰 경우, exact solution을 찾기가 어렵다. 따라서 논문에서는 두가지 휴리스틱 기법 Modified Clarke and Wright Savings(MCWS)와 Density-Based Clustering Algorithm(DBCA)을 사용하여 문제를 푼다.</p>
+
+<h1 id="문제-정의와-g-vrp-수리모형">문제 정의와 G-VRP 수리모형</h1>
+
+<p>먼저 문제 설명에 사용되는 기호들의 정의는 다음과 같다.</p>
+
+<p><script type="math/tex">I</script> : 고객 노드 집합 <script type="math/tex">\{v_1, v_2, ..., v_n\}</script><br>
+<script type="math/tex">v_0</script> : depot 노드 (충전소 역할도 한다.)<br>
+<script type="math/tex">F</script> : 충전소 노드 집합 <script type="math/tex">\{v_{n+1}, v_{n+2}, ..., v_{n+s}\}</script><br>
+<script type="math/tex">V</script> : 네트워크의 모든 노드 집합, <script type="math/tex">I \cup v_0 \cup F = \{v_0, v_1, ..., v_{n+s}\}</script><br>
+<script type="math/tex">E</script> : 네트워크의 모든 아크 집합, <script type="math/tex">% <![CDATA[
+\{(v_i, v_j): v_i,v_j \in V, i < j\} %]]></script><br>
+<script type="math/tex">G(V,E)</script> : 노드 <script type="math/tex">V</script>와 아크 <script type="math/tex">E</script>로 구성된 그래프
+<script type="math/tex">t_{ij}</script> : 노드 <script type="math/tex">i</script> 에서 <script type="math/tex">j</script>로 가는 데 걸리는 시간<br>
+<script type="math/tex">c_{ij}</script> : 노드 <script type="math/tex">i</script> 에서 <script type="math/tex">j</script>로 가는 데 걸리는 비용<br>
+<script type="math/tex">d_{ij}</script> : 노드 <script type="math/tex">i</script> 에서 <script type="math/tex">j</script>까지의 거리<br>
+<script type="math/tex">T_{max}</script> : 연료 용량으로 인해 생기는 최대 주행가능 시간</p>
+
+<p>논문에서 문제에 대한 가정을 몇가지 하는데, 먼저 모든 아크에 차량의 속도는 같다고 가정한다. 그리고 주행 중에 충전소를 방문하는 횟수에는 제한이 없으며 한번 충전하면 연료는 최대용량만큼 충전된다고 가정한다. 그리고 depot에서 어떤 고객으로 갈 때 적어도 충전소를 한번만 거치면 직접적으로 방문할 수 있다고 가정한다.</p>
+
+<p>G-VRP는 차량이동거리를 최소화하면서 어떤 노드집합을 지나는 각각의 차량에 대해서 최대 <script type="math/tex">m</script>개의 tour를 찾아야 하며, 각 차량은 depot에서 출발하고 도착한다.</p>
+
+<p>이를 위해 포뮬레이션에서는 고객을 방문하는 것과 AFSs나 depot를 방문하는 것을 구별한다. 왜냐하면 AFSs는 여러번 방문할 가능성이 있기 때문이다. 그리고 depot의 경우에는 출발과 도착점이며 역시 AFS의 역할을 할 수 있기 때문이다. 이렇게 여러번 방문할 수 있는 노드를 위해서 dummy노드 <script type="math/tex">s'</script>의 집합 <script type="math/tex">\pi = \{v_{n+s+1}, v_{n+s+2}, ..., v_{n+s+s'}\}</script>을 이용해서 그래프 <script type="math/tex">G(V,E)</script>를 확장한다. 이와 같은 방법으로 생기는 노드는 <script type="math/tex">V' = V \cup \pi</script>가 된다. 그리고 각 충전소마다 생기는 dummy node들의 개수는 해당 충전소를 방문할 수 있는 횟수로 정해지며 <script type="math/tex">n_f</script>라 정의한다. 이 <script type="math/tex">n_f</script>는 네트워크의 크기를 고려하여 최대한 작은 수로 정의되어야 하지만 효율적인 경로를 위해서라면 충분히 큰 수로 정의되어야 할 필요가 있다.</p>
+
+<p>G-VRP 포뮬레이션에 사용된 기호들에 대한 정의는 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/notation.png" alt="" width="800px"></p>
+
+<p>그리고 다음은 G-VRP 포뮬레이션이다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/formulation.png" alt="" width="800px"></p>
+
+<h2 id="g-vrp-수리모형-대한-설명">G-VRP 수리모형 대한 설명</h2>
+<ul>
+  <li>(1) : 차량들의 총 거리의 합을 최소화하는 것이 목적식이다.</li>
+  <li>(2) : 각 고객 노드에서 나가는 차량은 정확히 하나다.</li>
+  <li>(3) : 각 충전소 노드에서 나가는 차량은 1보다 클 수 없다.</li>
+  <li>(4) : flow balance 제약식이다.</li>
+  <li>(5),(6) : 최대 <script type="math/tex">m</script>개의 차량이 depot에서 출발하고 들어오도록 한다.</li>
+  <li>(7) : 각 노드마다 차량이 이동하는 시간을 고려하여 도착시간을 부여한다. 여기서 왜 <script type="math/tex">t_{ij} - p_j</script>인지는 의문이다.</li>
+  <li>(8),(9) : (7)번 제약식과 함께 각 차량이 <script type="math/tex">T_{max}</script>시간 전에 depot으로 돌아오도록 한다.</li>
+  <li>(10) : 차량이 이동하면 연료를 차감시키는 역할을 한다.</li>
+  <li>(11) : 차량이 depot나 AFS에 도착하면 연료 상태를 최대상태<script type="math/tex">Q</script>로 만들어준다.</li>
+  <li>(12) : depot로 돌아오기 위해 충분한 연료가 있어야 하도록 한다. 이 제약으로 차량이 오도가도 못하는 상황을 방지한다.</li>
+  <li>(13) : binary variable에 대한 제약이다.</li>
+</ul>
+
+<p>보통의 VRP에서는 subtour을 방지하는 제약식을 넣어주어야 하는데, 이 경우에는 (7)~(9)번 제약을 통해 subtour이 자연적으로 사라지게 된다. 도착 시간이 더 짧은 노드로 다시 갈 수가 없기 때문이다.</p>
+
+<h1 id="g-vrp에-대한-휴리스틱-기법">G-VRP에 대한 휴리스틱 기법</h1>
+
+<h2 id="mcws-heuristic">MCWS Heuristic</h2>
+<p>MCWS는 전통적인 VRP문제를 푸는 휴리스틱 알고리즘은 Clarke and Wright Sacings 알고리즘을 G-VRP에 맞게 변형시킨 것이다. 구체적인 알고리즘은 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/MCWS.png" alt="" width="800px"></p>
+<p style="text-align: center;"><img src="/assets/img/seminar5/MCWS2.png" alt="" width="800px"></p>
+
+<p>MCWS가 끝나면 앞서 보았던 수리모형의 (5),(6)번 제약식이 relaxation된 상태로, 차량의 수와 관련된 제약이 없는 feasible solution을 얻을 수 있다. 알고리즘은 feasible tour list에 있는 tour들이 더이상 merge될 수 없을 때까지 진행되는데, 최종 솔루션에서 tour의 개수는 step5에서 merge하는 과정을 통해 최대한 작은 값을 얻게 된다. 즉, 최종 tour의 개수가 <script type="math/tex">m</script>보다 크다면 <script type="math/tex">m</script>대의 차량으로 모든 demand를 커버하지 못한다는 것이다.</p>
+
+<p>보통의 VRP문제들의 솔루션은 사이클이 없는 형태이지만, G-VRP에서는 충전소를 여러번 방문할 수 있기 때문에 사이클 형태가 나올 수 있다. 다음 예시를 보자.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/fig2.png" alt="" width="800px"></p>
+
+<p>(a)번을 보면, F1충전소를 두번 지나가면서 사이클을 만든 것을 볼 수 있다. 그리고 (b)를 보면, 두대의 차량이 각각 한번씩 하나의 충전소를 두번 방문한다. 그리고 (c)와 같이 아무 차량도 충전소를 방문하지 않을 수 있다.</p>
+
+<p>다음 그림은 Merging과정이 어떻게 문제에 영향을 미치는 지 보여준다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/fig3.png" alt="" width="800px"></p>
+
+<p>(a)를 보면, 같은 충전소를 지나는 두개의 tour는 depot에 갈 필요 없이 서로 연결(merge)시켜 하나의 tour로 만들어 줄 수 있다. 이때는 새로운 아크를 연결할 필요도 없다.<br>
+(b)를 보면, 어떤 경우에는 직접적으로 merge할 수 없던 tour들도 merge가 가능하다는 것을 볼 수 있다. 이와 같이 추가적인 AFS를 방문하는 것을 포함하는 merge는 기존 tour에서 방문하던 AFS를 방문할 필요가 없어질 수도 있다.<br>
+(c)를 보면, 기존에 방문했던 AFS를 방문하지 않고 다른 AFS를 지나는 경우가 생기기도 한다.</p>
+
+<h2 id="dbca-heuristic">DBCA Heuristic</h2>
+<p>DBCA는 Density Based Spatial Clustering of Applications with Noise(DBSCAN) 알고리즘을 이용해서 큰 공간에서 클러스터를 찾고, 클러스터 내부를 연결하는 경로와 클러스터 외부를 연결하는 경로를 각각 찾는 방법이다.</p>
+
+<p>DBCA의 핵심 아이디어는 주어진 반경안에 있는 이웃에 적어도 일정 수 이상의 노드가 있어야 한다는 것이다. 다음 그림은 20개 고객노드와 3개의 AFS를 가진 경우에 대해서 DBCA방법을 적용한 예시이다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/fig4.png" alt="" width="500px"></p>
+
+<p>DBCA의 구체적인 절차는 다음과 같다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/DBCA.png" alt="" width="500px"></p>
+
+<p>먼저 일반적인 클러스터링을 한 후, 클러스터 안에 있는 고객들에 대해서 한 차량으로 serve를 하고 클러스터들은 차량 capacity가 넘지 않도록 한다. 하지만 DBCA에서는 클러스터들이 그러한 제약들에 대한 고려가 없기 때문에 앞서 본 예시에서 처럼 한 클러스터 내에서 여러개의 tour를 만들 필요성도 있다.</p>
+
+<h2 id="improvement-heuristic">improvement heuristic</h2>
+
+<p>MCWS heuristic이나 DBCA는 feasibe tours를 만들지만 이보다 더 나아가서, 총 주행거리를 줄일 수 있는 방법들을 적용할 수 있다. inter-tour vertex exchange, within-tour two-vertex interchange &amp; reordering등을 G-VRP에 맞게 변형시켜 사용될 수 있다.</p>
+
+<p>inter-tour vertex exchange란, 각 tour쌍에 대해서 두개의 vertex가 선택되어 위치를 바꿔주는 것이다. 만약 총 이동거리가 줄어들고 제약을 모두 만족한다면 교환이 이루어진다.</p>
+
+<p>within-tour vertex interchange &amp; reordering은 모든 노드 쌍에 대해서 교환해보는 것이다. 선택된 두개의 노드의 위치가 바뀌고, 새로운 tour순서가 생긴다. 만약 새로운 투어가 제약을 만족하지 못한다면 노드 교환을 하지 않는다. 만약 만족한다면 AFS redundancy를 확인한 후 AFS의 위치를 바꿀 수 있다.</p>
+
+<h1 id="실험결과">실험결과</h1>
+
+<p>G-VRP문제에 대한 작은 랜덤 데이터를 만들어서 exact solution과 heuristic solution을 비교해보았다. 그리고 현실적인 G-VRP문제에 대한 실험으로 버지니아의 의학용품 공급회사를 depot로 삼고 버지니아, 매리랜드, 컬럼비아의 병원들을 고객으로 삼는 네트워크를 만들어 실험을 진행했다.</p>
+
+<h2 id="작은-랜덤-데이터에-대한-실험결과">작은 랜덤 데이터에 대한 실험결과</h2>
+
+<p>먼저 다음과 같은 시나리오들에 대한 실험을 진행했다.</p>
+
+<p style="text-align: center;"><img src="/assets/img/seminar5/scenario.png" alt="" width="600px"></p>
+
+<h4 id="참고">참고</h4>
+
+<ul>
+  <li><a href="https://www.sciencedirect.com/science/article/pii/S1366554511001062" target="_blank" rel="noopener noreferrer nofollow"><em>A Green Vehicle Routing Problem</em></a></li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
