@@ -47,6 +47,8 @@ order: 1
 - **정보시스템개발 및 실습 프로젝트** : 사용자의 경험에 기반한 질문 추천 시스템을 도입한 학과 질문 게시판 구현 with Django  
   
 - **INFORMS O.R. & Analytics Student Team Competition** : Bayer사 공정 최적화를 위한 솔루션 제시 with python & Cplex  
-         
+
+- **LG AI 해커톤 블럭 장난감 제조 공정 최적화 경진대회** : Action Transfer Reinforcement Learning을 통한 제조 공정 최적화
+
 ## 5. Contact
 - **e-mail** : qkrgusdn21@naver.com
