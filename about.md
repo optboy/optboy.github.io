@@ -50,5 +50,7 @@ order: 1
 
 - **LG AI 해커톤 블럭 장난감 제조 공정 최적화 경진대회 우수상** : Action Transfer Reinforcement Learning을 통한 제조 공정 최적화
 
+- **멋쟁이 사자처럼 6기** : 졸업 여건 확인 시스템 개발 with Ruby on rails
+
 ## 5. Contact
 - **e-mail** : qkrgusdn21@naver.com
