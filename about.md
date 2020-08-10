@@ -32,6 +32,7 @@ order: 1
 - 한국외국어대학교 산업경영공학과 석사 과정 중 
     
 ## 4. Experience
+
 - **Human Bevavior Analysis(HUBA) Project** : 학생연구원으로 참여
 
 - **컴퓨터 프로그래밍 수업 프로젝트** : 판매 시뮬레이션 게임 구현 with Java  
@@ -45,8 +46,12 @@ order: 1
 - **자료구조 및 알고리즘 프로젝트** : 2D-Packing Problem Heuristic Optimization with python  
   
 - **정보시스템개발 및 실습 프로젝트** : 사용자의 경험에 기반한 질문 추천 시스템을 도입한 학과 질문 게시판 구현 with Django  
+
+- **데이터마이닝 응용 프로젝트** : [SVM](https://github.com/optboy/SVM), [decision tree](https://github.com/optboy/decision-tree), [K-means](https://github.com/optboy/k-means)
+
+- **인공지능 특강 프로젝트** : [ANN](https://github.com/optboy/ANN), [GAN](https://github.com/optboy/GAN)
   
-- **INFORMS O.R. & Analytics Student Team Competition** : Bayer사 공정 최적화를 위한 솔루션 제시 with python & Cplex  
+- **INFORMS O.R. & Analytics Student Team Competition** : Bayer사 제조 공정 최적화를 위한 솔루션 제시 with python & Cplex  
 
 - **LG AI 해커톤 블럭 장난감 제조 공정 최적화 경진대회 우수상** : Action Transfer Reinforcement Learning을 통한 제조 공정 최적화
 
