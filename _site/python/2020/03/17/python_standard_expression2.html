@@ -217,7 +217,7 @@
     <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span>
 
-  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'ab*'</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'ab*'</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -252,7 +252,7 @@
 가장 먼저, 패턴 객체를 하나 만들어야 한다.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>이번에 만든 객체는 모든 문자에 대해서 1번 이상 반복되는 문자열을 의미한다.</p>
 <h4 id="match">match()</h4>
@@ -261,7 +261,7 @@
     <p><code class="highlighter-rouge">match</code>는 문자열의 처음부터 정규식과 매치되는 지 조사한다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 6), match='python'&gt;
@@ -271,7 +271,7 @@
     <p>만약 처음부터 정규식과 매치되지 않는다면 <code class="highlighter-rouge">None</code>을 반환한다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># None
@@ -281,12 +281,12 @@
     <p>실제 코드에서 <code class="highlighter-rouge">match</code>메소드는 다음과 같은 방법으로 쓰인다고 한다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">)</span>
 
-  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
 
   <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-      <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>
   <span class="k">else</span><span class="p">:</span>
       <span class="k">print</span><span class="p">(</span><span class="s">'No match'</span><span class="p">)</span>
 </code></pre></div>    </div>
@@ -302,7 +302,7 @@
     <p><code class="highlighter-rouge">search</code>는 문자열 전체를 검색하여 정규식과 매치되는지 조사한다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 6), match='python'&gt;
@@ -312,7 +312,7 @@
     <p><code class="highlighter-rouge">search</code>는 전체 문자열에서 검색하기 때문에 <code class="highlighter-rouge">match</code>와 다르게, 처음에 매치되지 않는 문자가 있더라도 매치가 된다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'3 python'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># &lt;_sre.SRE_Match object; span=(2, 8), match='python'&gt;
@@ -329,7 +329,7 @@
     <p><code class="highlighter-rouge">findall</code>은 정규식과 매치되는 모든 문자열을 리스트로 반환한다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
   <span class="c1"># ['life', 'is', 'too', 'short']
@@ -343,7 +343,7 @@
     <p><code class="highlighter-rouge">finditer</code>은 <code class="highlighter-rouge">findall</code>과 기능적으로는 같지만, 리턴값이 리스트가 아닌 반복 가능한 객체이다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">result</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="s">'life is too short'</span><span class="p">)</span>
 
   <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
   <span class="c1"># &lt;callable_iterator object at 0x11a3a0f28&gt;
@@ -382,18 +382,18 @@
     <p>예시</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">)</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>
   <span class="c1"># python
 </span>    
-  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">())</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">start</span><span class="p">())</span>
   <span class="c1"># 0
 </span>
-  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">())</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
   <span class="c1"># 6
 </span>
-  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">span</span><span class="p">())</span>
   <span class="c1"># (0,6)
 </span></code></pre></div>    </div>
   </li>
@@ -408,7 +408,7 @@
     <p>다음과 같이 <code class="highlighter-rouge">re</code> 모듈에서 직접 <code class="highlighter-rouge">match</code>, <code class="highlighter-rouge">search</code>등의 메소드를 사용하면 된다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">,</span> <span class="s">'python'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+'</span><span class="p">,</span> <span class="s">'python'</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>

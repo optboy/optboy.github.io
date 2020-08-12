@@ -225,7 +225,7 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">collections</span>
 
 <span class="n">test_l</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">]</span>
-<span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">test_l</span><span class="p">)</span>
+<span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">test_l</span><span class="p">)</span>
 
 <span class="c1"># Counter({'a': 2, 'b': 1, 'c': 1})
 </span></code></pre></div></div>
@@ -253,12 +253,12 @@
         <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="n">test_l</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">]</span>
 
-  <span class="n">test_counter</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">test_l</span><span class="p">)</span>
+  <span class="n">test_counter</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">test_l</span><span class="p">)</span>
 
-  <span class="n">test_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+  <span class="n">test_counter</span><span class="p">.</span><span class="n">most_common</span><span class="p">()</span>
   <span class="c1"># [('a', 2), ('b', 1), ('c', 1)]
 </span>
-  <span class="n">test_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">test_counter</span><span class="p">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
   <span class="c1"># [('a', 2)]
 </span></code></pre></div>        </div>
       </li>
@@ -277,13 +277,13 @@
   <span class="n">name_l1</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Lee'</span><span class="p">,</span> <span class="s">'Park'</span><span class="p">,</span> <span class="s">'Lee'</span><span class="p">]</span>
   <span class="n">name_l2</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Lee'</span><span class="p">,</span> <span class="s">'Park'</span><span class="p">,</span> <span class="s">'Choi'</span><span class="p">]</span>
 
-  <span class="n">counter_1</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">name_l1</span><span class="p">)</span>
-  <span class="n">counter_2</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">name_l2</span><span class="p">)</span>
+  <span class="n">counter_1</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">name_l1</span><span class="p">)</span>
+  <span class="n">counter_2</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">name_l2</span><span class="p">)</span>
 
   <span class="n">subtract_test</span> <span class="o">=</span> <span class="n">counter_1</span> <span class="o">-</span> <span class="n">counter_2</span>
   <span class="c1"># Counter({'Lee': 1})
 </span>
-  <span class="n">counter_1</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">counter_2</span><span class="p">)</span>
+  <span class="n">counter_1</span><span class="p">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">counter_2</span><span class="p">)</span>
   <span class="c1"># counter_1 = Counter({'Lee': 1, 'Park': 0, 'Choi': -1})
 </span></code></pre></div>        </div>
       </li>

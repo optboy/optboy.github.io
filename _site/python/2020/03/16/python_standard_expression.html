@@ -234,14 +234,14 @@ kim 700905-1059119
 """</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">):</span>
     <span class="n">word_result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="ow">is</span> <span class="n">digit</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[:</span><span class="mi">6</span><span class="p">].</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[:</span><span class="mi">7</span><span class="p">].</span><span class="ow">is</span> <span class="n">digit</span><span class="p">():</span>
             <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="s">'*******'</span>
-        <span class="n">word_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word_result</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+        <span class="n">word_result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">" "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">word_result</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>하지만 정규표현식을 사용한다면 아주 간결하게 코드를 작성할 수 있다.</p>
@@ -252,8 +252,8 @@ park 800905-1049118
 kim 700905-1059119
 """</span>
 
-<span class="n">pat</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"(</span><span class="err">\</span><span class="s">d{6})[-]</span><span class="err">\</span><span class="s">d{7}"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">pat</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'</span><span class="err">\</span><span class="s">g&lt;1&gt;-*******'</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+<span class="n">pat</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"(\d{6})[-]\d{7}"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pat</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'\g&lt;1&gt;-*******'</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>만약 찾고자 하는 문자열이나 바꿔야 할 문자열의 규칙이 더욱 복잡하다면 정규표현식은 더욱 강력한 힘을 발휘한다.</p>

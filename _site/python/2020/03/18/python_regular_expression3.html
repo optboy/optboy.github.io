@@ -229,7 +229,7 @@
 
     <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">DOTALL</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -245,8 +245,8 @@
 
     <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">)</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a</span><span class="se">\n</span><span class="s">b'</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">)</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a</span><span class="se">\n</span><span class="s">b'</span><span class="p">)</span>
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># None
 </span></code></pre></div>    </div>
@@ -255,8 +255,8 @@
     <p>하지만 다음과 같이 <code class="highlighter-rouge">DOTALL</code> 옵션을 넣으면 <code class="highlighter-rouge">\n</code>이 포함된 문자열과도 매치가 된다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a</span><span class="se">\n</span><span class="s">b'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'a.b'</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">DOTALL</span><span class="p">)</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a</span><span class="se">\n</span><span class="s">b'</span><span class="p">)</span>
   <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
   <span class="c1"># &lt;_sre.SRE_Match object; span=(0, 3), match='a\nb'&gt;
 </span></code></pre></div>    </div>
@@ -273,13 +273,13 @@
     <p>[a-z]는 소문자만을 의미하지만 <code class="highlighter-rouge">re.I</code>옵션 덕분에 대문자도 매치된다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]*'</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">))</span>
-  <span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'python'</span><span class="o">&gt;</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'Python'</span><span class="p">))</span>
-  <span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Python'</span><span class="o">&gt;</span>
-  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">'PYTHON'</span><span class="p">))</span>
-  <span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'PYTHON'</span><span class="o">&gt;</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[a-z]*'</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">I</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'python'</span><span class="p">))</span>
+  <span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'python'</span><span class="o">&gt;</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'Python'</span><span class="p">))</span>
+  <span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Python'</span><span class="o">&gt;</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'PYTHON'</span><span class="p">))</span>
+  <span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'PYTHON'</span><span class="o">&gt;</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -298,7 +298,7 @@
 
     <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span> 
-  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^python</span><span class="err">\</span><span class="s">s</span><span class="err">\</span><span class="s">w+'</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^python\s\w+'</span><span class="p">)</span>
 
   <span class="n">data</span> <span class="o">=</span> <span class="s">'''python one
   life is too short 
@@ -307,7 +307,7 @@
   python three
   '''</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
   <span class="c1"># ['python one']
 </span></code></pre></div>    </div>
   </li>
@@ -319,7 +319,7 @@
 
     <div class="language-python highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">re</span> 
-  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^python</span><span class="err">\</span><span class="s">s</span><span class="err">\</span><span class="s">w+'</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^python\s\w+'</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">MULTILINE</span><span class="p">)</span>
 
   <span class="n">data</span> <span class="o">=</span> <span class="s">'''python one
   life is too short 
@@ -328,7 +328,7 @@
   python three
   '''</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
   <span class="c1"># ['python one', 'python two', 'python three']
 </span></code></pre></div>    </div>
   </li>
@@ -341,14 +341,14 @@
     <p>복잡한 정규식의 경우 이해하기가 상당히 어렵다. 이때 사용할 수 있는 것이 <code class="highlighter-rouge">VERBOSE</code>와 <code class="highlighter-rouge">X</code>다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r'&amp;[#](0[0-7]+|[0-9]+|x[0-9a-fA-F]+);'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r'&amp;[#](0[0-7]+|[0-9]+|x[0-9a-fA-F]+);'</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>위 정규식을 다음과 같이 표현하여 가독성을 높일 수 있다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r"""
+<div class="highlight"><pre class="highlight"><code>  <span class="n">charref</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">r"""
   &amp;[#]                # Start of a numeric entity reference
   (
       0[0-7]+         # Octal form
@@ -356,7 +356,7 @@
   | x[0-9a-fA-F]+   # Hexadecimal form
   )
   ;                   # Trailing semicolon
-  """</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+  """</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">VERBOSE</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -368,7 +368,7 @@
     <p><code class="highlighter-rouge">\\</code>와 같이 백슬래시를 하나 더 붙이면 일반 문자 <code class="highlighter-rouge">\</code>로 인식된다.</p>
 
     <div class="language-python highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'</span><span class="se">\\</span><span class="s">section'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight"><code>  <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'</span><span class="se">\\</span><span class="s">section'</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>혹은 파이썬 Raw String 규칙을 이용할 수도 있다.</li>

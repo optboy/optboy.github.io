@@ -211,7 +211,7 @@
 <p>파일을 읽거나 쓰기 위해서는 먼저 파일을 열어야 한다. 여는 방법은 아래와 같다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 <span class="c1"># 해당 코드가 실행된 경로에 "새파일.txt"라는 이름의 파일이 생겼을 것이다.
 # 만약 이미 같은 이름의 파일이 존재했을 경우, 원래 내용이 모두 사라진다.
 </span></code></pre></div></div>
@@ -251,9 +251,9 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="s">"</span><span class="si">%</span><span class="s">d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s">"%d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 <p>앞서 설명한 파일을 여는 방법을 통해 파일을 연 다음, <code class="highlighter-rouge">write()</code>함수를 통해서 원하는 값을 넣었다.</p>
 
@@ -263,9 +263,9 @@
 이때, open의 모드는 <code class="highlighter-rouge">'r'</code>이다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>만약 위 출력 예제를 그대로 따라했다면, ‘1번째 줄입니다.’가 출력될 것이다.<br>
@@ -274,10 +274,10 @@
 <p>그리고 만약 파일의 모든 줄을 한번에 읽어오고 싶다면 다음과 같이 <code class="highlighter-rouge">readlines()</code>함수를 사용할 수 있다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">readlines()</code>는 파일의 모든 줄을 읽어서 각 라인을 요소로 갖는 리스트를 리턴한다.<br>
@@ -286,9 +286,9 @@
 <p>다른 방법으로는, <code class="highlighter-rouge">read()</code>함수를 사용하는 방법이 있다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">read()</code>함수는 파일의 전체 내용을 문자열로 리턴한다.</p>
@@ -300,9 +300,9 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span><span class="s">'a'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="s">"</span><span class="si">%</span><span class="s">d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s">"%d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h1 id="with문을-사용해서-파일열기">with문을 사용해서 파일열기</h1>
@@ -314,8 +314,8 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"새파일.txt"</span><span class="p">,</span><span class="s">'a'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="s">"</span><span class="si">%</span><span class="s">d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="s">"%d번째 줄입니다.</span><span class="se">\n</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span>
+        <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h4 id="참고">참고</h4>

@@ -220,7 +220,7 @@ pickle은 파이썬에서 기본적으로 제공하는 모듈이기 때문에 �
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hello'</span><span class="p">:</span> <span class="s">'world'</span><span class="p">}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'filename.pickle'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">pickle</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="데이터-로드">데이터 로드</h3>
@@ -228,7 +228,7 @@ pickle은 파이썬에서 기본적으로 제공하는 모듈이기 때문에 �
 <p>저장한 객체를 불러오는 방법도 유사하다. 대신, 파일의 모드를 ‘rb’, 읽기모드로 하고, <code class="highlighter-rouge">pickle.load()</code>를 해주면 된다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'filename.pickle'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h4 id="참고">참고</h4>
