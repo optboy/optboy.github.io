@@ -43,6 +43,66 @@ logic-based BD는 benders cut을 만드는 특정한 기준이 없고, 문제마
 
 ## The Problem
 
+일반적인 생산계획 문제는 다음과 같이 정의할 수 있다.  
+
+$$j \in \{1,...,n\}$$ : 작업  
+$$i \in \{1,...,m\}$$ : 설비  
+$$p_{ij}$$ : 소요시간  
+$$c_{ij}$$ : 자원소모량  
+$$r_j$$ : release time  
+$$d_j$$ : deadline  
+$$s_j$$ : start time  
+$$C_i$$ : 최대 자원
+$$J_{it}$$ : $$t$$시간에 $$i$$설비에서 작업하는 작업 $$j$$ 집합
+
+![](/assets/img/logic_BD/1.png){:width="500px"}  
+
+여기에 추가적인 제약을 넣을 수도 있다.  
+예를 들어, 어떤 작업들은 같은 설비에 할당되어야 한다거나 어떤 작업은 어떤 작업보다 먼저 완료되어야 한다거나 하는 제약을 넣을 수 있다. 
+
+그리고 이 논문에서는 다음과 같이 세가지 목적함수를 제안한다. 
+
+![](/assets/img/logic_BD/obj.png){:width="500px"} 
+
+## Constraint Programming Formulation
+
+위와 같은 문제를 CP로도 만들 수 있는데, 여기서는 global constraints $$element$$와 $$cumulative$$가 사용된다. 
+
+`여기서 $$element$$는 equality제약, $$cumulative$$는 부등식 제약인 것 같다.`
+
+![](/assets/img/logic_BD/4.png){:width="500px"}
+
+여기서 1,2번째 제약식은 시간과 관련된 제약이며 3번째 제약은 자원제약이다. 
+
+## Mixed-Inter Programming Formulation
+
+이를 MILP로 표현하면 다음과 같다.  
+
+$$x_{ijt}$$ : $$j$$작업을 $$t$$시간에 $$i$$설비에서 작업한다면 1 아니면 0인 변수  
+
+### minimum-cost formulation
+
+![](/assets/img/logic_BD/5.png){:width="500px"}
+
+(a) 제약은 각 작업이 한번은 해야한다는 제약이며, (b) 제약은 자원 제약, (c)는 time window 제약이다.  
+
+### minimum-makespan formulation
+
+![](/assets/img/logic_BD/6.png){:width="500px"}
+
+### minimum total tardiness formulation
+
+![](/assets/img/logic_BD/7.png){:width="500px"}
+
+위 포뮬레이션들은 time-indexed한 변수들이기 때문에 확장이 가능하다.  
+
+이산적인 이벤트를 가지고 연속된 시간을 사용하는 모델을 살펴보자.
+$$n$$개의 작업이 있다면 $$2n$$개의 이벤트가 존재하는 것이다. 
+
+
+
+
+
 
 
 

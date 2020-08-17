@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160037171-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160037171-1');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[논문 리뷰] Planning and Scheduling by Logic-Based Benders Decomposition</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="이번 세미나에서 발표할 논문은 Planning and Scheduling by Logic-Based Benders Decomposition이다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="Optimization" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[논문 리뷰] Planning and Scheduling by Logic-Based Benders Decomposition" />
+<meta name="twitter:description" content="이번 세미나에서 발표할 논문은 Planning and Scheduling by Logic-Based Benders Decomposition이다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//optimization/2020/08/16/seminar_logic_benders.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[논문 리뷰] Planning and Scheduling by Logic-Based Benders Decomposition" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//optimization/2020/08/16/seminar_logic_benders.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="이번 세미나에서 발표할 논문은 Planning and Scheduling by Logic-Based Benders Decomposition이다." />
+<meta property="og:site_name" content="현우의 공유메모장" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-08-16T00:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="Optimization" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/optimization/2020/08/16/seminar_logic_benders.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">현우의 공유메모장</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/category.html">카테고리</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[논문 리뷰] Planning and Scheduling by Logic-Based Benders Decomposition</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-08-16T00:00:00+09:00" itemprop="datePublished">
+                    
+                    Aug 16, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[논문 리뷰] Planning and Scheduling by Logic-Based Benders Decomposition</h1>
+    <p class="post-meta">
+      <time datetime="2020-08-16T00:00:00+09:00" itemprop="datePublished">
+        
+        Aug 16, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">optboy</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>이번 세미나에서 발표할 논문은 <em>Planning and Scheduling by Logic-Based Benders Decomposition</em>이다.</p>
+
+<p>이 논문은 2007년에 INFORMS지에 발표되었으며 저자는 카네기 멜론 대학의 J. N. Hooker이다.</p>
+
+<h2 id="논문의-주제">논문의 주제</h2>
+
+<p>논문에서는 생산에서 makespan, tardiness를 최소화하는 planning and scheduling 문제를 다룬다.</p>
+
+<p>이때 mixed-integer linear programming(MILP), constraint programming(CP)를 사용한다.</p>
+
+<p>작업을 설비에 할당하는 문제는 MILP로 풀고, 스케줄링 문제는 CP로 푼 다음, 두 문제를 logic-based Benders decomposition로 연결지어 전체 문제를 해결하는 것이 이 논문의 핵심 아이디어다.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>생산, 공급망에서 발생하는 스케줄링 문제에서 납기 내에 생산을 완료하도록 작업(Task)들이 설비에 할당이 되어야 한다.</p>
+
+<p>작업들은 자원 제약을 넘지 않는 선에서 병렬적으로 진행될 수도 있으며, 최종적인 목표는 비용, makespan, tardiness를 최소화 하는 것이다.</p>
+
+<p>그런데 이런 문제는 굉장히 어려운 문제이기에, 현실에선 대부분 상식적인 방식으로 문제를 푼다.<br>
+중앙 관리자가 작업을 설비에 할당하면, 오퍼레이터가 디테일한 스케줄을 짜는 것이다. 이 과정에서 문제가 있으면 다시 중앙관리자가 작업을 할당하고, 다시 스케줄을 짜는 방식이다.</p>
+
+<p>그런데 이러한 방식은 시간이 굉장히 오래걸리고, 좋은 스케줄이라는 보장도 없다.</p>
+
+<p>이러한 방법에 Benders decomposition 기법을 적용하자면, Master 문제에서 설비를 할당하고, subproblem에서 독립적인 스케줄링 문제를 풀 수 있다. Master 문제에 추가되는 benders cut은 오퍼레이터의 피드백과 같은 것이다. 그리고 모든 할당과 스케줄링이 최적일 때 알고리즘을 끝내는 것이다.</p>
+
+<p>그런데 <strong>이 문제에서 전통적인 benders decomposition(BD)은 적합하지 않다</strong>.<br>
+왜냐하면 전통적인 BD의 subproblem은 continuous한 문제여야 하는데, 스케줄링 문제는 조합 문제이기 때문이다.</p>
+
+<p>하지만 이 논문에서는 BD의 subproblem을 logic-based한 형태로 확장해 스케줄링 문제에 적용하는 방법을 제시한다.</p>
+
+<p>Logic based BD의 다른 장점으로는 MILP와 CP의 장점을 살릴 수 있다는 것이다. MILP는 할당 문제, CP는 스케줄링 문제를 푸는 방식으로, 각자가 잘 풀 수 있는 문제를 풀게 할 수 있다는 것이다. 이 방법으로 상당히 문제를 빠르게 풀 수 있게 된다.</p>
+
+<p>게다가 언제든지 알고리즘을 종료하고, feasible solution을 얻을 수 있다는 장점도 있다.</p>
+
+<p>logic-based BD는 benders cut을 만드는 특정한 기준이 없고, 문제마다 달라질 수 있다.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>일반적인 생산계획 문제는 다음과 같이 정의할 수 있다.</p>
+
+<p><script type="math/tex">j \in \{1,...,n\}</script> : 작업<br>
+<script type="math/tex">i \in \{1,...,m\}</script> : 설비<br>
+<script type="math/tex">p_{ij}</script> : 소요시간<br>
+<script type="math/tex">c_{ij}</script> : 자원소모량<br>
+<script type="math/tex">r_j</script> : release time<br>
+<script type="math/tex">d_j</script> : deadline<br>
+<script type="math/tex">s_j</script> : start time<br>
+<script type="math/tex">C_i</script> : 최대 자원
+<script type="math/tex">J_{it}</script> : <script type="math/tex">t</script>시간에 <script type="math/tex">i</script>설비에서 작업하는 작업 <script type="math/tex">j</script> 집합</p>
+
+<p><img src="/assets/img/logic_BD/1.png" alt="" width="500px"></p>
+
+<p>여기에 추가적인 제약을 넣을 수도 있다.<br>
+예를 들어, 어떤 작업들은 같은 설비에 할당되어야 한다거나 어떤 작업은 어떤 작업보다 먼저 완료되어야 한다거나 하는 제약을 넣을 수 있다.</p>
+
+<p>그리고 이 논문에서는 다음과 같이 세가지 목적함수를 제안한다.</p>
+
+<p><img src="/assets/img/logic_BD/obj.png" alt="" width="500px"></p>
+
+<h2 id="constraint-programming-formulation">Constraint Programming Formulation</h2>
+
+<p>위와 같은 문제를 CP로도 만들 수 있는데, 여기서는 global constraints <script type="math/tex">element</script>와 <script type="math/tex">cumulative</script>가 사용된다.</p>
+
+<p><code class="highlighter-rouge">여기서 $$element$$는 equality제약, $$cumulative$$는 부등식 제약인 것 같다.</code></p>
+
+<p><img src="/assets/img/logic_BD/4.png" alt="" width="500px"></p>
+
+<p>여기서 1,2번째 제약식은 시간과 관련된 제약이며 3번째 제약은 자원제약이다.</p>
+
+<h2 id="mixed-inter-programming-formulation">Mixed-Inter Programming Formulation</h2>
+
+<p>이를 MILP로 표현하면 다음과 같다.</p>
+
+<p><script type="math/tex">x_{ijt}</script> : <script type="math/tex">j</script>작업을 <script type="math/tex">t</script>시간에 <script type="math/tex">i</script>설비에서 작업한다면 1 아니면 0인 변수</p>
+
+<h3 id="minimum-cost-formulation">minimum-cost formulation</h3>
+
+<p><img src="/assets/img/logic_BD/5.png" alt="" width="500px"></p>
+
+<p>(a) 제약은 각 작업이 한번은 해야한다는 제약이며, (b) 제약은 자원 제약, (c)는 time window 제약이다.</p>
+
+<h3 id="minimum-makespan-formulation">minimum-makespan formulation</h3>
+
+<p><img src="/assets/img/logic_BD/6.png" alt="" width="500px"></p>
+
+<h3 id="minimum-total-tardiness-formulation">minimum total tardiness formulation</h3>
+
+<p><img src="/assets/img/logic_BD/7.png" alt="" width="500px"></p>
+
+<p>위 포뮬레이션들은 time-indexed한 변수들이기 때문에 확장이 가능하다.</p>
+
+<p>이산적인 이벤트를 가지고 연속된 시간을 사용하는 모델을 살펴보자.
+<script type="math/tex">n</script>개의 작업이 있다면 <script type="math/tex">2n</script>개의 이벤트가 존재하는 것이다.</p>
+
+
+  </div>
+
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-optboy-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+
+
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
