@@ -377,14 +377,7 @@
 
 <p>(12)번 sub문제는 feasible할 때 <script type="math/tex">\sum_j F_{x,j}</script>값을 갖고, infeasible일 때 <script type="math/tex">\infty</script>를 갖는다.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$J_{hi} = {j</td>
-      <td>x^j_j=i}<script type="math/tex">를 iteration</script>h<script type="math/tex">에서 설비</script>i$$에 할당된 작업들에 대한 집합이라고 하자.</td>
-    </tr>
-  </tbody>
-</table>
+<p><script type="math/tex">J_{hi} = \{j\|x^h_j=i\}</script>를 iteration <script type="math/tex">h</script>에서 설비 <script type="math/tex">i</script>에 할당된 작업들에 대한 집합이라고 하자.</p>
 
 <p>이때 설비 <script type="math/tex">i</script>에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 <script type="math/tex">i</script>에 대해서 이 집합 <script type="math/tex">J_{hi}</script>를 할당하는 경우를 제외시키는 것이다.</p>
 
@@ -394,6 +387,153 @@
 
 <p><script type="math/tex">B_{x^h}</script>는 cost function인 <script type="math/tex">\sum_j F_{x_jj}</script>와 같기 때문에 <script type="math/tex">B1</script> property를 만족한다.<br>
 <script type="math/tex">B_{x^h}(x^h)</script>가 서브문제의 optimal이기 때문에 <script type="math/tex">B2</script>역시 만족한다.</p>
+
+<p>이 bound는 굉장히 약한 bound인데, infeasible을 방지하기 위해서 필요하다.</p>
+
+<p>그리고 간단한 greedy 알고리즘을 사용해서 infeasible을 만드는 가능한 작은 집합 <script type="math/tex">\bar{J}_{hi}</script>을 찾을 수도 있다.<br>
+<script type="math/tex">\bar{J}_{hi} = J_{hi} = {j_1, ..., j_k}</script>로 두고, <script type="math/tex">l = 1,...,k</script>라 할 때,<br>
+설비 <script type="math/tex">i</script>에 대해서 <script type="math/tex">\bar{J}_{hi}</script> \ <script type="math/tex">\{j_l\}</script>에 속하는 작업들을 스케줄링 하고, 만약 feasible한 솔루션이 없다면 <script type="math/tex">j_l</script>을 <script type="math/tex">\bar{J}_{hi}</script>에서 제거한다. 그렇다면 <script type="math/tex">\bar{J}_{hi}</script>가 (13)의 <script type="math/tex">J_{hi}</script>로 사용될 수 있다.</p>
+
+<p>실험 결과, 이런 식으로 <script type="math/tex">k</script>번 스케줄링 문제를 다시 푸는 것이 strong한 bound를 찾는 것보다 계산 속도 면에서 훨씬 좋았다.</p>
+
+<p>그래서, 마스터 문제를 보자.</p>
+
+<p><script type="math/tex">h</script>번째 iteration에서 infeasible한 스케줄링 문제에 대한 설비 집합을 <script type="math/tex">I_h</script>라고 하자.<br>
+그러면 마스터 문제를 다음과 같이 표현할 수 있다.</p>
+
+<p><img src="/assets/img/logic_BD/14.png" alt="" width="500px"></p>
+
+<p>여기서 <script type="math/tex">x_{ij}</script>는 binary 변수이고, (b)는 benders cut들이다.</p>
+
+<p>그리고 master problem에 subproblem의 relaxation을 넣어주는 것이 중요하다.<br>
+relaxation은 다음과 같이 얻을 수 있다.</p>
+
+<p>어떤 두 시간 <script type="math/tex">t_1, t_2</script>가 있을 때, <script type="math/tex">t_1</script>과 <script type="math/tex">t_2</script>시간 사이에 작업되는 작업들의 집합을 <script type="math/tex">J(t_1, t_2)</script>라고 하자.<br>
+만약 그러한 작업들 중 한 작업 <script type="math/tex">j</script>가 같은 설비 <script type="math/tex">i</script>에 할당된다면, 분명 이 작업들의 자원 소모량(energy)은 <script type="math/tex">t_1</script>과 <script type="math/tex">t_2</script>시간 사이에 <script type="math/tex">C_i(t_2-t_1)</script>을 넘어서는 안된다(자원제약!). 이 점을 이용해서 다음과 같은 valid inequality를 만들 수 있다.</p>
+
+<p><img src="/assets/img/logic_BD/15.png" alt="" width="500px"></p>
+
+<p>이러한 inequality를 <script type="math/tex">R^i(t_1,t_2)</script>라 하자.<br>
+이때 만약 오름차순으로 정렬한 <script type="math/tex">\{r_1, ..., r_n\}</script>을 <script type="math/tex">\bar{r_1}, ..., \bar{r_{n_r}}</script>이라고 하고, <script type="math/tex">\bar{d},...,\bar{d_{n_d}}</script>에도 마찬가지로 했을 때, 우리는 각 작업 <script type="math/tex">i</script>에 대해서 다음과 같은 inequality를 얻을 수 있다.</p>
+
+<p><img src="/assets/img/logic_BD/16.png" alt="" width="500px"></p>
+
+<p>이 제약이 (14)의 (c)에 들어가게 되는 것이다.<br>
+하지만, <script type="math/tex">x_{ij}</script>변수를 linear relaxation해야한다.</p>
+
+<p>많은 inequality들이 필요없을 수 있기에 그냥 생략할 수도 있다.<br>
+<script type="math/tex">T^i(t_1, t_2)</script>를 다음과 같이 정의하자.</p>
+
+<p><img src="/assets/img/logic_BD/T.png" alt="" width="300px"></p>
+
+<p>쉽게 말해, <script type="math/tex">T^i(t_1, t_2)</script>는 <script type="math/tex">R^i(t_1, t_2)</script>에서 좌변과 우변의 차이를 의미하는 것과 같다.<br>
+이때, 어떤 <script type="math/tex">R^i(t_1, t_2)</script>가 더 <strong>타이트</strong>한 지 알아보자.<br>
+만약 시간 <script type="math/tex">[t_1,t_2]</script>가 <script type="math/tex">[u_1,u_2]</script>안에 포함되고, <script type="math/tex">T^i(t_1, t_2) \geq T^i(u_1, u_2)</script>라면 <script type="math/tex">R^i(t_1, t_2)</script>이 <script type="math/tex">R^i(u_1, u_2)</script>를 dominate하는 것을 알 수 있고, dominated된 <script type="math/tex">u_1, u_2</script>에 관한 inequality들은 지울 수 있다.</p>
+
+<p>각 설비에 대해 inequality를 찾는 알고리즘은 다음과 같다.</p>
+
+<p><img src="/assets/img/logic_BD/fig2.png" alt="" width="500px"></p>
+
+<p>이 알고리즘은 복잡도가 <script type="math/tex">O(n^3)</script>이다. 하지만 전처리 과정에서 한번만 해주면 된다.</p>
+
+<p>현실적으로, release time(<script type="math/tex">r_j</script>)를 모두 0으로 하여, relaxation을 간소화할 수 있다.<br>
+이 방법으로는 불필요한 inequality를 <script type="math/tex">O(n)</script>의 복잡도로 제거할 수 있고, 알고리즘은 다음과 같다.<br>
+반대로, deadline을 마지막 시간으로 고정하는 방법도 가능하다.</p>
+
+<p><img src="/assets/img/logic_BD/fig3.png" alt="" width="500px"></p>
+
+<h2 id="minimizing-makespan">Minimizing Makespan</h2>
+
+<p>Makespan의 경우에는 subproblem이 최적화문제다.<br>
+하지만 모든 작업이 같은 release date를 갖는다면 간단한 선형 benders cut을 구할 수 있다.</p>
+
+<p>Benders cut은 다음 사실에 기반한다.</p>
+
+<p><img src="/assets/img/logic_BD/lemma2.png" alt="" width="500px"></p>
+
+<p>즉, 작업들 중 일부를 제외하고 푼 경우, 원래문제의 makespan보다 짧은데, 그 수준은 제외된 작업의 소요시간을 모두 합친 것 + 작업 중 가장 늦은 deadline - 가장 짧은 deadline보다 작다는 것이다.</p>
+
+<p>자, 이제 benders 알고리즘의 iteration에서 모든 time window가 같다고 할 때, <script type="math/tex">J_{hi}</script>를 이전 iteration <script type="math/tex">h</script>에서 설비 <script type="math/tex">i</script>에 할당된 작업들의 집합이라고 하자. 그리고 <script type="math/tex">M^*_{hi}</script>를 그 설비 <script type="math/tex">i</script>에 의해 발생하는 최소 makespan이라고 하자.<br>
+이때 master problem에서 만약 <script type="math/tex">x_{ij} = 0</script>이라면 설비 <script type="math/tex">i</script>에서 작업 <script type="math/tex">j \in J_{hi}</script>을 제거할 것이다.<br>
+그렇기에 lemma 2에 의해, 설비 <script type="math/tex">i</script>에 대한 최소 makespan은 최대 다음과 같다.</p>
+
+<p><img src="/assets/img/logic_BD/19.png" alt="" width="500px"></p>
+
+<p>그렇기 때문에, 설비 <script type="math/tex">i</script>에 대한 makespan의 lower bound는 다음과 같다.</p>
+
+<p><img src="/assets/img/logic_BD/lb.png" alt="" width="500px"></p>
+
+<p>이를 통해 다음과 같은 bounding function을 구할 수 있다.</p>
+
+<p><img src="/assets/img/logic_BD/20.png" alt="" width="500px"></p>
+
+<p>이는 <script type="math/tex">B1, B2</script>특성을 모두 만족한다.</p>
+
+<p>그리고 이 역시 더 작은 집합 <script type="math/tex">\bar{J}_{hi}</script>를 통해 강화될 수 있고, greedy 알고리즘으로 찾을 수 있다.</p>
+
+<p><script type="math/tex">\bar{J_{hi}} = {J_{hi}} = \{j_1,...,j_k\}</script>, <script type="math/tex">l = 1,...,k</script>일 때,<br>
+어떤 작업에 <script type="math/tex">i</script>에 대해 <script type="math/tex">\bar{J_{hi}}</script> \ <script type="math/tex">\{j_l\}</script>에 속한 작업들에 대한 최소 makespan을 찾는다.<br>
+그리고 만약 최소 makespan이 <script type="math/tex">M^*_{hi}</script>이라면 <script type="math/tex">\bar{J_{hi}}</script>에서 <script type="math/tex">j_l</script>을 제거한다.<br>
+그리고 <script type="math/tex">\bar{J_{hi}}</script>를 (20)의 <script type="math/tex">J_{hi}</script>으로 사용한다.</p>
+
+<p>그리고 이 Benders cut을 사용하여 다음과 같은 master problem을 만들 수 있다.</p>
+
+<p><img src="/assets/img/logic_BD/21.png" alt="" width="500px"></p>
+
+<p>여기서 (c)의 relaxation은 cost문제와 비슷하게 해줄 수 있다.</p>
+
+<p>deadline이 다른 경우, (17)식은 만약에 작업이 하나라도 제거되었다면 각 설비 <script type="math/tex">i</script>의 최소 makespan은 적어도 다음과 같아야 한다는 것을 의미한다. 만약 그렇지 않다면, <script type="math/tex">M^*_{hi}</script>인 것이다.</p>
+
+<p><img src="/assets/img/logic_BD/22.png" alt="" width="500px"></p>
+
+<p>설비 <script type="math/tex">i</script>에서 <script type="math/tex">\bar{J}_{hi}</script>에 속한 어떤 작업도 제거되지 않는다면, (23)의 두번째 제약은 <script type="math/tex">w_{hi}</script>을 0으로 만들고, bound는 <script type="math/tex">M6*_{hi}</script>가 된다. 만약 하나 이상의 작업이 제거되었다면 bound가 (22)가 되며, deadline이 다르고 release time이 같은 경우 benders cut (23)이 (21b)를 대체한다.</p>
+
+<h2 id="minimizing-total-tardiness">Minimizing Total Tardiness</h2>
+
+<h2 id="computational-results">Computational Results</h2>
+
+<ul>
+  <li>random generated problem에 대해 실험 - 시간 비교</li>
+  <li>MILP(CPLEX), CP(ILOG Scheduler), logic-based BD</li>
+</ul>
+
+<ol>
+  <li>
+    <p>1~4개의 설비에 대한 cost, makespan 문제 실험 결과
+ <img src="/assets/img/logic_BD/table1.png" alt="" width="800px"></p>
+
+    <ul>
+      <li>CP solver가 MILP보다 빠르지만 logic-BD가 그것보다도 빠르다. 심지어 문제 사이즈가 커져도 상당히 빠르게 푼다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>다양한 문제에 대한 실험 - 시간 비교
+ <img src="/assets/img/logic_BD/table2.png" alt="" width="1000px"></p>
+
+    <ul>
+      <li>역시 logic-BD가 괴장히 빠른 성능을 보인다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Logic Based Benders Decomposition 시간 실험
+ <img src="/assets/img/logic_BD/table34.png" alt="" width="1000px"></p>
+  </li>
+</ol>
+
+<h2 id="결론">결론</h2>
+
+<ul>
+  <li>
+    <p>스케줄링 문제에 대한 logic-based Benders decomposition 기법 소개</p>
+  </li>
+  <li>
+    <p>CP나 MILP보다 상당히 좋은 성능을 보임</p>
+  </li>
+  <li>
+    <p>상당히 큰 문제에 대해서 최적해를 찾지는 못했지만 feasible solution을 얻을 수 있다.</p>
+  </li>
+</ul>
+
 
   </div>
 

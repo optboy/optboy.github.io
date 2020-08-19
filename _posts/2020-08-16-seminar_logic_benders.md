@@ -179,7 +179,7 @@ cost의 경우 master문제의 변수로만으로도 목적함수 계산이 가�
 
 (12)번 sub문제는 feasible할 때 $$\sum_j F_{x,j}$$값을 갖고, infeasible일 때 $$\infty$$를 갖는다.  
 
-$$J_{hi} = \{j|x^j_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 작업들에 대한 집합이라고 하자.  
+$$J_{hi} = \{j\|x^h_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 작업들에 대한 집합이라고 하자.  
 
 이때 설비 $$i$$에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 $$i$$에 대해서 이 집합 $$J_{hi}$$를 할당하는 경우를 제외시키는 것이다.  
 
@@ -189,3 +189,137 @@ $$J_{hi} = \{j|x^j_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 �
 
 $$B_{x^h}$$는 cost function인 $$\sum_j F_{x_jj}$$와 같기 때문에 $$B1$$ property를 만족한다.  
 $$B_{x^h}(x^h)$$가 서브문제의 optimal이기 때문에 $$B2$$역시 만족한다.
+
+이 bound는 굉장히 약한 bound인데, infeasible을 방지하기 위해서 필요하다. 
+
+그리고 간단한 greedy 알고리즘을 사용해서 infeasible을 만드는 가능한 작은 집합 $$\bar{J}_{hi}$$을 찾을 수도 있다.  
+$$\bar{J}_{hi} = J_{hi} = {j_1, ..., j_k}$$로 두고, $$l = 1,...,k$$라 할 때,  
+설비 $$i$$에 대해서 $$\bar{J}_{hi}$$ \ $$\{j_l\}$$에 속하는 작업들을 스케줄링 하고, 만약 feasible한 솔루션이 없다면 $$j_l$$을 $$\bar{J}_{hi}$$에서 제거한다. 그렇다면 $$\bar{J}_{hi}$$가 (13)의 $$J_{hi}$$로 사용될 수 있다.  
+
+실험 결과, 이런 식으로 $$k$$번 스케줄링 문제를 다시 푸는 것이 strong한 bound를 찾는 것보다 계산 속도 면에서 훨씬 좋았다.  
+
+그래서, 마스터 문제를 보자.  
+
+$$h$$번째 iteration에서 infeasible한 스케줄링 문제에 대한 설비 집합을 $$I_h$$라고 하자.  
+그러면 마스터 문제를 다음과 같이 표현할 수 있다.
+
+![](/assets/img/logic_BD/14.png){:width="500px"}  
+
+여기서 $$x_{ij}$$는 binary 변수이고, (b)는 benders cut들이다.
+
+그리고 master problem에 subproblem의 relaxation을 넣어주는 것이 중요하다.  
+relaxation은 다음과 같이 얻을 수 있다.  
+
+어떤 두 시간 $$t_1, t_2$$가 있을 때, $$t_1$$과 $$t_2$$시간 사이에 작업되는 작업들의 집합을 $$J(t_1, t_2)$$라고 하자.  
+만약 그러한 작업들 중 한 작업 $$j$$가 같은 설비 $$i$$에 할당된다면, 분명 이 작업들의 자원 소모량(energy)은 $$t_1$$과 $$t_2$$시간 사이에 $$C_i(t_2-t_1)$$을 넘어서는 안된다(자원제약!). 이 점을 이용해서 다음과 같은 valid inequality를 만들 수 있다. 
+
+![](/assets/img/logic_BD/15.png){:width="500px"} 
+
+이러한 inequality를 $$R^i(t_1,t_2)$$라 하자.  
+이때 만약 오름차순으로 정렬한 $$\{r_1, ..., r_n\}$$을 $$\bar{r_1}, ..., \bar{r_{n_r}}$$이라고 하고, $$\bar{d},...,\bar{d_{n_d}}$$에도 마찬가지로 했을 때, 우리는 각 작업 $$i$$에 대해서 다음과 같은 inequality를 얻을 수 있다. 
+
+![](/assets/img/logic_BD/16.png){:width="500px"} 
+
+이 제약이 (14)의 (c)에 들어가게 되는 것이다.  
+하지만, $$x_{ij}$$변수를 linear relaxation해야한다.  
+
+많은 inequality들이 필요없을 수 있기에 그냥 생략할 수도 있다.  
+$$T^i(t_1, t_2)$$를 다음과 같이 정의하자.
+
+![](/assets/img/logic_BD/T.png){:width="300px"} 
+
+쉽게 말해, $$T^i(t_1, t_2)$$는 $$R^i(t_1, t_2)$$에서 좌변과 우변의 차이를 의미하는 것과 같다.  
+이때, 어떤 $$R^i(t_1, t_2)$$가 더 **타이트**한 지 알아보자.  
+만약 시간 $$[t_1,t_2]$$가 $$[u_1,u_2]$$안에 포함되고, $$T^i(t_1, t_2) \geq T^i(u_1, u_2)$$라면 $$R^i(t_1, t_2)$$이 $$R^i(u_1, u_2)$$를 dominate하는 것을 알 수 있고, dominated된 $$u_1, u_2$$에 관한 inequality들은 지울 수 있다.
+
+각 설비에 대해 inequality를 찾는 알고리즘은 다음과 같다. 
+
+![](/assets/img/logic_BD/fig2.png){:width="500px"} 
+
+이 알고리즘은 복잡도가 $$O(n^3)$$이다. 하지만 전처리 과정에서 한번만 해주면 된다.  
+
+현실적으로, release time($$r_j$$)를 모두 0으로 하여, relaxation을 간소화할 수 있다.  
+이 방법으로는 불필요한 inequality를 $$O(n)$$의 복잡도로 제거할 수 있고, 알고리즘은 다음과 같다.  
+반대로, deadline을 마지막 시간으로 고정하는 방법도 가능하다.
+
+![](/assets/img/logic_BD/fig3.png){:width="500px"}
+
+## Minimizing Makespan
+
+Makespan의 경우에는 subproblem이 최적화문제다.  
+하지만 모든 작업이 같은 release date를 갖는다면 간단한 선형 benders cut을 구할 수 있다.  
+
+Benders cut은 다음 사실에 기반한다.  
+
+![](/assets/img/logic_BD/lemma2.png){:width="500px"}
+
+즉, 작업들 중 일부를 제외하고 푼 경우, 원래문제의 makespan보다 짧은데, 그 수준은 제외된 작업의 소요시간을 모두 합친 것 + 작업 중 가장 늦은 deadline - 가장 짧은 deadline보다 작다는 것이다.  
+
+자, 이제 benders 알고리즘의 iteration에서 모든 time window가 같다고 할 때, $$J_{hi}$$를 이전 iteration $$h$$에서 설비 $$i$$에 할당된 작업들의 집합이라고 하자. 그리고 $$M^*_{hi}$$를 그 설비 $$i$$에 의해 발생하는 최소 makespan이라고 하자.  
+이때 master problem에서 만약 $$x_{ij} = 0$$이라면 설비 $$i$$에서 작업 $$j \in J_{hi}$$을 제거할 것이다.  
+그렇기에 lemma 2에 의해, 설비 $$i$$에 대한 최소 makespan은 최대 다음과 같다.
+
+![](/assets/img/logic_BD/19.png){:width="500px"}
+
+그렇기 때문에, 설비 $$i$$에 대한 makespan의 lower bound는 다음과 같다. 
+
+![](/assets/img/logic_BD/lb.png){:width="500px"}
+
+이를 통해 다음과 같은 bounding function을 구할 수 있다.
+
+![](/assets/img/logic_BD/20.png){:width="500px"}
+
+이는 $$B1, B2$$특성을 모두 만족한다. 
+
+그리고 이 역시 더 작은 집합 $$\bar{J}_{hi}$$를 통해 강화될 수 있고, greedy 알고리즘으로 찾을 수 있다. 
+
+$$\bar{J_{hi}} = {J_{hi}} = \{j_1,...,j_k\}$$, $$l = 1,...,k$$일 때,  
+어떤 작업에 $$i$$에 대해 $$\bar{J_{hi}}$$ \ $$\{j_l\}$$에 속한 작업들에 대한 최소 makespan을 찾는다.  
+그리고 만약 최소 makespan이 $$M^*_{hi}$$이라면 $$\bar{J_{hi}}$$에서 $$j_l$$을 제거한다.  
+그리고 $$\bar{J_{hi}}$$를 (20)의 $$J_{hi}$$으로 사용한다.  
+
+그리고 이 Benders cut을 사용하여 다음과 같은 master problem을 만들 수 있다. 
+
+![](/assets/img/logic_BD/21.png){:width="500px"}
+
+여기서 (c)의 relaxation은 cost문제와 비슷하게 해줄 수 있다.  
+
+deadline이 다른 경우, (17)식은 만약에 작업이 하나라도 제거되었다면 각 설비 $$i$$의 최소 makespan은 적어도 다음과 같아야 한다는 것을 의미한다. 만약 그렇지 않다면, $$M^*_{hi}$$인 것이다.
+
+![](/assets/img/logic_BD/22.png){:width="500px"}
+
+설비 $$i$$에서 $$\bar{J}_{hi}$$에 속한 어떤 작업도 제거되지 않는다면, (23)의 두번째 제약은 $$w_{hi}$$을 0으로 만들고, bound는 $$M6*_{hi}$$가 된다. 만약 하나 이상의 작업이 제거되었다면 bound가 (22)가 되며, deadline이 다르고 release time이 같은 경우 benders cut (23)이 (21b)를 대체한다. 
+
+## Minimizing Total Tardiness
+
+## Computational Results
+
+- random generated problem에 대해 실험 - 시간 비교
+- MILP(CPLEX), CP(ILOG Scheduler), logic-based BD
+
+1. 1~4개의 설비에 대한 cost, makespan 문제 실험 결과
+    ![](/assets/img/logic_BD/table1.png){:width="800px"}
+
+    - CP solver가 MILP보다 빠르지만 logic-BD가 그것보다도 빠르다. 심지어 문제 사이즈가 커져도 상당히 빠르게 푼다. 
+
+2. 다양한 문제에 대한 실험 - 시간 비교
+    ![](/assets/img/logic_BD/table2.png){:width="1000px"}
+
+    - 역시 logic-BD가 괴장히 빠른 성능을 보인다.  
+
+3. Logic Based Benders Decomposition 시간 실험
+    ![](/assets/img/logic_BD/table34.png){:width="1000px"}
+
+## 결론
+
+- 스케줄링 문제에 대한 logic-based Benders decomposition 기법 소개
+
+- CP나 MILP보다 상당히 좋은 성능을 보임
+
+- 상당히 큰 문제에 대해서 최적해를 찾지는 못했지만 feasible solution을 얻을 수 있다.
+
+
+
+
+
+
