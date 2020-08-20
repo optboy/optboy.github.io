@@ -152,12 +152,13 @@ $$C(x,y)$$가 변수 $$x, y$$를 가지는 제약이고, $$D_x, D_y$$가 $$x, y$
 
 >이해가 잘 안돼서 다른 자료를 찾아봤는데, "P implies B with respect to A"라고도 한다.  
 >결국 proof P에 대해 A가 만족한다면, B에 대해서도 만족한다는 것으로 이해했다.
+>식 (10)은 x를 고정시킨 상태의 제약하에, 가장 타이트한 lower bound를 찾는 문제
 
 그리고 $$\mathscr{P}$$는 proof들의 집합이다.  
 
 만약 (9)가 LP 문제라면 그 *inference dual* 역시 LP 듀얼이 되고, $$\mathscr{P}$$에 속하는 proof들은 제약들에 있는 nonnegative linear combinations에 해당한다. 
 
-이 듀얼의 솔루션은 $$x = \bar{x}$$일 때 원 문제의 목적함수 $$f(x,y)$$에 대한 가장 타이트한 bound라고 볼 수 있다.  
+이 듀얼의 솔루션은 $$x = \bar{x}$$일 때 원 문제의 목적함수 $$f(x,y)$$에 대한 가장 타이트한 bound라는 proof라고 볼 수 있다.  
 
 기본적으로 Benders Decomposition은 **bound $$B_\bar{x}(x)$$**를 만드는데 이러한 proof schema를 사용한다. 
 
