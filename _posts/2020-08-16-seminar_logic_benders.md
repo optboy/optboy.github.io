@@ -66,13 +66,18 @@ $$J_{it}$$ : $$t$$시간에 $$i$$설비에서 작업하는 작업 $$j$$ 집합
 
 ## Constraint Programming Formulation
 
-위와 같은 문제를 CP로도 만들 수 있는데, 여기서는 global constraints $$element$$와 $$cumulative$$가 사용된다. 
+위와 같은 문제를 CP로도 만들 수 있는데, 여기서는 global constraints인 $$element$$와 $$cumulative$$가 사용된다. 
 
-여기서 $$element$$는 equality제약, $$cumulative$$는 부등식 제약인 것 같다.
+$$element(y, v , u)$$ : $$v$$는 벡터, $$u$$값을 $$v$$의 $$y$$번째와 동일하게 한다.
+
+$$cumulative(s,p,c,C)$$ : 
+
+여기서 $$element$$는 equality제약, $$cumulative$$는 inequality 제약?
 
 ![](/assets/img/logic_BD/4.png){:width="500px"}
 
-여기서 1,2번째 제약식은 시간과 관련된 제약이며 3번째 제약은 자원제약이다. 
+목적식은 cost, makespan 등 원하는 것 선택.  
+1,2번째 제약식은 시간과 관련된 제약이며 3번째 제약은 자원제약이다. 
 
 ## Mixed-Inter Programming Formulation
 
@@ -99,26 +104,37 @@ $$x_{ijt}$$ : $$j$$작업을 $$t$$시간에 $$i$$설비에서 작업한다면 1 
 이산적인 이벤트를 가지고 연속된 시간을 사용하는 모델을 살펴보자.
 $$n$$개의 작업이 있다면 $$2n$$개의 이벤트가 존재하는 것이다. 
 
-모델은 각 이벤트에 대해서 각 작업이 끝나는 이벤트인지, 시작하는 이벤트인지 결정한다.
-$$x_{ijk}$$ : 이벤트 $$k$$는 $$j$$작업이 $$i$$설비에서 시작하면 1아니면 0
-$$y_{ijk}$$ : 이벤트 $$k$$는 $$j$$작업이 $$i$$설비에서 끝나면 1아니면 0
-$$s_{ik}$$ : 이벤트 $$k$$가 설비$$i$$에서 시작하는 시간
-$$f_{ij}$$ : 작업$$j$$가 설비$$i$$에 할당된 경우, 작업$$j$$가 설비$$i$$에서 끝나는 시간
-$$R_{ik}$$ : 설비$$i$$에서 이벤트$$k$$가 발생할 때 작업들의 자원 총 사용량
-$$R^s_{ik}$$
-시작시간과 종료시간에 대한 변수를 나눴기 때문에 자원제약을 만들 수 있다. 
+모델은 각 이벤트에 대해서 각 작업이 끝나는 이벤트인지, 시작하는 이벤트인지 결정한다.  
+$$x_{ijk}$$ : 이벤트 $$k$$는 $$j$$작업이 $$i$$설비에서 시작하면 1아니면 0  
+$$y_{ijk}$$ : 이벤트 $$k$$는 $$j$$작업이 $$i$$설비에서 끝나면 1아니면 0  
+$$s_{ik}$$ : 이벤트 $$k$$가 설비$$i$$에서 시작하는 시간  
+$$f_{ij}$$ : 작업$$j$$가 설비$$i$$에 할당된 경우, 작업$$j$$가 설비$$i$$에서 끝나는 시간  
+$$R_{ik}$$ : 설비$$i$$에서 이벤트$$k$$가 발생할 때 작업들의 자원 총 사용량  
+$$R^s_{ik}$$ : 설비$$i$$에서 이벤트$$k$$가 발생할 때 시작 시 자원
+$$R^f_{ik}$$ : 설비$$i$$에서 이벤트$$k$$가 발생할 때 종료 시 자원
+시작시간과 종료시간에 대한 변수를 나눴기 때문에 자원제약을 만들 수 있다.   
 
 ![](/assets/img/logic_BD/minimum_cost.png){:width="500px"}
 
 (a)~(c)제약은 각 작업이 설비에 할당되고, 시작과 종료가 한번씩 이뤄져야 하는 것을 의미한다.  
-(d)제약은 이벤트 1~2n이 순서대로 발생하도록 한다.
+(d)제약은 이벤트 1~2n이 순서대로 발생하도록 한다.  
 (e)제약은 time window 제약이다.  
 (f),(g)제약은 종료 시간에 대한 변수를 정의한다.  
-(h)~(j)제약은 자원제약이다.
+(h)~(j)제약은 자원제약이다.  
 
 다음과 같이 포뮬레이션을 만들어주면, 문제는 훨씬 더 어려워진다. 
 
 ## Logic-Based Benders Decomposition
+
+먼저, Benders Decomposition의 큰 틀은 다음과 같다. 
+
+![](/assets/img/logic_BD/essence.png){:width="500px"}
+
+그리고 Logic-Based Benders Decomposition은 다음과 같다.
+
+![](/assets/img/logic_BD/Logic_based_essence.png){:width="500px"}
+
+이 과정을 식을 통해 알아보자. 
 
 $$C(x,y)$$가 변수 $$x, y$$를 가지는 제약이고, $$D_x, D_y$$가 $$x, y$$의 정의역(domain)이라고 할 때 다음과 같은 formulation에 Logic-based BD를 적용할 수 있다.  
 
@@ -128,56 +144,64 @@ $$C(x,y)$$가 변수 $$x, y$$를 가지는 제약이고, $$D_x, D_y$$가 $$x, y$
 
 ![](/assets/img/logic_BD/9.png){:width="500px"}
 
-(9)번의 *inference dual*은 제약 $C(\bar{x}, y)$$을 만족하는 f(\bar{x}, y)에 대한 가장 타이트한 lower bound를 추정하는(infer) 문제다. 
+(9)번의 *inference dual*은 제약 $$C(\bar{x}, y)$$을 만족하는 $$f(\bar{x}, y)$$에 대한 가장 타이트한 lower bound를 추정하는(infer) 문제다. 
 
 ![](/assets/img/logic_BD/10.png){:width="500px"}  
 
-여기서 $$A \Longrightarrow^P B$$의 의미는 증명 $$P$$가 $$A$$에서 $$B$$를 추론한다는 뜻이다.  
-그리고 $$\mathscr{P}$$는 증명들의 집합이다.  
+여기서 $$A \Longrightarrow^P B$$의 의미는 "proof P deduces B from A"이다.  
 
-만약 (9)가 선형 문제라면 그 *inference dual* 역시 선형 듀얼이 되고, $$\mathscr{P}$$에 속하는 증명들은 제약들에 있는 비음 선형 조합들에 해당한다. 
+>이해가 잘 안돼서 다른 자료를 찾아봤는데, "P implies B with respect to A"라고도 한다.  
+>결국 proof P에 대해 A가 만족한다면, B에 대해서도 만족한다는 것으로 이해했다.
 
-이 듀얼의 솔루션은 $$x = \bar{x}$$일 때 $$f(x,y)$$에 대한 가장 타이트한 bound라고 볼 수 있다.  
+그리고 $$\mathscr{P}$$는 proof들의 집합이다.  
 
-기본적으로 Benders Decomposition의 개념은, 다른 $$x$$값에 대한 바운드 $$B_\bar{x}(x)$$를 만드는데 이러한 proof schema를 사용한다. 
+만약 (9)가 LP 문제라면 그 *inference dual* 역시 LP 듀얼이 되고, $$\mathscr{P}$$에 속하는 proof들은 제약들에 있는 nonnegative linear combinations에 해당한다. 
 
-classical BD에서는 같은 선형조합이 사용되었다. 
+이 듀얼의 솔루션은 $$x = \bar{x}$$일 때 원 문제의 목적함수 $$f(x,y)$$에 대한 가장 타이트한 bound라고 볼 수 있다.  
+
+기본적으로 Benders Decomposition은 **bound $$B_\bar{x}(x)$$**를 만드는데 이러한 proof schema를 사용한다. 
+
+classical BD에서는 같은 linear combination이 사용되었다. 
 
 일반적으로 bounding function $$B_\bar{x}(x)$$는 두개의 특성(property)을 가져야 한다.
 
 ![](/assets/img/logic_BD/property.png){:width="500px"}  
 
-만약 (8)의 목적함수값이 $$z$$이고 $$z \geq B_\bar{x}(x)$$가 **Benders cut**이다. 
+$$B1$$ : bounding function은 어떤 feasible $$(x,y)$$에 대한 lower bound를 줘야한다.
+$$B2$$ : fix한 $$x$$를 그대로 넣었을 때 가장 타이트한 바운드다.
 
-그러한 benders cut들을 넣은 마스터 문제를 여러번 반복해서 푸는데, 다음과 같은 식으로 표현될 수 있다.  
+여기서, 원 문제(8)의 목적함수값이 $$z$$라고 한다면, $$z \geq B_\bar{x}(x)$$가 **Benders cut**이다. 
+
+그러한 benders cut들을 넣은 master problem을 여러번 반복해서 푸는데, 다음과 같은 식으로 표현될 수 있다.  
 여기서 $$H$$는 반복횟수다. 
 
 ![](/assets/img/logic_BD/11.png){:width="500px"}
 
 여기서 $$x^1,...,x^{H-1}$$은 이전의 $$H-1$$번의 마스터 문제를 통해 나온 해다.  
-그렇다면 (11)의 $$\bar{x}$$는 다음 서브문제 (9)번에서 정해지게 된다.  
+그리고 master problem의 solution $$\bar{x}$$으로 다음 subproblem을 만든다.  
 
 그렇다면 알고리즘은 언제 끝나는가?  
-이전 $$H-1$$번의 서브문제에서 나온 optimal value들인 $$v^*_1, ..., v^*_{H-1}$$중 최소값인 v^*와 마스터 문제의 optimal value인 $$z^*_H$$가 같아질 때 끝난다. 
+이전 $$H-1$$번의 서브문제에서 나온 optimal value들인 $$v^*_1, ..., v^*_{H-1}$$중 최소값인 $$v^*$$와 master problem의 optimal value인 $$z^*_H$$가 같아질 때 끝난다. 
 
 $$z^*_H$$는 최적해의 lower bound, $$v^*$$는 최적해의 upper bound이기 때문이다.
 
 ![](/assets/img/logic_BD/theorem.png){:width="500px"}
+이를 통해, 원 문제나 subproblem이 infeasible이라면 무한대의 optimal value를 갖는다고 받아들일 수 있다.
 
 다시 (1)번의 생산 스케줄링 문제로 돌아오면, 변수 $$x,s$$는 각각 (8)번의 $$x,y$$에 부합하고 어떤 작업 $$\bar{x}$$를 설비에 할당하면 다음과 같은 서브문제가 만들어진다. 
 
 ![](/assets/img/logic_BD/12.png){:width="500px"}
 
-즉, 각 설비 $$i$$에 대한 스케줄링 문제가 되고, 이를 CP solver로 풀어 Benders cut을 만들 수 있다.  
-그렇게 만들어진 benders cut은 master문제의 제약이 되는 것이다. 
+즉, master problem에서 각 작업들을 설비에 할당시킨 것이고, subproblem은 각 설비 $$i$$에 대한 스케줄링 문제가 된 것이다.  
+이 subproblem을 CP solver로 풀어 Benders cut을 만들 수 있고, 만들어진 benders cut은 master문제의 제약이 되는 것이다. 
 
-bounding function $$B_\bar{x}(x)$$는 $$x=\bar{x}$$에 대한 bound의 추론의 유형?(type of reasoning)을 통해 얻어지고 이 추론을 일반적인 $$x$$를 얻는것으로 확장한다.
+이때, bounding function $$B_\bar{x}(x)$$는 $$x=\bar{x}$$에 대한 bound의 추론의 유형?(type of reasoning)을 확인하면서 얻어지고, 이 추론은 일반적인 $$x$$를 얻는것으로 확장된다.
 
 ## Minimizing Cost
 
 cost의 경우 master문제의 변수로만으로도 목적함수 계산이 가능하기 때문에 가장 간단하다.  
 
-(12)번 sub문제는 feasible할 때 $$\sum_j F_{x,j}$$값을 갖고, infeasible일 때 $$\infty$$를 갖는다.  
+cost문제에서 subproblem(12)는 feasible할 때 $$\sum_j F_{x,j}$$값을 갖고, infeasible일 때 $$\infty$$를 갖는다.  
 
 $$J_{hi} = \{j\|x^h_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 작업들에 대한 집합이라고 하자.  
 
@@ -211,28 +235,27 @@ $$h$$번째 iteration에서 infeasible한 스케줄링 문제에 대한 설비 �
 relaxation은 다음과 같이 얻을 수 있다.  
 
 어떤 두 시간 $$t_1, t_2$$가 있을 때, $$t_1$$과 $$t_2$$시간 사이에 작업되는 작업들의 집합을 $$J(t_1, t_2)$$라고 하자.  
-만약 그러한 작업들 중 한 작업 $$j$$가 같은 설비 $$i$$에 할당된다면, 분명 이 작업들의 자원 소모량(energy)은 $$t_1$$과 $$t_2$$시간 사이에 $$C_i(t_2-t_1)$$을 넘어서는 안된다(자원제약!). 이 점을 이용해서 다음과 같은 valid inequality를 만들 수 있다. 
+만약 그러한 작업들이 작업 $$j$$가 같은 설비 $$i$$에 할당된다면, 이 작업들의 자원 소모량(energy)은 $$t_1$$과 $$t_2$$시간 사이에 $$C_i(t_2-t_1)$$을 넘어서는 안된다(자원제약!). 이 점을 이용해서 다음과 같은 valid inequality를 만들 수 있다. 
 
 ![](/assets/img/logic_BD/15.png){:width="500px"} 
 
 이러한 inequality를 $$R^i(t_1,t_2)$$라 하자.  
-이때 만약 오름차순으로 정렬한 $$\{r_1, ..., r_n\}$$을 $$\bar{r_1}, ..., \bar{r_{n_r}}$$이라고 하고, $$\bar{d},...,\bar{d_{n_d}}$$에도 마찬가지로 했을 때, 우리는 각 작업 $$i$$에 대해서 다음과 같은 inequality를 얻을 수 있다. 
+이때 만약 release time을 오름차순으로 정렬한 $$\{r_1, ..., r_n\}$$을 $$\bar{r_1}, ..., \bar{r_{n_r}}$$이라고 하고, $$\bar{d},...,\bar{d_{n_d}}$$에도 마찬가지로 했을 때, 우리는 각 작업 $$i$$에 대해서 다음과 같은 inequality를 얻을 수 있다. 
 
 ![](/assets/img/logic_BD/16.png){:width="500px"} 
 
-이 제약이 (14)의 (c)에 들어가게 되는 것이다.  
+이 제약이 (14)의 (c)에 들어가게 되는 것이다. 각 시간 범위 내에서 자원제약을 넣어주는 것이다.  
 하지만, $$x_{ij}$$변수를 linear relaxation해야한다.  
 
-많은 inequality들이 필요없을 수 있기에 그냥 생략할 수도 있다.  
+모든 inequality들이 필요한 것은 아니기 때문에 일부는 생략할 수도 있다.  
 $$T^i(t_1, t_2)$$를 다음과 같이 정의하자.
 
 ![](/assets/img/logic_BD/T.png){:width="300px"} 
 
-쉽게 말해, $$T^i(t_1, t_2)$$는 $$R^i(t_1, t_2)$$에서 좌변과 우변의 차이를 의미하는 것과 같다.  
-이때, 어떤 $$R^i(t_1, t_2)$$가 더 **타이트**한 지 알아보자.  
+이를 통해, 어떤 $$R^i(t_1, t_2)$$제약이 더 **타이트**한 지 알 수 있다.  
 만약 시간 $$[t_1,t_2]$$가 $$[u_1,u_2]$$안에 포함되고, $$T^i(t_1, t_2) \geq T^i(u_1, u_2)$$라면 $$R^i(t_1, t_2)$$이 $$R^i(u_1, u_2)$$를 dominate하는 것을 알 수 있고, dominated된 $$u_1, u_2$$에 관한 inequality들은 지울 수 있다.
 
-각 설비에 대해 inequality를 찾는 알고리즘은 다음과 같다. 
+각 설비에 대해 undominated inequality를 찾는 알고리즘은 다음과 같다. 
 
 ![](/assets/img/logic_BD/fig2.png){:width="500px"} 
 
@@ -246,17 +269,19 @@ $$T^i(t_1, t_2)$$를 다음과 같이 정의하자.
 
 ## Minimizing Makespan
 
-Makespan의 경우에는 subproblem이 최적화문제다.  
+Makespan의 경우에는 subproblem이 최적화문제이기에 조금 더 복잡하다.  
 하지만 모든 작업이 같은 release date를 갖는다면 간단한 선형 benders cut을 구할 수 있다.  
 
-Benders cut은 다음 사실에 기반한다.  
+이 문제의 경우, Benders cut은 다음 사실에 기반한다.  
 
 ![](/assets/img/logic_BD/lemma2.png){:width="500px"}
 
-즉, 작업들 중 일부를 제외하고 푼 경우, 원래문제의 makespan보다 짧은데, 그 수준은 제외된 작업의 소요시간을 모두 합친 것 + 작업 중 가장 늦은 deadline - 가장 짧은 deadline보다 작다는 것이다.  
+즉, 작업들 중 일부를 제외하고 푼 경우, 원래문제의 makespan보다 짧을 수 밖에 없다.  
+그리고 짧은 정도가 제외된 작업 소요시간의 총합 + 작업 중 가장 늦은 deadline - 가장 짧은 deadline보다 작다는 것이다.  
+특히, 모든 deadline이 같다면 제외된 작업 소요시간의 총합 보다 작다.
 
 자, 이제 benders 알고리즘의 iteration에서 모든 time window가 같다고 할 때, $$J_{hi}$$를 이전 iteration $$h$$에서 설비 $$i$$에 할당된 작업들의 집합이라고 하자. 그리고 $$M^*_{hi}$$를 그 설비 $$i$$에 의해 발생하는 최소 makespan이라고 하자.  
-이때 master problem에서 만약 $$x_{ij} = 0$$이라면 설비 $$i$$에서 작업 $$j \in J_{hi}$$을 제거할 것이다.  
+이때 master problem에서 설비 $$i$$, 작업 $$j$$에 대해 $$x_{ij} = 0$$라면, 더이상 작업 $$j$$가 $$J_{hi}$$에 속하지 않게 될 것이다.  
 그렇기에 lemma 2에 의해, 설비 $$i$$에 대한 최소 makespan은 최대 다음과 같다.
 
 ![](/assets/img/logic_BD/19.png){:width="500px"}
@@ -265,16 +290,20 @@ Benders cut은 다음 사실에 기반한다.
 
 ![](/assets/img/logic_BD/lb.png){:width="500px"}
 
+즉, 한 설비에 대한 현재까지의 optimal에서 제외된 작업들의 소요시간의 총합을 뺀 것이 lower bound가 되는 것이다.  
+
 이를 통해 다음과 같은 bounding function을 구할 수 있다.
 
 ![](/assets/img/logic_BD/20.png){:width="500px"}
+
+lower bound중 가장 **타이트**한 bound를 찾는 것이다.  
 
 이는 $$B1, B2$$특성을 모두 만족한다. 
 
 그리고 이 역시 더 작은 집합 $$\bar{J}_{hi}$$를 통해 강화될 수 있고, greedy 알고리즘으로 찾을 수 있다. 
 
 $$\bar{J_{hi}} = {J_{hi}} = \{j_1,...,j_k\}$$, $$l = 1,...,k$$일 때,  
-어떤 작업에 $$i$$에 대해 $$\bar{J_{hi}}$$ \ $$\{j_l\}$$에 속한 작업들에 대한 최소 makespan을 찾는다.  
+어떤 설비 $$i$$에 대해 $$\bar{J_{hi}}$$ \ $$\{j_l\}$$에 속한 작업들에 대한 최소 makespan을 찾는다.  
 그리고 만약 최소 makespan이 $$M^*_{hi}$$이라면 $$\bar{J_{hi}}$$에서 $$j_l$$을 제거한다.  
 그리고 $$\bar{J_{hi}}$$를 (20)의 $$J_{hi}$$으로 사용한다.  
 
@@ -284,13 +313,19 @@ $$\bar{J_{hi}} = {J_{hi}} = \{j_1,...,j_k\}$$, $$l = 1,...,k$$일 때,
 
 여기서 (c)의 relaxation은 cost문제와 비슷하게 해줄 수 있다.  
 
-deadline이 다른 경우, (17)식은 만약에 작업이 하나라도 제거되었다면 각 설비 $$i$$의 최소 makespan은 적어도 다음과 같아야 한다는 것을 의미한다. 만약 그렇지 않다면, $$M^*_{hi}$$인 것이다.
+deadline이 다른 경우, 식 (17)은 만약에 작업이 하나라도 제거되었다면 각 설비 $$i$$의 최소 makespan은 적어도 식 (22)와 같아야 한다는 것을 의미한다.  
+하지만 작업이 하나라도 제거되지 않았다면, 그대로 $$M^*_{hi}$$인 것이다.
 
 ![](/assets/img/logic_BD/22.png){:width="500px"}
 
-설비 $$i$$에서 $$\bar{J}_{hi}$$에 속한 어떤 작업도 제거되지 않는다면, (23)의 두번째 제약은 $$w_{hi}$$을 0으로 만들고, bound는 $$M6*_{hi}$$가 된다. 만약 하나 이상의 작업이 제거되었다면 bound가 (22)가 되며, deadline이 다르고 release time이 같은 경우 benders cut (23)이 (21b)를 대체한다. 
+설비 $$i$$에서 $$\bar{J}_{hi}$$에 속한 어떤 작업도 제거되지 않는다면, (23)의 두번째 제약은 $$w_{hi}$$을 0으로 만들고, bound는 $$M^_{hi}$$가 된다. 만약 하나 이상의 작업이 제거되었다면 bound가 (22)가 된다.  
+
+그리고 deadline이 다르고 release time이 같은 경우 benders cut (23)이 식 (21)의 benders cut (b)로 사용된다.
+
+![](/assets/img/logic_BD/23.png){:width="500px"}
 
 ## Minimizing Total Tardiness
+...
 
 ## Computational Results
 
@@ -319,7 +354,10 @@ deadline이 다른 경우, (17)식은 만약에 작업이 하나라도 제거되
 - 상당히 큰 문제에 대해서 최적해를 찾지는 못했지만 feasible solution을 얻을 수 있다.
 
 
+#### 참고 
 
-
+- [Planning and Scheduling by Logic-Based Benders Decomposition](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.69.6660&rep=rep1&type=pdf)
+- [Logic-Based Benders Decomposition](https://pdfs.semanticscholar.org/4d09/1051dec243f1738af68d996c2c4095ee2b88.pdf)
+- [Logic-Based Benders Decomposition Tutorial](http://public.tepper.cmu.edu/jnh/bendersTutorial2016.pdf)
 
 
