@@ -160,15 +160,15 @@ $$C(x,y)$$가 변수 $$x, y$$를 가지는 제약이고, $$D_x, D_y$$가 $$x, y$
 
 이 듀얼의 솔루션은 $$x = \bar{x}$$일 때 원 문제의 목적함수 $$f(x,y)$$에 대한 가장 타이트한 bound라는 proof라고 볼 수 있다.  
 
-기본적으로 Benders Decomposition은 **bound $$B_\bar{x}(x)$$**를 만드는데 이러한 proof schema를 사용한다. 
+기본적으로 Benders Decomposition은 이러한 proof schema를 사용해서 **bound $$B_\bar{x}(x)$$**를 만든다.
 
-classical BD에서는 같은 linear combination이 사용되었다. 
+classical BD에서는 여기서 linear combination이 사용된 것이다. 
 
 일반적으로 bounding function $$B_\bar{x}(x)$$는 두개의 특성(property)을 가져야 한다.
 
 ![](/assets/img/logic_BD/property.png){:width="500px"}  
 
-$$B1$$ : bounding function은 어떤 feasible $$(x,y)$$에 대한 lower bound를 줘야한다.
+$$B1$$ : bounding function은 어떤 feasible $$(x,y)$$에 대한 lower bound를 줘야한다.  
 $$B2$$ : fix한 $$x$$를 그대로 넣었을 때 가장 타이트한 바운드다.
 
 여기서, 원 문제(8)의 목적함수값이 $$z$$라고 한다면, $$z \geq B_\bar{x}(x)$$가 **Benders cut**이다. 
@@ -204,9 +204,8 @@ cost의 경우 master문제의 변수로만으로도 목적함수 계산이 가�
 
 cost문제에서 subproblem(12)는 feasible할 때 $$\sum_j F_{x,j}$$값을 갖고, infeasible일 때 $$\infty$$를 갖는다.  
 
-$$J_{hi} = \{j\|x^h_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 작업들에 대한 집합이라고 하자.  
-
-이때 설비 $$i$$에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 $$i$$에 대해서 이 집합 $$J_{hi}$$를 할당하는 경우를 제외시키는 것이다.  
+$$J_{hi} = \{j\|x^h_j=i\}$$를 iteration $$h$$에서 설비 $$i$$에 할당된 작업들에 대한 집합이라고 할 때,  
+설비 $$i$$에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 $$i$$에 대해서 이 집합 $$J_{hi}$$를 할당하는 경우를 제외시키는 것이다.  
 
 이 경우, bounding function은 다음과 같은 형태를 갖는다.  
 

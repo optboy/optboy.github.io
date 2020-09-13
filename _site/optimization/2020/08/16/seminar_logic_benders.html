@@ -360,15 +360,15 @@
 
 <p>이 듀얼의 솔루션은 <script type="math/tex">x = \bar{x}</script>일 때 원 문제의 목적함수 <script type="math/tex">f(x,y)</script>에 대한 가장 타이트한 bound라는 proof라고 볼 수 있다.</p>
 
-<p>기본적으로 Benders Decomposition은 <strong>bound <script type="math/tex">B_\bar{x}(x)</script></strong>를 만드는데 이러한 proof schema를 사용한다.</p>
+<p>기본적으로 Benders Decomposition은 이러한 proof schema를 사용해서 <strong>bound <script type="math/tex">B_\bar{x}(x)</script></strong>를 만든다.</p>
 
-<p>classical BD에서는 같은 linear combination이 사용되었다.</p>
+<p>classical BD에서는 여기서 linear combination이 사용된 것이다.</p>
 
 <p>일반적으로 bounding function <script type="math/tex">B_\bar{x}(x)</script>는 두개의 특성(property)을 가져야 한다.</p>
 
 <p><img src="/assets/img/logic_BD/property.png" alt="" width="500px"></p>
 
-<p><script type="math/tex">B1</script> : bounding function은 어떤 feasible <script type="math/tex">(x,y)</script>에 대한 lower bound를 줘야한다.
+<p><script type="math/tex">B1</script> : bounding function은 어떤 feasible <script type="math/tex">(x,y)</script>에 대한 lower bound를 줘야한다.<br>
 <script type="math/tex">B2</script> : fix한 <script type="math/tex">x</script>를 그대로 넣었을 때 가장 타이트한 바운드다.</p>
 
 <p>여기서, 원 문제(8)의 목적함수값이 <script type="math/tex">z</script>라고 한다면, <script type="math/tex">z \geq B_\bar{x}(x)</script>가 <strong>Benders cut</strong>이다.</p>
@@ -404,9 +404,8 @@
 
 <p>cost문제에서 subproblem(12)는 feasible할 때 <script type="math/tex">\sum_j F_{x,j}</script>값을 갖고, infeasible일 때 <script type="math/tex">\infty</script>를 갖는다.</p>
 
-<p><script type="math/tex">J_{hi} = \{j\|x^h_j=i\}</script>를 iteration <script type="math/tex">h</script>에서 설비 <script type="math/tex">i</script>에 할당된 작업들에 대한 집합이라고 하자.</p>
-
-<p>이때 설비 <script type="math/tex">i</script>에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 <script type="math/tex">i</script>에 대해서 이 집합 <script type="math/tex">J_{hi}</script>를 할당하는 경우를 제외시키는 것이다.</p>
+<p><script type="math/tex">J_{hi} = \{j\|x^h_j=i\}</script>를 iteration <script type="math/tex">h</script>에서 설비 <script type="math/tex">i</script>에 할당된 작업들에 대한 집합이라고 할 때,<br>
+설비 <script type="math/tex">i</script>에 대해서 feasible한 스케쥴이 없다면 가장 명확한 benders cut은 설비 <script type="math/tex">i</script>에 대해서 이 집합 <script type="math/tex">J_{hi}</script>를 할당하는 경우를 제외시키는 것이다.</p>
 
 <p>이 경우, bounding function은 다음과 같은 형태를 갖는다.</p>
 

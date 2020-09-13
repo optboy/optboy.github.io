@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/optimization/2020/09/11/seminar_CP.html</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/optimization/2020/08/16/seminar_logic_benders.html</loc>
     </url>
     
