@@ -251,19 +251,25 @@
 
 <p>모델에서 사용되는 변수와 파라메터에 대한 정의는 다음과 같다.</p>
 
-<p><img src="/assets/img/CP/2_1.png" alt="" width="600px">
-<img src="/assets/img/CP/2_3.png" alt="" width="600px">
+<p><img src="/assets/img/CP/2_1.png" alt="" width="600px"></p>
+
+<p>작업자, 작업, 시간, 능력, 근무지에 대한 집합이 위와 같이 정의되고,<br>
+총 근무시간, 작업 시간, 작업별 작업자 수, 작업자별 능력, 근무지간 이동시간 등에 대한 파라메터가 위와 같이 정의된다.</p>
+
+<p><img src="/assets/img/CP/2_3.png" alt="" width="600px"><br>
 <img src="/assets/img/CP/2_3_2.png" alt="" width="600px"></p>
+
+<p>변수로는, 작업자별 작업량, 근무지간 이동 여부 등에 관련된 변수들이 존재한다.</p>
 
 <p>이 문제에서 <strong>목적함수</strong>는 기본적으로 세개의 부분으로 나뉜다.</p>
 
-<p>첫번째는 작업 일수를 최소화 하는 것이다.<br>
-두번째는 한정된 시간 안에 최대한 많은 작업을 소화하는 것이다.<br>
-세번째는 특정 작업에 대해 crew member들이 연속되지 않은 날에 배정되는 패널티를 줄이는 것이다.</p>
+<p>첫번째는 <strong>작업 일수를 최소화</strong> 하는 것이다.<br>
+두번째는 한정된 시간 안에 <strong>최대한 많은 작업</strong>을 소화하는 것이다.<br>
+세번째는 특정 작업에 대해 crew member들이 연속으로 배정되지 않아 생기는 <strong>패널티를 최소화</strong>하는 것이다.</p>
 
 <p>이러한 multi-objective function을 normalize하기 위해, 논문에서는 각 항에 대해 가중치를 주고, 특정 항에서 가능한 최대값을 나눠주었다.</p>
 
-<p><img src="/assets/img/CP/1.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/1.png" alt="" width="600px"></p>
 
 <p>첫번째 항은 작업자들이 일하는 총 시간,<br>
 두번째항은 작업자들이 일하는 총 일수,<br>
@@ -273,56 +279,56 @@
 여섯번째 항에서 j는 왜 5인지 잘 모르겠지만, 일곱번째 항과 함께 time horizon초반에 일을 많이 하도록 하는 것 같다.<br>
 여덟번째 항은 시간 내에 완료하지 못한 작업들의 시간의 총합을 의미한다.</p>
 
-<p><strong>제약식</strong>은 크게 작업과 관련된 제약, 운영과 관련된 제약, 작업자와 관련된 제약, 작업자의 능력, 작업자의 이동과 관련된 제약이 있다.</p>
+<p><strong>제약식</strong>은 크게 <strong>작업과 관련된 제약, 운영과 관련된 제약, 작업자와 관련된 제약, 작업자의 능력, 작업자의 이동과 관련된 제약</strong>이 있다.</p>
 
 <p>먼저, <strong>작업과 관련된 제약</strong>은 아래와 같은 것들 있다.</p>
 
-<p><img src="/assets/img/CP/2.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/2.png" alt="" width="600px"></p>
 
 <p>(2)는 모든 작업들이 주어진 시간 안에 완전히 끝나거나, 하나도 작업되지 않아야 하도록 한다.</p>
 
-<p><img src="/assets/img/CP/3.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/3.png" alt="" width="600px"></p>
 
 <p>(3)은 각 근무시간이 정해진 시간을 넘지 못하도록 한다.<br>
 첫번째 항은 작업 시간이며, 두번째항은 depot에서의 이동시간, 세번째 항은 근무지(technical place)간의 이동시간을 의미하며 우변은 근무당 정해진 시간이다.</p>
 
-<p><img src="/assets/img/CP/4.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/4.png" alt="" width="600px"></p>
 
 <p>(4)는 작업자들의 작업량이 필요로 하는 총 작업량을 넘지 못하도록 한다.</p>
 
-<p><img src="/assets/img/CP/5.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/5.png" alt="" width="600px"></p>
 
 <p>(5)는 하루동안 작업의 일부분만 하는 경우, 작업자들에게 할당된 작업의 총합이 그것과 같도록 한다.</p>
 
-<p><img src="/assets/img/CP/6.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/6.png" alt="" width="600px"></p>
 
 <p>(6)은 주어진 시간 내에 꼭 해야하는 작업에 대해서는 필수적으로 작업을 하도록 한다.</p>
 
-<p><img src="/assets/img/CP/7.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/7.png" alt="" width="600px"></p>
 
 <p>(7)은 작업이 시간 내에 끝나지 못하고 부분적으로 남는 작업이라면, 애초에 못하도록 하는 제약식이다.<br>
 즉, 작업을 모두 끝낼 수 있을 때만 부분적인 작업 완성을 허용하는 것이다.</p>
 
-<p><img src="/assets/img/CP/8.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/8.png" alt="" width="600px"></p>
 
 <p>(8)은 작업자가 일하는 날에만 작업을 배정받을 수 있도록 한다.</p>
 
-<p><img src="/assets/img/CP/9_10.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/9_10.png" alt="" width="600px"></p>
 
 <p>(9), (10)은 작업자가 어떤 날 작업의 일부분을 할당받았을 때 작업자가 일을 할지 말지에 대한 변수 <script type="math/tex">z_{nij}</script>값을 1로 만들고, 그렇지 않다면 0으로 한다.</p>
 
-<p><img src="/assets/img/CP/11.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/11.png" alt="" width="600px"></p>
 
 <p>(11)은 작업자가 어떤 날에 작업을 할당받았다면, 어떤 날에 작업자가 일을 할지 말지에 대한 변수인 <script type="math/tex">z1_{ni}</script>값을 1로 한다.</p>
 
 <p>다음으로, <strong>운영과 관련된 제약</strong>으로는 작업이 하루 이상 걸리는 경우에 생기는 제약을 다룬다.</p>
 
-<p><img src="/assets/img/CP/12.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/12.png" alt="" width="600px"></p>
 
 <p>만약 작업자가 <script type="math/tex">j</script>날에 작업을 했지만 다음 날 작업할 수 없는 경우, 나머지 작업량에 대해서는 남아있는 작업자들이 해야한다.<br>
 (12)는 이러한 상황에 대해 패널티를 주기 위한 변수인 <script type="math/tex">x5_{nij}</script>를 정의한다.</p>
 
-<p><img src="/assets/img/CP/13.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/13.png" alt="" width="600px"></p>
 
 <p>(13)은 작업이 한번에 연속해서 끝나지 않는 경우 패널티를 주기 위한 변수 <script type="math/tex">x6_{ij}</script>를 정의하는 제약이다.</p>
 
@@ -331,16 +337,16 @@
 <p>기본적으로 작업에는 여러 명의 작업자를 투입시키는데, 여기서 인원이 너무 많거나 적을 시 문제가 발생할 수 있다.<br>
 따라서 그와 관련된 제약을 다음 (14), (15)와 같이 둔다.</p>
 
-<p><img src="/assets/img/CP/14.png" alt="" width="400px"><br>
-<img src="/assets/img/CP/15.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/14.png" alt="" width="600px"><br>
+<img src="/assets/img/CP/15.png" alt="" width="600px"></p>
 
 <p>여기서 (14)는 최소 투입 작업자 수, (15)는 최대 투입 작업자 수에 대한 제약이다.</p>
 
-<p><img src="/assets/img/CP/16.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/16.png" alt="" width="600px"></p>
 
 <p>(16)은 작업자의 작업량을 총 작업량에서 최소한의 작업자 수를 나눈 값보다 작거나 같게 해줘서 각 작업에 최소한의 작업자들이 할당될 수 있도록 한다.</p>
 
-<p><img src="/assets/img/CP/17.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/17.png" alt="" width="600px"></p>
 
 <p>(17)은 작업자가 작업할 수 있는 날에만 작업을 하도록 한다.</p>
 
@@ -363,37 +369,37 @@
 <p>즉, 적어도 한명은 적합한 숙련도(level)를 가지고 있어야 하고, 최소한의 작업자들이 작업에 배정되어야 한다.<br>
 이때, 작업자들의 숙련도의 합이 적어도 어느 수준 <script type="math/tex">f</script>를 넘어야 한다.</p>
 
-<p><img src="/assets/img/CP/18.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/18.png" alt="" width="600px"></p>
 
 <p>(18)은 작업자들의 숙련도의 합이 어느 수준을 넘도록 한다.</p>
 
-<p><img src="/assets/img/CP/19.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/19.png" alt="" width="600px"></p>
 
 <p>(19)는 적어도 한명의 작업자는 숙련도가 3이 넘어야 한다는 제약이다.</p>
 
-<p><img src="/assets/img/CP/20.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/20.png" alt="" width="600px"></p>
 
 <p>(20)은 여러 작업자들 사이에서 적어도 한명은 3이 넘는 숙련도를 가지도록 하는 제약이다.</p>
 
 <p>마지막으로, <strong>작업자의 이동</strong>과 관련된 제약들이 있다.</p>
 
-<p><img src="/assets/img/CP/21_22.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/21_22.png" alt="" width="600px"></p>
 
 <p>(21), (22)는 작업자의 근무지(technical place)간 이동과 depot에서의 이동과 복귀에 대한 변수인 <script type="math/tex">w_{npj}</script>를 정의한다.</p>
 
-<p><img src="/assets/img/CP/23_24.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/23_24.png" alt="" width="600px"></p>
 
 <p>(23), (24)는 작업자가 작업을 배정받은 근무지로만 이동하도록 제약한다.</p>
 
-<p><img src="/assets/img/CP/25_26.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/25_26.png" alt="" width="600px"></p>
 
 <p>(25), (26)은 작업자가 근무 동안 한개 이상의 근무지를 방문할 경우 어디서 출발했고, 어디로 도착했는 지에 대한 변수를 정의한다.</p>
 
-<p><img src="/assets/img/CP/27_28.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/27_28.png" alt="" width="600px"></p>
 
 <p>(27), (28)은 각 작업자는 하루에 한 근무지에 대해서 왔다, 갔다를 한번씩만 할 수 있도록 한다.</p>
 
-<p><img src="/assets/img/CP/29.png" alt="" width="400px"></p>
+<p><img src="/assets/img/CP/29.png" alt="" width="600px"></p>
 
 <p>(29)는 작업자가 작업하는 날이라면, depot에서 한번 출발하고, 한번 도착하도록 한다.</p>
 
